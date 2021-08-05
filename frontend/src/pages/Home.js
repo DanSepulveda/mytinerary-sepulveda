@@ -1,16 +1,16 @@
-// import Header from '../components/Header'
-// import Main from '../components/Main'
+import Header from '../components/Header'
+import Main from '../components/Main'
 import Footer from '../components/Footer'
+import React from 'react'
 
-const Home = () =>{
-    return (
-        <Footer />
-        // <>
-        //     {/* <Header />
-        //     <Main /> */}
-        //     <Footer />
-        // </>
-    )
+export default class Home extends React.Component{
+    render(){
+        return(
+            <>
+                <Header />
+                <Main />
+                <Footer />
+            </>
+        )
+    }
 }
-
-export default Home
