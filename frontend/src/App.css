@@ -1,3 +1,6 @@
+/* GENERAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
 html *{
     margin: 0;
     padding: 0;
@@ -6,6 +9,7 @@ html *{
 
 body{
     width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 #root{
@@ -13,45 +17,50 @@ body{
     flex-direction: column;
 }
 
+/* HEADER STYLES */
 header{
     width: 100%;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
 }
+/* NAVBAR */
 
 nav{
-    background-color: black;
     padding: 3vh 5vw;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 nav a{
-    color: white;
+    color: rgb(139, 139, 139);
+    font-size: 3.5vmin;
+    font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     transition: all 300ms;
-  }
+}
+
+nav a.active{
+    color: white;
+    text-decoration: underline;
+}
 
 nav a:hover{
-    color: black;
-    text-shadow: 1px 1px 5px white, -1px -1px 5px white;
+    color: white;
   }
 
 nav img{
-    width: 50px;
+    width: 40px;
 }
 
+/* HERO STYLES */
 .hero{
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,73 +70,150 @@ nav img{
 .hero h1{
     padding: 0px 10px;
     color: white;
-    font-size: 4rem;
-    background-color: black;
+    font-size: 10vmin;
+    /* background-color: black; */
+    margin-bottom: 10px;
 }
   
 .hero h3{
     color: white;
-    font-size: 2rem;
+    font-size: 5vmin;
+    text-align: center;
 }
-  
+
+.hero img{
+    width: 150px;
+    margin-bottom: 3vh;
+}
+
+/* MAIN STYLES */
 main{
     display: flex;
     flex-direction: column;
 }
 
-main section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section > h2{
+    color: white;
+    background-color: red;
+    padding: 10vh;
+    margin-bottom: 5vh;
+    font-size: 10vmin;
+    text-align: center;
 }
 
-section h1{
-    font-size: 4rem;
-}
-
-main .info{
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-main .callToAction{
-    height: 100vh;
-    background-color: green;
-}
-
-main .carrousel{
-    height: 100vh;
+/* MAIN INFO */
+section.infoSection{
+    min-height: 100vh;
     background-color: blue;
+    /* display: flex;
+    flex-direction: column; */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px auto; */
 }
-  
-.card{
-    background-color: green;
-    width: calc(100%/4 - 30px);
-    min-height: 40vh;
+
+.cardSection{
+    padding: 10vmin;
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: auto
+}
+
+article.cardInfo{
+    margin: 0px 3vw;
+    padding: 5vmin;
+    background-color: red;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
-.card img{
-    width: 100%;
-    height: 300px;
+
+article.cardInfo img{
+    width: 50%;
+    margin-bottom: 2vmin;
 }
 
+article.cardInfo h2{
+    margin-bottom: 3vmin;
+}
+
+article.cardInfo p{
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .cardSection{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto
+    }
+    
+    article.cardInfo{
+        margin-bottom: 5vmin;
+    }
+}
+
+
+
+.shuriken{
+    /* background-color: blue; */
+    animation: girar 2s infinite linear;
+}
+
+@keyframes girar {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(100px);
+        transform: rotate(360deg);
+    }
+}
+
+/* MAIN CALL TO ACTION */
+section.callToAction{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.callToAction div{
+    width: calc(100% / 3)
+}
+
+
+
+/* MAIN CAROUSEL */
+section.carouselBox{
+    min-height: 100vh;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.red{
+    color: white;
+    background-color: red;
+}
+
+.white{
+    color: red;
+    background-color: white;
+}
+
+/* FOOTER STYLES */
 footer{
-    width: 100vw;
+    width: 100%;
     min-height: 40vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 20%;
     display: flex;
     flex-direction: column;
-}
-  
-footer span{
-    font-size: 1.5rem;
-    color: white;
 }
 
 .footerSections{
@@ -137,11 +223,11 @@ footer span{
     justify-content: space-around;
 }
 
-/* .footerSection{
+.footerSection{
     height: 10vh;
     width: calc(100%/3 - 100px);
     background-color: green;
-} */
+}
 
 .afterFooter{
     width: 100%;
@@ -152,16 +238,62 @@ footer span{
     color: white;
 }
 
+.entero{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
 
-/* button{
-    width: 100px;
-    padding: .5rem;
-  }
-  
-  .noDisplay{
-    display: none;
-  }
-  
-  .display{
-    display: block;
-  } */
+/* .cuarto{
+    width: 50%;
+    height: 100px;
+    background-color: blue;
+} */
+.cuarto h2{
+    z-index: 3;
+}
+.fotito{
+    width: calc(50% - 60px);
+    height: 35vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-color: blue; */
+    /* background-image: url('../public/assets/cities/kamakura.jpg'); */
+
+
+}
+
+.fotito > h2{
+    color: white;
+    font-size: 2em;
+    background-color: black;
+    width: 100%;
+    /* display: block; */
+}
+
+.carousel{
+    width: 80vw !important;
+}
+
+.panda{
+    animation: pandita 2s linear infinite;
+}
+
+@keyframes pandita {
+    0%{
+        transform:translate3d(0, 20%, 3em);
+    }
+    100%{
+        transform:translate3d(12px, 50%, 1em);
+    }
+}
