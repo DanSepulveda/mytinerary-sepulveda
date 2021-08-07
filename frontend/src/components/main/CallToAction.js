@@ -1,6 +1,6 @@
 const CallToAction = () =>{
     return (
-        <section className="callToAction">
+        <section className="callToAction" style={{backgroundImage: "url('/assets/circle.png')"}}>
             <div>
 
             </div>
@@ -8,7 +8,7 @@ const CallToAction = () =>{
 
             </div>
             <div>
-                <img src='/assets/panda.png' className="panda"/>
+                <img src='/assets/panda.png' className="panda" alt='Panda Icon'/>
             </div>
         </section>
     )

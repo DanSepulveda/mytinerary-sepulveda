@@ -65,7 +65,7 @@ const items =
     ]
 ];
 
-const Example = (props) => {
+const Slides = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -95,18 +95,19 @@ const Example = (props) => {
       >
           <div className="entero">
             {item.map((slide)=>{
-                // {console.log(slide.src)}
                 return (
-                    <div className="fotito" style={{backgroundImage: `url('${slide.src}')`}}><h2>{slide.name}</h2></div>
+                    <div key={slide.name} className="image" style={{backgroundImage: `url('${slide.src}')`}}><span>{slide.name}</span></div>
                 )
             })}
           </div>
+          <CarouselCaption captionText={item.name} captionHeader={item.name} />
       </CarouselItem>
     );
   });
 
   return (
       <section className="carouselBox">
+        <h2>Popular Mytineraries</h2>
               <Carousel
       activeIndex={activeIndex}
       next={next}
@@ -122,4 +123,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default Slides;

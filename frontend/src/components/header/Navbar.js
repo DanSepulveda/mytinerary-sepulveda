@@ -7,7 +7,7 @@ const Navbar = () => {
                 <NavLink to='/cities'>Cities</NavLink>
             </div>
             <div>
-                <img src="/assets/avatar.png" />
+                <img src="/assets/avatar.png" alt='Avatar Icon'/>
             </div>
         </nav>
     )
