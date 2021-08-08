@@ -91,16 +91,16 @@ const Slides = (props) => {
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item[index]}
+        key={index}
       >
-          <div className="entero">
+          <div className="singleSlide">
             {item.map((slide)=>{
                 return (
                     <div key={slide.name} className="image" style={{backgroundImage: `url('${slide.src}')`}}><span>{slide.name}</span></div>
                 )
             })}
           </div>
-          <CarouselCaption captionText={item.name} captionHeader={item.name} />
+          <CarouselCaption captionText='' captionHeader='' />
       </CarouselItem>
     );
   });
@@ -113,12 +113,12 @@ const Slides = (props) => {
       next={next}
       previous={previous}
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators items={slides} activeIndex={activeIndex} key={activeIndex} onClickHandler={goToIndex}/>
       {slides}
       <CarouselControl direction="prev" directionText=" " onClickHandler={previous} />
       <CarouselControl direction="next" directionText=" " onClickHandler={next} />
     </Carousel>
-      </section>
+       </section>
 
   );
 }

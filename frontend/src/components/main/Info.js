@@ -7,7 +7,7 @@ const Info = () => {
             title: 'Experience',
             content: 'From whitewater, rock climbing, canoeing, to snowboard, ski and marcial arts',
             img: '/assets/card1.png',
-            aos: 'fade-right'
+            aos: 'fade-down'
         },
         {
             title: 'Service',
@@ -19,7 +19,7 @@ const Info = () => {
             title: 'Quality',
             content: 'The chance to travel with knowledgable local guides off the common tourist trails', 
             img: '/assets/card3.png',
-            aos: 'fade-left'
+            aos: 'fade-down'
         },
     ]
     useEffect(()=>{
@@ -27,16 +27,19 @@ const Info = () => {
     }, [])
     
     return (
-
         <section className='infoSection'>
-            <h2>Why chose us</h2>
+            <div className="sectionTitle">
+                <h2>Why chose us</h2>
+            </div>
             <div className="cardSection">
                 {cards.map((card)=>(
                     <div className="border" data-aos={card.aos} key={card.title}>
                         <article className="cardInfo">
                             <img src={card.img} alt={`${card.title} Icon`}/>
-                            <h2>{card.title}</h2>
-                            <p>{card.content}</p>
+                            <div>
+                                <h2>{card.title}</h2>
+                                <p>{card.content}</p>
+                            </div>
                         </article>
                     </div>
                 ))}
