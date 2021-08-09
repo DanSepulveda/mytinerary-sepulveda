@@ -369,54 +369,39 @@ div.social{
 section.callToAction{
     min-height: 100vh;
     max-width: 100vw;
-    background-color: #ccc;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center
 }
 
 section.callToAction article{
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: repeat(3, calc(100vh/3));
-}
-
-.bambooImg{
-    background-repeat: no-repeat;
-    background-position: -0 -0;
-    background-size: contain;
-}
-
-.bamboo{
-    /* background-color: red; */
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: visible;
-}
-
-.flag{
-    /* background-color: yellow; */
-    /* min-height: 34vh; */
-    grid-column: 2;
-    grid-row: 2;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+div.callText{
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+div.callText h2,
+div.callText h3{
+    text-align: center;
+    text-shadow: 2px 2px 3px white;
+}
+
 .button{
-    width: calc(100vh / 3);
-    height: calc(100vh / 3);
     background-color: red;
-    border-radius: 100%;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 5px rgb(219, 0, 0), 4px 4px 5px rgb(104, 0, 0), 5px 5px 5px rgb(192, 0, 0), 6px 6px 6px rgb(192, 0, 0), -3px -3px 3px rgb(219, 0, 0), -4px -4px 4px rgb(104, 0, 0), -5px -5px 5px rgb(192, 0, 0), -6px -6px 6px rgb(192, 0, 0), -3px 3px 3px rgb(219, 0, 0), -4px 4px 4px rgb(104, 0, 0), -5px 5px 5px rgb(192, 0, 0), -6px 6px 6px rgb(192, 0, 0), 3px -3px 3px rgb(219, 0, 0), 4px -4px 4px rgb(104, 0, 0), 5px -5px 5px rgb(192, 0, 0), 6px -6px 6px rgb(192, 0, 0);
     transition: all 500ms;
+    margin-top: 10vh;
 }
 
 .button:hover{
@@ -433,30 +418,6 @@ section.callToAction article{
 
 .without{
     text-decoration: none;
-}
-
-.nada{
-    /* grid-area: nada; */
-    /* background-color: green; */
-    grid-column: 2;
-    grid-row: 3;
-}
-
-.hola{
-    /* grid-area: hola; */
-    /* background-color: salmon; */
-    grid-column: 2 / span 3;
-    grid-row: 1;
-    
-
-}
-
-.panda{
-    grid-column: 3;
-    grid-row: 2 / span 3;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
 }
 
 /* MEDIA QUERIES */
