@@ -4,21 +4,21 @@ import { useEffect } from 'react'
 const Info = () => {
     let cards = [
         {
-            title: 'Experience',
-            content: 'From whitewater, rock climbing, canoeing, to snowboard, ski and marcial arts',
-            img: '/assets/card1.png',
+            title: 'Quality',
+            content: 'MyTinerary is certified by the Japanese Ministry of Land, Infrastructure, Transport and Tourism, and our commitment to professional staff development has been recognised with an education award in Japan.',
+            img: '/assets/quality.png',
             aos: 'fade-down'
         },
         {
-            title: 'Service',
-            content: 'Whe have designed terms and security protocols for you to only enjoy the journey', 
-            img: '/assets/card2.png',
+            title: 'Price',
+            content: 'We are happy to offer our clients the best rates on our itineraries, transfers, food and other services. We have several contracts with some suppliers, so we can offer you a lower price', 
+            img: '/assets/price.png',
             aos: 'fade-up'
         },
         {
-            title: 'Quality',
-            content: 'The chance to travel with knowledgable local guides off the common tourist trails', 
-            img: '/assets/card3.png',
+            title: 'Support',
+            content: 'We know that there is no unique way to make a perfect trip because each person has his special needs and desires. We always listen to you first and then suggest the best itinerary for you', 
+            img: '/assets/support.png',
             aos: 'fade-down'
         },
     ]
@@ -27,9 +27,10 @@ const Info = () => {
     }, [])
     
     return (
-        <section className='infoSection'>
+        <section className='infoSection' id='info'>
             <div className="sectionTitle">
                 <h2>Why chose us</h2>
+                <a href='#call'><img className="arrow" src='/assets/down-white.png' alt='Down arrow' /></a>
             </div>
             <div className="cardSection">
                 {cards.map((card)=>(

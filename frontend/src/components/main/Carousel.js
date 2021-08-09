@@ -94,9 +94,9 @@ const Slides = (props) => {
         key={index}
       >
           <div className="singleSlide">
-            {item.map((slide)=>{
+            {item.map((slide, index)=>{
                 return (
-                    <div key={slide.name} className="image" style={{backgroundImage: `url('${slide.src}')`}}><span>{slide.name}</span></div>
+                    <div key={slide.name} className={`image image-${index}`} style={{backgroundImage: `url('${slide.src}')`}}><span>{slide.name}</span></div>
                 )
             })}
           </div>
@@ -108,16 +108,16 @@ const Slides = (props) => {
   return (
       <section className="carouselBox">
         <h2>Popular Mytineraries</h2>
-              <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
-      <CarouselIndicators items={slides} activeIndex={activeIndex} key={activeIndex} onClickHandler={goToIndex}/>
-      {slides}
-      <CarouselControl direction="prev" directionText=" " onClickHandler={previous} />
-      <CarouselControl direction="next" directionText=" " onClickHandler={next} />
-    </Carousel>
+        <Carousel
+          activeIndex={activeIndex}
+          next={next}
+          previous={previous}
+        >
+          <CarouselIndicators items={slides} activeIndex={activeIndex} key={activeIndex} onClickHandler={goToIndex}/>
+          {slides}
+          <CarouselControl direction="prev" directionText=" " onClickHandler={previous} />
+          <CarouselControl direction="next" directionText=" " onClickHandler={next} />
+        </Carousel>
        </section>
 
   );
