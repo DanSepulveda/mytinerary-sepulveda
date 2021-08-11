@@ -641,3 +641,207 @@ div.social{
 ::-webkit-scrollbar-thumb:hover {
     background: red;
   }
+
+/* FORMA 1 */
+/* .card-picture{
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+}
+
+.rejilla{
+    padding: 3em 10vw;
+    display: grid;
+    grid-template-columns: repeat(4, calc(100% / 4));
+    grid-auto-rows: 25vh;
+    gap: 1em;
+}
+
+.rejilla div:nth-child(8n-7){
+    grid-column-start: span 1;
+    grid-row-start: span 2;
+}
+.rejilla div:nth-child(8n-6){
+    grid-column-start: span 2;
+    grid-row-start: span 1;
+} 
+.rejilla div:nth-child(8n-5){
+    grid-column-start: span 1;
+    grid-row-start: span 3;
+}
+.rejilla div:nth-child(8n-4){
+    grid-column-start: span 2;
+    grid-row-start: span 1;
+}
+.rejilla div:nth-child(8n-3){
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+}
+.rejilla div:nth-child(8n-2){
+    grid-column-start: span 1;
+    grid-row-start: span 3;
+
+}
+.rejilla div:nth-child(8n-1){
+    grid-column-start: span 1;
+    grid-row-start: span 2;
+}
+.rejilla div:nth-child(8n){
+    grid-column-start: span 2;
+    grid-row-start: span 1;
+} */
+
+/* FORMA 2 */
+/* .card-picture{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+}
+
+.rejilla{
+  padding: 3em 10vw;
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
+  grid-auto-rows: 25vh;
+  gap: 1em;
+}
+
+
+.rejilla div:nth-child(8n-7){
+    grid-column: 1;
+}
+.rejilla div:nth-child(8n-6){
+    grid-column: 2 / span 3;
+}
+.rejilla div:nth-child(8n-5){
+    grid-column: 1 / span 2;
+}
+.rejilla div:nth-child(8n-4){
+    grid-column: 3;
+}
+.rejilla div:nth-child(8n-3){
+    grid-column: 1;
+}
+.rejilla div:nth-child(8n-2){
+    grid-column: 2;
+}
+.rejilla div:nth-child(8n-1){
+    grid-column: 3;
+}
+.rejilla div:nth-child(8n){
+    grid-column: 1 / span 3;
+} */
+
+
+/* forma 3 */
+
+.rejilla{
+  /* padding: 3em 10vw; */
+  padding: 3vw;
+  display: grid;
+  grid-template-columns: repeat(2, calc(100% / 2));
+  grid-auto-rows: 90vh;
+  gap: .5em;
+}
+
+.card-picture{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    grid-column-start: span 1;
+    overflow: hidden;
+    transition: all 500ms;
+}
+
+
+.card-picture h1{
+    color: white;
+}
+
+
+
+.color{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.color div{
+    display: flex;
+    justify-content: center;    
+}
+
+.color div img:first-child{
+    background-color:white;
+    padding:10px 10px 50px 10px;
+    border:1px solid #BFBFBF;
+    box-shadow:10px 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    transform:rotate(5deg);
+    -ms-transform:rotate(5deg);
+    -webkit-transform:rotate(5deg);
+    -moz-transform:rotate(5deg); 
+}
+.color div img:last-child{
+    background-color:white;
+    padding:10px 10px 50px 10px;
+    border:1px solid #BFBFBF;
+    box-shadow:10px 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    transform:rotate(-8deg);
+    -ms-transform:rotate(-8deg);
+    -webkit-transform:rotate(-8deg);
+    -moz-transform:rotate(-8deg); 
+}
+
+.rejilla div:nth-child(4n-2) .color{
+    /* background: #DA4453;  
+background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+background: linear-gradient(to right, #89216B, #DA4453);  */
+background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.rejilla div:nth-child(4n-1) .color{
+    /* background-color: black; */
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+ 
+.rejilla div:nth-child(4n-3) .color div,
+.rejilla div:nth-child(4n) .color div{
+    display: none;
+} 
+
+.rejilla div:nth-child(4n-3) .color h1,
+.rejilla div:nth-child(4n) .color h1{
+    text-align: center;
+    width: 100%;
+    padding: 10vh 0;
+    /* background-color: #434343; */
+    /* background: rgb(85,85,85);
+    background: linear-gradient(0deg, rgba(85,85,85,0.7) 0%, rgba(0,0,0,0.7) 10%, rgba(16,16,16,0.7) 50%, rgba(0,0,0,0.7) 90%, rgba(85,85,85,0.7) 100%);
+    transition: all 1s; */
+}
+
+/* .rejilla div:nth-child(4n-3):hover .color h1,
+.rejilla div:nth-child(4n):hover .color h1{
+   background-color: red;
+} */
+
+.searcher{
+    border-radius: 30px;
+    outline: none;
+    padding: .5em 1em;
+}
