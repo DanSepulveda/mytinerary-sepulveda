@@ -761,8 +761,6 @@ div.social{
     color: white;
 }
 
-
-
 .color{
     height: 100%;
     display: flex;
@@ -800,7 +798,7 @@ div.social{
     -moz-transform:rotate(-8deg); 
 }
 
-.rejilla div:nth-child(4n-2) .color{
+.rejilla a:nth-child(4n-2) div .color{
     /* background: #DA4453;  
 background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
 background: linear-gradient(to right, #89216B, #DA4453);  */
@@ -811,7 +809,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 
 }
 
-.rejilla div:nth-child(4n-1) .color{
+.rejilla a:nth-child(4n-1) div .color{
     /* background-color: black; */
     background: #000000;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
@@ -819,13 +817,13 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 
 }
  
-.rejilla div:nth-child(4n-3) .color div,
-.rejilla div:nth-child(4n) .color div{
+.rejilla a:nth-child(4n-3) .color div,
+.rejilla a:nth-child(4n) .color div{
     display: none;
 } 
 
-.rejilla div:nth-child(4n-3) .color h1,
-.rejilla div:nth-child(4n) .color h1{
+.rejilla a:nth-child(4n-3) .color h1,
+.rejilla a:nth-child(4n) .color h1{
     text-align: center;
     width: 100%;
     padding: 10vh 0;

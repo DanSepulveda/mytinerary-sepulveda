@@ -15,7 +15,7 @@ const Cardcity = (props)=>{
                     <h1>{name}</h1>
                     <p>{description}</p>
                 </div>
-        </div>
+            </div>
         </Link>
         
     )
