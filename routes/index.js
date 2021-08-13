@@ -9,7 +9,7 @@ router.route('/cities')
 
 router.route('/cities/:id')
 .get(citiesControllers.getOneCity)
-.put(citiesControllers.editOneCity)
+// .put(citiesControllers.editOneCity)
 .delete(citiesControllers.deleteOneCity)
 
 module.exports = router
