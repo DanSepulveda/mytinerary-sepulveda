@@ -762,6 +762,7 @@ div.social{
 }
 
 .color{
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -825,8 +826,10 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 .rejilla a:nth-child(4n-3) .color h1,
 .rejilla a:nth-child(4n) .color h1{
     text-align: center;
+    /* background-color: red; */
     width: 100%;
     padding: 10vh 0;
+    filter: blur(6px)
     /* background-color: #434343; */
     /* background: rgb(85,85,85);
     background: linear-gradient(0deg, rgba(85,85,85,0.7) 0%, rgba(0,0,0,0.7) 10%, rgba(16,16,16,0.7) 50%, rgba(0,0,0,0.7) 90%, rgba(85,85,85,0.7) 100%);
@@ -842,4 +845,65 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
     border-radius: 30px;
     outline: none;
     padding: .5em 1em;
+}
+
+a *{
+    text-decoration: none !important;
+}
+
+.mainAdmin{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    padding: 5vw;
+}
+
+.mainAdmin section{
+    border: 2px solid black;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table>div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 3vw
+}
+
+.dbCardCity{
+    border: 1px solid black;
+}
+
+.newCity > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newCity>div input{
+    width: 80%;
+}
+
+.newCity >div label{
+    margin-top: 2vh;
+}
+
+label{
+    font-weight: bold;
+}
+
+button.post,
+button.getAll{
+    width: 30%;
+    background-color: green !important;
+    color: white !important;
+    margin: 3vh 0;
 }

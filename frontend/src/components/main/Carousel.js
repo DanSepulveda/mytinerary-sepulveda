@@ -11,55 +11,55 @@ const items =
 [
     [
         {
-            src: '/assets/cities/kamakura.jpg',
+            src: '/assets/cities/kamakura.png',
             name: 'Kamakura'
         },
         {
-            src: '/assets/cities/Kobe.jpg',
+            src: '/assets/cities/Kobe.png',
             name: 'Kobe'
         },
         {
-            src: '/assets/cities/Kyoto.jpg',
+            src: '/assets/cities/Kyoto.png',
             name: 'Kyoto'
         },
         {
-            src: '/assets/cities/Nagasaki.jpg',
+            src: '/assets/cities/Nagasaki.png',
             name: 'Nagasaki'
         }
     ],
     [
         {
-            src: '/assets/cities/nara.jpg',
+            src: '/assets/cities/nara.png',
             name: 'Nara'
         },
         {
-            src: '/assets/cities/okinawa.jpg',
+            src: '/assets/cities/okinawa.png',
             name: 'Okinawa'
         },
         {
-            src: '/assets/cities/osaka.jpg',
+            src: '/assets/cities/osaka.png',
             name: 'Osaka'
         },
         {
-            src: '/assets/cities/tokyo.jpg',
+            src: '/assets/cities/tokyo.png',
             name: 'Tokyo'
         }
     ],
     [
         {
-            src: '/assets/cities/yokohama.jpg',
+            src: '/assets/cities/yokohama.png',
             name: 'Yokohama'
         },
         {
-            src: '/assets/cities/sapporo.jpg',
+            src: '/assets/cities/sapporo.png',
             name: 'Sapporo'
         },
         {
-            src: '/assets/cities/hiroshima.jpg',
+            src: '/assets/cities/hiroshima.png',
             name: 'Hiroshima'
         },
         {
-            src: '/assets/cities/kumamoto.jpg',
+            src: '/assets/cities/kumamoto.png',
             name: 'Kumamoto'
         }
     ]

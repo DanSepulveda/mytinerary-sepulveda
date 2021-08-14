@@ -7,9 +7,9 @@ router.route('/cities')
 .get(citiesControllers.getAllCities)
 .post(citiesControllers.addNewCity)
 
-router.route('/cities/:id')
+router.route('/city/:id')
 .get(citiesControllers.getOneCity)
-// .put(citiesControllers.editOneCity)
+.put(citiesControllers.editOneCity)
 .delete(citiesControllers.deleteOneCity)
 
 module.exports = router

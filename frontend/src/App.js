@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Cities from './pages/Cities';
 import City from './pages/City'
 import Error404 from './pages/404';
+import Panel from './pages/Panel'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/cities' component={Cities} />
+        <Route path='/panel' component={Panel} />
         <Route path='/notfound' component={Error404} />
         <Route path='/city/:id' component={City} />
         <Redirect to='/notfound' />
