@@ -552,9 +552,9 @@ div.social{
     }
     /* FOOTER */
     .footerSections{
-        padding: 2vh 0;
+        padding: 2vh 3vw;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 3fr 3fr 2fr;
     }
     .footerSection{
         width: 90%;
@@ -569,11 +569,21 @@ div.social{
     }
     .third{
         grid-column: 3;
-        width: 50%;
+        width: 80%;
     }
 }
 
 @media (max-width: 600px){
+    .footerSections{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+    footer h4,
+    footer p,
+    footer ul{
+        text-align: center;
+    }
     .third{
         display:none;
     }
@@ -628,6 +638,7 @@ div.social{
     }
 }
 
+/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 17px;
   }
@@ -642,101 +653,25 @@ div.social{
     background: red;
   }
 
-/* FORMA 1 */
-/* .card-picture{
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100%;
+/* CITIES PAGES */
+header.cities{
+    min-height: 80vh;
 }
-
-.rejilla{
-    padding: 3em 10vw;
-    display: grid;
-    grid-template-columns: repeat(4, calc(100% / 4));
-    grid-auto-rows: 25vh;
-    gap: 1em;
-}
-
-.rejilla div:nth-child(8n-7){
-    grid-column-start: span 1;
-    grid-row-start: span 2;
-}
-.rejilla div:nth-child(8n-6){
-    grid-column-start: span 2;
-    grid-row-start: span 1;
-} 
-.rejilla div:nth-child(8n-5){
-    grid-column-start: span 1;
-    grid-row-start: span 3;
-}
-.rejilla div:nth-child(8n-4){
-    grid-column-start: span 2;
-    grid-row-start: span 1;
-}
-.rejilla div:nth-child(8n-3){
-    grid-column-start: span 2;
-    grid-row-start: span 2;
-}
-.rejilla div:nth-child(8n-2){
-    grid-column-start: span 1;
-    grid-row-start: span 3;
-
-}
-.rejilla div:nth-child(8n-1){
-    grid-column-start: span 1;
-    grid-row-start: span 2;
-}
-.rejilla div:nth-child(8n){
-    grid-column-start: span 2;
-    grid-row-start: span 1;
-} */
-
-/* FORMA 2 */
-/* .card-picture{
+.cityHero{
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
-
-.rejilla{
-  padding: 3em 10vw;
-  display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
-  grid-auto-rows: 25vh;
-  gap: 1em;
-}
-
-
-.rejilla div:nth-child(8n-7){
-    grid-column: 1;
-}
-.rejilla div:nth-child(8n-6){
-    grid-column: 2 / span 3;
-}
-.rejilla div:nth-child(8n-5){
-    grid-column: 1 / span 2;
-}
-.rejilla div:nth-child(8n-4){
-    grid-column: 3;
-}
-.rejilla div:nth-child(8n-3){
-    grid-column: 1;
-}
-.rejilla div:nth-child(8n-2){
-    grid-column: 2;
-}
-.rejilla div:nth-child(8n-1){
-    grid-column: 3;
-}
-.rejilla div:nth-child(8n){
-    grid-column: 1 / span 3;
-} */
-
-
-/* forma 3 */
-
 .rejilla{
   /* padding: 3em 10vw; */
   padding: 3vw;
@@ -747,6 +682,7 @@ div.social{
 }
 
 .card-picture{
+    width:100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -755,7 +691,6 @@ div.social{
     overflow: hidden;
     transition: all 500ms;
 }
-
 
 .card-picture h1{
     color: white;
@@ -829,7 +764,6 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
     /* background-color: red; */
     width: 100%;
     padding: 10vh 0;
-    filter: blur(6px)
     /* background-color: #434343; */
     /* background: rgb(85,85,85);
     background: linear-gradient(0deg, rgba(85,85,85,0.7) 0%, rgba(0,0,0,0.7) 10%, rgba(16,16,16,0.7) 50%, rgba(0,0,0,0.7) 90%, rgba(85,85,85,0.7) 100%);
@@ -850,6 +784,11 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 a *{
     text-decoration: none !important;
 }
+
+
+
+
+
 
 .mainAdmin{
     width: 100%;

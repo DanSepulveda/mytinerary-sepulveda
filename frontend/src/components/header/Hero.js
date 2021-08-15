@@ -1,5 +1,5 @@
 import Background from './Background'
-const Hero = () => {
+const Hero = (props) => {
     return (
         <div className="hero">
             <Background />

@@ -1,37 +1,43 @@
+import axios from 'axios'
 import React, { useEffect, useState } from "react"
 import Navbar from '../components/header/Navbar'
 import Cardcity from '../components/main/Cardcity'
-import axios from 'axios'
+import Footer from '../components/Footer'
 
 const Cities = () =>{
-    const [cities, setCities] = useState([])
+    const [data, setData] = useState({allCities: [], filteredCities: []})
     const [search, setSearch] = useState('')
 
     useEffect(()=>{
         axios.get('http://localhost:4000/api/cities')
-        .then(res=>setCities(res.data.response))
-        .catch((err)=>{})
+        .then(res=>setData({allCities: res.data.response, filteredCities: res.data.response}))
+        .catch((err)=>console.log(err))
     }, [])
 
+    useEffect(()=>{
+        setData({
+            allCities: [...data.allCities],
+            filteredCities: data.allCities.filter((city)=> city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
+        })
+    }, [search])
+
     const handlerCity = (e)=>{
-        setSearch(e.target.value)
-        
+        setSearch(e.target.value)  
     }
     
     return (
         <>
-            <Navbar />
-            <h1>Esta será la página de cities</h1>
-            <input type="text" style={{width: '50%'}} placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
-            <div className="rejilla">
-                {cities.map((city, index)=>{
-                    console.log(city)
-                    return (
-                        city.name.toLowerCase().startsWith(search.trim().toLowerCase())) && 
-                        <Cardcity city={city} key={index} index={index}/>
-                    
-                })}
+            <header className="cities">
+                <Navbar />
+            </header>
+            <div className="cityHero" style={{backgroundImage: "url('/assets/banner/6.png')"}}>
+                <h1>Esta será la página de cities</h1>
             </div>
+                <input type="text" style={{width: '50%', zIndex: '2'}} placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
+            <div className="rejilla">
+                {data.filteredCities.map((city, index)=><Cardcity city={city} key={index} index={index}/>)}
+            </div>
+            <Footer />
         </>
     )
 }
