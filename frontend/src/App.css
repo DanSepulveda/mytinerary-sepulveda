@@ -672,6 +672,7 @@ header.cities{
     justify-content: center;
     align-items: flex-start;
 }
+
 .rejilla{
   /* padding: 3em 10vw; */
   padding: 3vw;
@@ -692,8 +693,13 @@ header.cities{
     transition: all 500ms;
 }
 
+a.cardLink:hover .card-picture{
+    box-shadow: 3px 3px 5px black;
+    transform: scale(1.02);
+}
+
 .card-picture h1{
-    color: white;
+    color: #444;
 }
 
 .color{
@@ -702,7 +708,7 @@ header.cities{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -735,22 +741,20 @@ header.cities{
 }
 
 .rejilla a:nth-child(4n-2) div .color{
-    /* background: #DA4453;  
-background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
-background: linear-gradient(to right, #89216B, #DA4453);  */
-background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+    background: #ECE9E6;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 
 .rejilla a:nth-child(4n-1) div .color{
-    /* background-color: black; */
-    background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    background: linear-gradient(to right, #434343, #000000);
+}
 
+.rejilla a:nth-child(4n-1) div .color h1{
+    color: white;
+    /* margin-top: 5vh; */
 }
  
 .rejilla a:nth-child(4n-3) .color div,
@@ -784,6 +788,37 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 a *{
     text-decoration: none !important;
 }
+
+.nocity{
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px black;
+    padding: 0 3vw;
+    display: grid;
+    grid-template-columns: 1fr 5fr !important;
+    grid-template-columns: auto;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.nocity div:first-child{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
