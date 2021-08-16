@@ -4,33 +4,39 @@ import Navbar from '../components/header/Navbar'
 import Cardcity from '../components/main/Cardcity'
 import Footer from '../components/Footer'
 import Nocity from '../components/main/Nocity'
-import {mensaje, mensaje2} from '../components/Message'
+import {messageOne} from '../components/Message'
+
 
 const Cities = (props) =>{
-    const [data, setData] = useState({allCities: [], filteredCities: []})
+    const [data, setData] = useState({allCities: [], filteredCities: [], state: 'bad'})
     const [search, setSearch] = useState('')
+    const [loader, setLoader] = useState(true)
 
-    // useEffect(()=>{
-    //     axios.get('http://localhost:4000/api/cities')
-    //     .then(res=>setData({allCities: res.data.response, filteredCities: res.data.response}))
-    //     .catch((err)=>props.history.push('/'))
-    // }, [])
     useEffect(()=>{
         axios.get('http://localhost:4000/api/cities')
         .then(res=>{
             if(res.data.success){
-                setData({allCities: res.data.response, filteredCities: res.data.response})
+                if(res.data.response.length>0){
+                    setData({allCities: res.data.response, filteredCities: res.data.response, state: 'ok'})
+                }else{
+                    throw new Error("There isn't cities to show.")
+                }
             }else{
-                console.log('hola')
+                throw new Error('BE-DB Problem')
             }
         })
-        .catch((err)=>props.history.push('/'))
+        .catch((err)=>{
+            err.message = err.message == 'Network Error' && 'FE-BE Problem'
+            messageOne(err.message)
+        })
+        .finally(()=>setLoader(false))
     }, [])
 
     useEffect(()=>{
         setData({
             allCities: [...data.allCities],
-            filteredCities: data.allCities.filter((city)=> city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
+            filteredCities: data.allCities.filter((city)=> city.name.toLowerCase().startsWith(search.trim().toLowerCase())),
+            state: data.state
         })
     }, [search])
 
@@ -38,10 +44,16 @@ const Cities = (props) =>{
         setSearch(e.target.value)  
     }
 
-    mensaje()
-    mensaje2()
+    if(loader){
+        return (
+            <div className="loader">
+                <img src='/assets/loader.gif'/>
+            </div>
+        )
+    }
     
     let result = data.filteredCities.map((city, index)=><Cardcity city={city} key={index} index={index}/>)
+    let message = (data.filteredCities.length==0 && data.state=='ok') &&  <Nocity />
     
     return (
         <>
@@ -52,7 +64,7 @@ const Cities = (props) =>{
                 <h1>Esta será la página de cities</h1>
             </div>
             <input type="text" style={{width: '50%', zIndex: '2', margin: '5vh auto'}} placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
-            {data.filteredCities.length == 0 && <Nocity />}
+            {message}
             <div className="rejilla">
                 {result}
             </div>
@@ -60,5 +72,4 @@ const Cities = (props) =>{
         </>
     )
 }
-
 export default Cities

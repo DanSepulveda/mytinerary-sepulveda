@@ -1,6 +1,16 @@
 const Itinerary = () =>{
     return (
-        <h1>We're so sorry. We don't have any Itineraries yet!</h1>
+        <div className="itineraries">
+            <div className="nocity">
+                <div style={{backgroundImage: "url('/assets/under.png')", height: '30vh'}}>
+                </div>
+                <div className="message">
+                    <h2>Oops!</h2>
+                    <h3>We are still working in this section.</h3>
+                    <h4>Please come back on August 20</h4>
+                </div>
+            </div>
+        </div>
     )
 }
 export default Itinerary

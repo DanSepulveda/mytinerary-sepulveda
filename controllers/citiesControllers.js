@@ -9,7 +9,7 @@ const citiesControllers = {
             res.json({success: false})
         }
     },
-    addNewCity: (req, res)=>{
+    addNewCity: async (req, res)=>{
         const cityToUpload = new City({
             name: req.body.name,
             prefecture: req.body.prefecture,
@@ -19,13 +19,21 @@ const citiesControllers = {
             src2: req.body.src2,
             src3: req.body.src3 
         })
-        cityToUpload.save()
-        .then(()=>res.json({success: true}))
+        try{
+            cityToUpload.save()
+            res.json({success: true})
+        }catch(e){
+            res.json({success: false})
+        }
     },
-    getOneCity: (req, res)=>{
-        console.log(res)
-        City.findOne({_id: req.params.id})
-        .then((city)=>res.json({response: city}))
+    getOneCity: async (req, res)=>{
+        try{
+            let gottenCity = await City.findOne({_id: req.params.id})
+            res.json({success: true, response: gottenCity})
+            // throw new Error
+        }catch(e){
+            res.json({success: false, response: e.message})
+        }
     },
     editOneCity: (req, res)=>{
         console.log(req.body)
