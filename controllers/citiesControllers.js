@@ -6,7 +6,7 @@ const citiesControllers = {
             let cities = await City.find()
             res.json({success: true, response: cities})
         }catch(e){
-            res.json({success: false, response: cities})
+            res.json({success: false})
         }
     },
     addNewCity: (req, res)=>{
