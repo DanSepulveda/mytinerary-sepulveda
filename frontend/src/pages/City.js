@@ -32,7 +32,7 @@ const City = (props) =>{
     }, [])
 
     return(
-        <div className="hola">
+        <div className="cityContainer">
             <Navbar />
             <div style={{minHeight: '80vh'}}>
                 <div style={{backgroundImage: `url('${city.src}')`, width: '100%', minHeight: '80vh', position: 'absolute', top: '0', left: '0', zIndex: '-1', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
