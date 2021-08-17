@@ -29,20 +29,34 @@ const citiesControllers = {
     getOneCity: async (req, res)=>{
         try{
             let gottenCity = await City.findOne({_id: req.params.id})
-            res.json({success: true, response: gottenCity})
+            if(gottenCity){
+                res.json({success: true, response: gottenCity})
+            }else{
+                throw new Error()
+            }
         }catch(e){
             res.json({success: false, response: e.message})
         }
     },
-    editOneCity: (req, res)=>{
-        City.findOneAndUpdate({_id: req.params.id}, {...req.body.cityToEdit})
-        .then((city)=>res.json({response: city}))
-        .catch(err=>res.json({response: err.message}))
+    editOneCity: async (req, res)=>{
+        try{
+            let edited = await City.findOneAndUpdate({_id: req.params.id}, {...req.body.cityToEdit})
+            res.json({response: edited})
+        }catch(err){
+            res.json({response: err.message})
+        }
     },
-    deleteOneCity: (req, res)=>{
-        City.findOneAndRemove({_id: req.params.id})
-        .then(()=>res.json({response: 'Deleted'}))
-        .catch(()=>res.json({response: 'Failed'}))
+    deleteOneCity: async (req, res)=>{
+        try{
+            let deleted = await City.findOneAndRemove({_id: req.params.id})
+            if(deleted){
+                res.json({response: 'Deleted'})
+            }else{
+                throw new Error()
+            }
+        }catch(e){
+            res.json({response: 'Failed'})
+        }
     }
 }
 
