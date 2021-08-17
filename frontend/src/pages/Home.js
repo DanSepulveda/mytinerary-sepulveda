@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 
 export default class Home extends React.Component{
     render(){
+        window.scrollTo(0, 0)
         return(
             <>
                 <Header />

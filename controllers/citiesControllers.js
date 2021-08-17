@@ -30,21 +30,19 @@ const citiesControllers = {
         try{
             let gottenCity = await City.findOne({_id: req.params.id})
             res.json({success: true, response: gottenCity})
-            // throw new Error
         }catch(e){
             res.json({success: false, response: e.message})
         }
     },
     editOneCity: (req, res)=>{
-        console.log(req.body)
         City.findOneAndUpdate({_id: req.params.id}, {...req.body.cityToEdit})
-        .then((city)=>console.log(city))
-        .catch(err=>console.log(err))
+        .then((city)=>res.json({response: city}))
+        .catch(err=>res.json({response: err.message}))
     },
     deleteOneCity: (req, res)=>{
-        console.log(req.body)
         City.findOneAndRemove({_id: req.params.id})
         .then(()=>res.json({response: 'Deleted'}))
+        .catch(()=>res.json({response: 'Failed'}))
     }
 }
 

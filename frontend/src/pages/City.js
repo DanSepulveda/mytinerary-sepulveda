@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 const City = (props) =>{
     const [city, setCity] = useState({})
 
+    window.scrollTo(0, 0)
     useEffect(()=>{
         axios.get(`http://localhost:4000/api/city/${props.match.params.id}`)
         .then(res=>{
@@ -17,17 +18,15 @@ const City = (props) =>{
             }else if(res.data.response==null){
                 throw new Error("City doesn't exist")
             }else{
-                throw new Error('BE-DB Problem')
+                throw new Error()
             }
         })
         .catch((err)=>{
             props.history.push('/cities')
-            if(err.message.includes('Request failed')){
-                messageOne('FE-BE Problem')
-            }else if(err.message.includes('City')){
-                msgNoExist(err.message)
+            if(err.message.includes('City')){
+                msgNoExist()
             }else{
-                messageOne(err.message)
+                messageOne()
             }
         })
     }, [])
@@ -40,10 +39,10 @@ const City = (props) =>{
                     <h1 style={{fontSize: '15vh', color: 'white'}}>{city.name}</h1>
                 </div>
             </div>
-            <div style={{textAlign: 'center'}}>
+            <Itinerary />
+            <div style={{minHeight: '30vh', marginTop: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
                 <Link to='/cities' className="come-back">Back to Cities</Link>
             </div>
-            <Itinerary />
             <Footer />
         </div>
     )

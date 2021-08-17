@@ -13,23 +13,24 @@ const Cities = (props) =>{
     const [loader, setLoader] = useState(true)
 
     useEffect(()=>{
+        window.scrollTo(0, 0)
         axios.get('http://localhost:4000/api/cities')
         .then(res=>{
             if(res.data.success){
                 if(res.data.response.length>0){
                     setData({allCities: res.data.response, filteredCities: res.data.response, state: 'ok'})
+                    setLoader(false)
                 }else{
-                    throw new Error("There isn't cities to show.")
+                    throw new Error()
                 }
             }else{
-                throw new Error('BE-DB Problem')
+                throw new Error()
             }
         })
-        .catch((err)=>{
-            err.message = err.message == 'Network Error' && 'FE-BE Problem'
-            messageOne(err.message)
+        .catch(()=>{
+            props.history.push('/')
+            messageOne()
         })
-        .finally(()=>setLoader(false))
     }, [])
 
     useEffect(()=>{
@@ -61,9 +62,9 @@ const Cities = (props) =>{
                 <Navbar />
             </header>
             <div className="cityHero" style={{backgroundImage: "url('/assets/banner/6.png')"}}>
-                <h1>Esta será la página de cities</h1>
+                <h1>Find your next<br />travel destination</h1>
             </div>
-            <input type="text" style={{width: '50%', zIndex: '2', margin: '5vh auto'}} placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
+            <input type="text" placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
             {message}
             <div className="rejilla">
                 {result}
