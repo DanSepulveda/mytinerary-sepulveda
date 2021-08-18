@@ -1,6 +1,8 @@
+import '../../styles/info.css'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from 'react'
+
 const Info = () => {
     let cards = [
         {
@@ -22,6 +24,7 @@ const Info = () => {
             aos: 'fade-down'
         },
     ]
+    
     useEffect(()=>{
         Aos.init({duration: 2000})
     }, [])

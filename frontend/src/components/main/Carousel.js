@@ -1,3 +1,4 @@
+import '../../styles/carousel.css'
 import React, { useState } from 'react';
 import {
   Carousel,

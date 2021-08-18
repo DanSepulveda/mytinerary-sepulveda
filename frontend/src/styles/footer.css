@@ -1,0 +1,124 @@
+footer{
+    width: 100%;
+    min-height: 40vh;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    flex-direction: column;
+}
+
+.sections-container h4{
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+footer .sections-container{
+    flex: 1;
+    width: 100%;
+    padding: 2vh 5vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    align-content: center;
+    gap: 10vw;
+}
+
+.sections-container .section{
+    color: white;
+    margin: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+div.section div.social-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-container .social-icon{
+    width: 4vmin;
+    transition: all 300ms;
+}
+
+.social-container .social-icon:hover{
+    transform: scale(1.2);
+}
+
+.section-second ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.section-second a,
+.section-second  li{
+    text-decoration: none;
+    color: white;
+    font-size: 3vmin;
+}
+
+.section-second{
+    text-align: center;
+}
+
+.section-third{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+footer .after-footer{
+    width: 100%;
+    padding: 1vh 0;
+    font-size: 2.3vmin;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+        /* FOOTER */
+        footer .sections-container{
+            padding: 2vh 3vw;
+            display: grid;
+            grid-template-columns: 3fr 3fr 2fr;
+        }
+        .section{
+            width: 90%;
+            margin: 0px 0px;
+        }
+}
+
+@media (max-width: 600px) {
+    footer .sections-container{
+        padding: 0 4vw;
+        padding-top: 5vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+    footer h4,
+    footer p,
+    footer ul{
+        text-align: center;
+    }
+    .section-third{
+        display:none;
+    }
+}
+
+@media (max-width: 440px){
+
+    footer .sections-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .section-first,
+    .section-second{
+        text-align: center;
+        padding-top: 3vh;
+
+    }
+}

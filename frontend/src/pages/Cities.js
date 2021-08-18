@@ -6,7 +6,6 @@ import Footer from '../components/Footer'
 import Nocity from '../components/main/Nocity'
 import {messageOne} from '../components/Message'
 
-
 const Cities = (props) =>{
     const [data, setData] = useState({allCities: [], filteredCities: [], state: 'bad'})
     const [search, setSearch] = useState('')
@@ -68,7 +67,7 @@ const Cities = (props) =>{
             {message}
             <div className="rejilla">
                 {result}
-            </div>
+            </div>            
             <Footer />
         </>
     )
