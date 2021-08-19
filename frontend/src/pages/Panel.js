@@ -1,3 +1,4 @@
+import '../styles/panel.css'
 import NewCity from '../components/NewCity'
 import ViewCities from '../components/ViewCities'
 

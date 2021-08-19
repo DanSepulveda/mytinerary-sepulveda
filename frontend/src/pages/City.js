@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 const City = (props) =>{
     const [city, setCity] = useState({})
+    const [itineraries, setItineraries] = useState([])
 
     window.scrollTo(0, 0)
     useEffect(()=>{
@@ -29,6 +30,9 @@ const City = (props) =>{
                 messageOne()
             }
         })
+        axios.get('http://localhost:4000/api/itineraries')
+        .then(res=>setItineraries(res.data.response))
+        .catch((err)=>console.log(err))
     }, [])
 
     return(
@@ -39,7 +43,9 @@ const City = (props) =>{
                     <h1 style={{fontSize: '15vh', color: 'white'}}>{city.name}</h1>
                 </div>
             </div>
-            <Itinerary />
+            <section style={{display: 'flex', padding: '0vh 5vw', width: '100%', flexWrap: 'wrap'}}>
+                {itineraries.map(itinerary=> <Itinerary itinerary={itinerary} key={itinerary._id}/>)}
+            </section>
             <div style={{minHeight: '30vh', marginTop: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
                 <Link to='/cities' className="come-back">Back to Cities</Link>
             </div>

@@ -1,5 +1,6 @@
 const express = require('express')
 const citiesControllers = require('../controllers/citiesControllers') 
+const itineraryControllers = require('../controllers/itinerariesControllers')
 
 const router = express.Router()
 
@@ -12,4 +13,10 @@ router.route('/city/:id')
 .put(citiesControllers.editOneCity)
 .delete(citiesControllers.deleteOneCity)
 
+router.route('/itineraries')
+.get(itineraryControllers.getAllItineraries)
+.post(itineraryControllers.addNewItinerary)
+
+router.route('/itinerary/:id')
+.delete(itineraryControllers.deleteOneItinerary)
 module.exports = router

@@ -1,0 +1,107 @@
+article{
+    width: 100%;
+    margin-bottom: 5vh;
+    border-radius: 5em;
+    overflow: hidden;
+}
+
+article.itinerary-container{
+    /* background-color: yellow; */
+    /* margin-bottom: 5vh; */
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 2px 2px 5px black;
+}
+
+article.itinerary-container-expanded{
+    /* background-color: yellow; */
+    /* margin-bottom: 5vh; */
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    box-shadow: 2px 2px 5px black;
+}
+
+.info-container{
+    background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+div.itinerary-picture{
+    width: 100%;
+    height: 30vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.chat-container{
+    background-color: red;
+     /* visibility: hidden; */
+    display: none;
+}
+
+.info-body,
+.author-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-body{
+    position: relative;
+    bottom: 7vh;
+}
+
+.itinerary-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+div.author-picture{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+div.price-container{
+    display: flex;
+    align-items: center;
+    margin-right: 2vw;
+}
+
+div.icon-container,
+div.duration-container{
+    display: flex;
+}
+
+div.icon{
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+article.itinerary-container,
+article.itinerary-container-expanded{
+    animation: cambio 5s linear;
+}
+
+@keyframes cambio {
+    from{
+        visibility: hidden;
+        display: none;
+    }
+    to{
+        visibility: visible;
+        display: block;
+    }
+}
