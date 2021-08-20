@@ -1,70 +1,75 @@
 /* HERO STYLES */
-.hero{
-    flex: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.hero {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero .background{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    object-fit: cover;
-    top: 0vh;
-    left: 0vh;
+.hero .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+  top: 0vh;
+  left: 0vh;
 }
 
-.hero img.logo{
-    width: 40vmin;
-    animation: zoom 4s infinite linear;
+.hero img.logo {
+  width: 40vmin;
+  animation: zoom 4s infinite linear;
 }
 
 @keyframes zoom {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.1);
-    }
-    100%{
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.hero h1{
-    padding: 0px 10px;
-    color: white;
-    font-size: 10vmin;
-    margin-bottom: 10px;
+.hero h1 {
+  padding: 0px 10px;
+  color: white;
+  font-size: 10vmin;
+  margin-bottom: 10px;
 }
 
-span.red{
-    color: white;
-    background: linear-gradient(24deg, rgba(255,0,0,1) 0%, rgba(216,0,0,1) 30%, rgba(164,0,3,1) 65%);
-    border-radius: 0 2em 2em 0;
-    padding-right: 20px;
-    font-family: 'Work Sans', sans-serif;
-    text-shadow: 2px 2px 5px black;
+span.red {
+  color: white;
+  background: linear-gradient(
+    24deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(216, 0, 0, 1) 30%,
+    rgba(164, 0, 3, 1) 65%
+  );
+  border-radius: 0 2em 2em 0;
+  padding-right: 20px;
+  font-family: "Work Sans", sans-serif;
+  text-shadow: 2px 2px 5px black;
 }
 
-span.white{
-    color: red;
-    background-color: white;
-    padding-right: 5px;
-    font-family: 'Work Sans', sans-serif;
-    text-shadow: 2px 2px 5px black;
-}
-  
-.hero h3{
-    color: white;
-    font-size: 4vmin;
-    text-align: center;
+span.white {
+  color: red;
+  background-color: white;
+  padding-right: 5px;
+  font-family: "Work Sans", sans-serif;
+  text-shadow: 2px 2px 5px black;
 }
 
-img.arrow{
-    width: 20vmin;
+.hero h3 {
+  color: white;
+  font-size: 4vmin;
+  text-align: center;
+}
+
+img.arrow {
+  width: 20vmin;
 }

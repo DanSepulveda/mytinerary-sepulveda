@@ -1,91 +1,86 @@
 /* GENERAL STYLES */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800;900&family=Rubik:wght@500&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;800;900&family=Rubik:wght@500&family=Work+Sans&display=swap");
 
-html *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }
 
-body{
-    width: 100%;
-    min-height: 100vh;
+body {
+  width: 100%;
+  min-height: 100vh;
 }
 
-#root{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER STYLES */
-header{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+header {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* MAIN STYLES */
-main{
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-image: url('./assets/bamboo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+main {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./assets/bamboo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-
-section > div > h2{
-    color: white;
-    font-size: 10vmin;
-    text-align: center;
-    padding: 7vh;
+section > div > h2 {
+  color: white;
+  font-size: 10vmin;
+  text-align: center;
+  padding: 7vh;
 }
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
-    width: 17px;
+  width: 17px;
 }
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 100px #444;
- }
+  box-shadow: inset 0 0 100px #444;
+}
 ::-webkit-scrollbar-thumb {
-    background: #c45353;
-    border-radius: 10px;
+  background: #c45353;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: red;
+  background: red;
 }
 
-
-
-
-
-.button span{
-    color: rgb(9, 255, 0);
-    font-size: 7vmin;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none !important;
+.button span {
+  color: rgb(9, 255, 0);
+  font-size: 7vmin;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none !important;
 }
 
-.without{
-    text-decoration: none;
+.without {
+  text-decoration: none;
 }
 
-.come-back{
-    padding: 3vh;
-    border-radius: 30px;
-    background-color: red;
-    margin-top: 5vh !important;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.come-back {
+  padding: 3vh;
+  border-radius: 30px;
+  background-color: red;
+  margin-top: 5vh !important;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }

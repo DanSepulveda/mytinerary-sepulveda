@@ -1,56 +1,56 @@
-.mainAdmin{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-    padding: 5vw;
+.mainAdmin {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  padding: 5vw;
 }
 
-.mainAdmin section{
-    border: 2px solid black;
+.mainAdmin section {
+  border: 2px solid black;
 }
 
-.table{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.table>div{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    gap: 3vw
+.table > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 3vw;
 }
 
-.dbCardCity{
-    border: 1px solid black;
+.dbCardCity {
+  border: 1px solid black;
 }
 
-.newCity > div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.newCity > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.newCity>div input{
-    width: 80%;
+.newCity > div input {
+  width: 80%;
 }
 
-.newCity >div label{
-    margin-top: 2vh;
+.newCity > div label {
+  margin-top: 2vh;
 }
 
-label{
-    font-weight: bold;
+label {
+  font-weight: bold;
 }
 
 button.post,
-button.getAll{
-    width: 30%;
-    background-color: green !important;
-    color: white !important;
-    margin: 3vh 0;
+button.getAll {
+  width: 30%;
+  background-color: green !important;
+  color: white !important;
+  margin: 3vh 0;
 }
