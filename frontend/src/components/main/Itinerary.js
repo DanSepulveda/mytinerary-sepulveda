@@ -16,22 +16,17 @@ const Itinerary = (props) =>{
             result.push(rute)
         }
         return (
-            result.map((icon, index)=>{
-                return (
-                    <div key={index} className="icon" style={{backgroundImage: `url('${icon}')`}}></div>
-                )
-            })
+            result.map((icon, index)=><div key={index} className="icon" style={{backgroundImage: `url('${icon}')`}}></div>)
         )
     }
    
     return (
-        // <article className="itinerary-container">
         <article className={button?'itinerary-container-expanded':'itinerary-container'} >
             <div className="info-container">
                 <div className="itinerary-picture"style={{backgroundImage: `url('${image}')`}}>
                     <h2>{title}</h2>
                 </div>
-                <div className="info-body">
+                <div className="itinerary-body">
                     <div className="author-info">
                         <div className="author-picture" style={{backgroundImage: `url('${user.picture}')`}}></div>
                         <h3>{user.name}</h3>
@@ -54,8 +49,17 @@ const Itinerary = (props) =>{
             </div>
 
             <div className="chat-container">
-                <h2>hola</h2>
-
+             <div className="itineraries">
+             <div className="nocity">
+                 <div style={{backgroundImage: "url('/assets/under.png')", height: '30vh'}}>
+                 </div>
+                 <div className="message">
+                     <h2>Oops!</h2>
+                     <h3>We are still working on this section.</h3>
+                     <h4>Please come back on August 20</h4>
+                 </div>
+             </div>
+         </div>
             </div>
         </article>
         // <div className="itineraries">

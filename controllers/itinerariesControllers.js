@@ -20,6 +20,14 @@ const itinerariesControllers = {
             res.json({success: false})
         }
     },
+    editOneItinerary: async (req, res)=>{
+        try{
+            let edited = await Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
+            res.json({response: edited})
+        }catch(err){
+            res.json({response: err.message})
+        }
+    },
     deleteOneItinerary: async (req, res) =>{
         try{
             await Itinerary.findOneAndRemove({_id: req.params.id})

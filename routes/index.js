@@ -19,4 +19,5 @@ router.route('/itineraries')
 
 router.route('/itinerary/:id')
 .delete(itineraryControllers.deleteOneItinerary)
+.put(itineraryControllers.editOneItinerary)
 module.exports = router

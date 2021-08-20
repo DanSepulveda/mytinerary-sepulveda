@@ -1,54 +1,48 @@
-article{
+article.itinerary-container,
+article.itinerary-container-expanded{
     width: 100%;
     margin-bottom: 5vh;
-    border-radius: 5em;
+    border-radius: 2em;
     overflow: hidden;
 }
 
 article.itinerary-container{
-    /* background-color: yellow; */
-    /* margin-bottom: 5vh; */
     display: grid;
     grid-template-columns: 1fr;
     box-shadow: 2px 2px 5px black;
+    transition: all 500ms;
 }
 
 article.itinerary-container-expanded{
-    /* background-color: yellow; */
-    /* margin-bottom: 5vh; */
     display: grid;
     grid-template-columns: 1fr 3fr;
     box-shadow: 2px 2px 5px black;
+    transition: all 500ms;
 }
 
-.info-container{
-    background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+div.info-container{
+    background: #ECE9E6;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 }
 
 div.itinerary-picture{
     width: 100%;
     height: 30vh;
-    background-position: center;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
-.chat-container{
-    background-color: red;
-     /* visibility: hidden; */
-    display: none;
-}
-
-.info-body,
-.author-info{
+div.itinerary-body,
+div.author-info{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.info-body{
+.itinerary-body{
     position: relative;
     bottom: 7vh;
 }
@@ -90,18 +84,9 @@ div.icon{
     background-position: center;
 }
 
-article.itinerary-container,
-article.itinerary-container-expanded{
-    animation: cambio 5s linear;
+.chat-container{
+    background-color: red;
+    /* visibility: hidden; */
+    display: none;
 }
 
-@keyframes cambio {
-    from{
-        visibility: hidden;
-        display: none;
-    }
-    to{
-        visibility: visible;
-        display: block;
-    }
-}

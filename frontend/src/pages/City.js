@@ -6,45 +6,31 @@ import Footer from "../components/Footer"
 import {messageOne, msgNoExist} from '../components/Message'
 import { Link } from 'react-router-dom'
 
+import {connect} from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
+import itinerariesActions from '../redux/actions/itinerariesActions'
+
 const City = (props) =>{
-    const [city, setCity] = useState({})
-    const [itineraries, setItineraries] = useState([])
-
-    window.scrollTo(0, 0)
     useEffect(()=>{
-        axios.get(`http://localhost:4000/api/city/${props.match.params.id}`)
-        .then(res=>{
-            if(res.data.success && res.data.response!=null){
-                setCity(res.data.response)
-            }else if(res.data.response==null){
-                throw new Error("City doesn't exist")
-            }else{
-                throw new Error()
-            }
-        })
-        .catch((err)=>{
+        window.scrollTo(0, 0)
+        if(!props.allCities.length){
             props.history.push('/cities')
-            if(err.message.includes('City')){
-                msgNoExist()
-            }else{
-                messageOne()
-            }
-        })
-        axios.get('http://localhost:4000/api/itineraries')
-        .then(res=>setItineraries(res.data.response))
-        .catch((err)=>console.log(err))
+            return false
+        }
+        props.getCity(props.match.params.id)
+        props.getItineraries()
     }, [])
-
+    console.log(props.itineraries)
     return(
         <div className="cityContainer">
             <Navbar />
             <div style={{minHeight: '80vh'}}>
-                <div style={{backgroundImage: `url('${city.src}')`, width: '100%', minHeight: '80vh', position: 'absolute', top: '0', left: '0', zIndex: '-1', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <h1 style={{fontSize: '15vh', color: 'white'}}>{city.name}</h1>
+                <div style={{backgroundImage: `url('${props.city.src}')`, width: '100%', minHeight: '80vh', position: 'absolute', top: '0', left: '0', zIndex: '-1', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <h1 style={{fontSize: '15vh', color: 'white'}}>{props.city.name}</h1>
                 </div>
             </div>
             <section style={{display: 'flex', padding: '0vh 5vw', width: '100%', flexWrap: 'wrap'}}>
-                {itineraries.map(itinerary=> <Itinerary itinerary={itinerary} key={itinerary._id}/>)}
+                {props.itineraries.map(itinerary=> <Itinerary itinerary={itinerary} key={itinerary._id}/>)}
             </section>
             <div style={{minHeight: '30vh', marginTop: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
                 <Link to='/cities' className="come-back">Back to Cities</Link>
@@ -54,4 +40,17 @@ const City = (props) =>{
     )
 }
 
-export default City
+const mapStateToProps = (state) => {
+    return {
+        city: state.cities.chosenCity,
+        allCities: state.cities.citiesList,
+        itineraries: state.itineraries.itinerariesList
+    }
+}
+
+const mapDispatchToProps = {
+    getCity: citiesActions.getOneCity,
+    getItineraries: itinerariesActions.getList
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City)

@@ -1,47 +1,26 @@
-import axios from 'axios'
+import '../styles/cities.css'
 import React, { useEffect, useState } from "react"
+
 import Navbar from '../components/header/Navbar'
 import Cardcity from '../components/main/Cardcity'
 import Footer from '../components/Footer'
 import Nocity from '../components/main/Nocity'
 import {messageOne} from '../components/Message'
 
+import {connect} from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
+
 const Cities = (props) =>{
-    const [data, setData] = useState({allCities: [], filteredCities: [], state: 'bad'})
-    const [search, setSearch] = useState('')
     const [loader, setLoader] = useState(true)
 
     useEffect(()=>{
         window.scrollTo(0, 0)
-        axios.get('http://localhost:4000/api/cities')
-        .then(res=>{
-            if(res.data.success){
-                if(res.data.response.length>0){
-                    setData({allCities: res.data.response, filteredCities: res.data.response, state: 'ok'})
-                    setLoader(false)
-                }else{
-                    throw new Error()
-                }
-            }else{
-                throw new Error()
-            }
-        })
-        .catch(()=>{
-            props.history.push('/')
-            messageOne()
-        })
+        props.getCities()
+        setLoader(false)
     }, [])
 
-    useEffect(()=>{
-        setData({
-            allCities: [...data.allCities],
-            filteredCities: data.allCities.filter((city)=> city.name.toLowerCase().startsWith(search.trim().toLowerCase())),
-            state: data.state
-        })
-    }, [search])
-
-    const handlerCity = (e)=>{
-        setSearch(e.target.value)  
+    const handlerCity = (e)=>{ 
+        props.getFiltered(e.target.value) 
     }
 
     if(loader){
@@ -52,8 +31,8 @@ const Cities = (props) =>{
         )
     }
     
-    let result = data.filteredCities.map((city, index)=><Cardcity city={city} key={index} index={index}/>)
-    let message = (data.filteredCities.length==0 && data.state=='ok') &&  <Nocity />
+    let result = props.cities.map((city, index)=><Cardcity city={city} key={index} index={index}/>)
+    // let message = (data.filteredCities.length==0 && data.state=='ok') &&  <Nocity />
     
     return (
         <>
@@ -64,7 +43,7 @@ const Cities = (props) =>{
                 <h1>Find your next<br />travel destination</h1>
             </div>
             <input type="text" placeholder='Choose your destination' className="searcher" onChange={handlerCity}/>
-            {message}
+            {/* {message} */}
             <div className="rejilla">
                 {result}
             </div>            
@@ -72,4 +51,15 @@ const Cities = (props) =>{
         </>
     )
 }
-export default Cities
+
+const mapStateToProps = (state) => {
+    return {
+        cities: state.cities.filteredCities
+    }
+}
+const mapDispatchToProps = {
+    getCities: citiesActions.getList,
+    getFiltered: citiesActions.getFilteredList
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
