@@ -18,7 +18,7 @@ const City = (props) => {
       return false;
     }
     props.getCity(props.match.params.id);
-    props.getItineraries();
+    props.getItineraries(props.match.params.id);
   }, []);
   console.log(props.itineraries);
   return (
@@ -77,7 +77,7 @@ const City = (props) => {
 const mapStateToProps = (state) => {
   return {
     city: state.cities.chosenCity,
-    allCities: state.cities.citiesList,
+    allCities: state.cities.allCities,
     itineraries: state.itineraries.itinerariesList,
   };
 };

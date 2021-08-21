@@ -9,6 +9,7 @@ const citiesControllers = {
       res.json({ success: false });
     }
   },
+
   addNewCity: async (req, res) => {
     const cityToUpload = new City({
       name: req.body.name,

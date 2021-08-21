@@ -1,16 +1,17 @@
 const citiesReducer = (
-  state = { citiesList: [], filteredCities: [], chosenCity: {} },
+  state = { allCities: [], filteredCities: [], chosenCity: {} },
   action
 ) => {
   switch (action.type) {
     case "GET_ALL_CITIES":
+      console.log("entro al reducer");
       return {
         ...state,
-        citiesList: action.payload,
+        allCities: action.payload,
         filteredCities: action.payload,
       };
     case "GET_FILTERED_CITIES":
-      let filtered = state.citiesList.filter((city) =>
+      let filtered = state.allCities.filter((city) =>
         city.name.toLowerCase().startsWith(action.payload.trim().toLowerCase())
       );
       return {
@@ -18,7 +19,7 @@ const citiesReducer = (
         filteredCities: filtered,
       };
     case "GET_ONE_CITY":
-      let chosen = state.citiesList.find((city) => city._id === action.payload);
+      let chosen = state.allCities.find((city) => city._id === action.payload);
       return {
         ...state,
         chosenCity: chosen,

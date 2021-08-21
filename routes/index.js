@@ -21,7 +21,12 @@ router
   .post(itineraryControllers.addNewItinerary);
 
 router
+  .route("/itineraries/:id")
+  .get(itineraryControllers.getItinerariesPerCity);
+
+router
   .route("/itinerary/:id")
   .delete(itineraryControllers.deleteOneItinerary)
   .put(itineraryControllers.editOneItinerary);
+
 module.exports = router;

@@ -5,7 +5,7 @@ import Navbar from "../components/header/Navbar";
 import Cardcity from "../components/main/Cardcity";
 import Footer from "../components/Footer";
 import Nocity from "../components/main/Nocity";
-import { messageOne } from "../components/Message";
+import { mensaje } from "../components/Message";
 
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
@@ -15,8 +15,16 @@ const Cities = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    props.getCities();
-    setLoader(false);
+    async function evaluateError() {
+      try {
+        await props.getCities();
+        setLoader(false);
+      } catch {
+        mensaje();
+        props.history.push("/");
+      }
+    }
+    evaluateError();
   }, []);
 
   const handlerCity = (e) => {
@@ -66,6 +74,7 @@ const Cities = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    allCities: state.cities.allCities,
     cities: state.cities.filteredCities,
   };
 };

@@ -9,7 +9,8 @@ const itinerarySchema = new mongoose.Schema({
   duration: { type: Number },
   tags: { type: Array },
   likes: { type: Number, default: 0 },
-  comments: { type: Array },
+  comments: { type: Array, default: [] },
+  cityId: { type: mongoose.Types.ObjectId, ref: "city" },
 });
 
 const Itinerary = new mongoose.model("itinerary", itinerarySchema);

@@ -4,6 +4,7 @@ article.itinerary-container-expanded {
   margin-bottom: 5vh;
   border-radius: 2em;
   overflow: hidden;
+  min-height: 85vh;
 }
 
 article.itinerary-container {
@@ -28,11 +29,33 @@ div.info-container {
 
 div.itinerary-picture {
   width: 100%;
-  height: 30vh;
+  height: 35vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 1vw;
+}
+
+div.likes-container {
+  align-self: flex-end;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+}
+
+span.likes-number {
+  font-size: 5vmin;
+}
+
+img.heart-icon {
+  width: 45px;
+  margin-right: 5px;
 }
 
 div.itinerary-body,
@@ -44,7 +67,7 @@ div.author-info {
 
 .itinerary-body {
   position: relative;
-  bottom: 7vh;
+  bottom: 60px;
 }
 
 .itinerary-info {
@@ -55,8 +78,8 @@ div.author-info {
 }
 
 div.author-picture {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 100%;
   background-position: center;
   background-size: cover;
@@ -84,8 +107,19 @@ div.icon {
   background-position: center;
 }
 
+.chat-container-expanded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .chat-container {
-  background-color: red;
-  /* visibility: hidden; */
   display: none;
+}
+
+@media (max-width: 660px) {
+  article.itinerary-container,
+  article.itinerary-container-expanded {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

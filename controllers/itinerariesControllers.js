@@ -37,6 +37,10 @@ const itinerariesControllers = {
       res.json({ success: false });
     }
   },
+  getItinerariesPerCity: async (req, res) => {
+    let itineraries = await Itinerary.find({ cityId: req.params.id });
+    res.json({ success: true, response: itineraries });
+  },
 };
 
 module.exports = itinerariesControllers;
