@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 
 const Cities = (props) => {
+  document.title = "MyTinerary - Cities";
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -24,7 +25,13 @@ const Cities = (props) => {
         props.history.push("/");
       }
     }
-    evaluateError();
+    if (!props.allCities.length) {
+      console.log("acá fetcheo");
+      evaluateError();
+    } else {
+      console.log("acá NO fetcheo");
+      setLoader(false);
+    }
   }, []);
 
   const handlerCity = (e) => {
@@ -42,7 +49,8 @@ const Cities = (props) => {
   let result = props.cities.map((city, index) => (
     <Cardcity city={city} key={index} index={index} />
   ));
-  // let message = (data.filteredCities.length==0 && data.state=='ok') &&  <Nocity />
+
+  let message = !props.cities.length && <Nocity />;
 
   return (
     <>
@@ -65,7 +73,7 @@ const Cities = (props) => {
         className="searcher"
         onChange={handlerCity}
       />
-      {/* {message} */}
+      {message}
       <div className="rejilla">{result}</div>
       <Footer />
     </>

@@ -6,8 +6,10 @@ const itinerariesActions = {
       let response = await axios.get(
         `http://localhost:4000/api/itineraries/${id}`
       );
-      let info = response.data.response;
-      dispatch({ type: "GET_ITINERARIES", payload: info });
+      if (!response.data.response) {
+        throw new Error("BE-DB Error");
+      }
+      dispatch({ type: "GET_ITINERARIES", payload: response.data.response });
     };
   },
 };

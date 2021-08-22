@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "../components/header/Navbar";
 import Itinerary from "../components/main/Itinerary";
@@ -11,16 +10,34 @@ import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
 const City = (props) => {
-  window.scrollTo(0, 0);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log(props.allCities);
     if (!props.allCities.length) {
       props.history.push("/cities");
       return false;
     }
-    props.getCity(props.match.params.id);
-    props.getItineraries(props.match.params.id);
+    async function evaluateError() {
+      try {
+        props.getCity(props.match.params.id);
+        await props.getItineraries(props.match.params.id);
+        setLoader(false);
+      } catch {
+        props.history.push("/cities");
+      }
+    }
+    evaluateError();
   }, []);
-  console.log(props.itineraries);
+
+  if (loader) {
+    return (
+      <div className="loader">
+        <img src="/assets/loader.gif" />
+      </div>
+    );
+  }
+  let message = <h1>No hay itinerarios</h1>;
   return (
     <div className="cityContainer">
       <Navbar />
@@ -52,6 +69,7 @@ const City = (props) => {
           flexWrap: "wrap",
         }}
       >
+        {!props.itineraries.length && message}
         {props.itineraries.map((itinerary) => (
           <Itinerary itinerary={itinerary} key={itinerary._id} />
         ))}

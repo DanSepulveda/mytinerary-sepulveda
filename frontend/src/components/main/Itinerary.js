@@ -37,6 +37,7 @@ const Itinerary = (props) => {
 
   return (
     <article
+      key={Math.random()}
       className={
         button ? "itinerary-container-expanded" : "itinerary-container"
       }

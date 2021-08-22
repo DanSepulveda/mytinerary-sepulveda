@@ -3,7 +3,7 @@ import axios from "axios";
 const citiesActions = {
   getList: () => {
     return async (dispatch) => {
-      let response = await axios.get("http://locahost:4000/api/cities");
+      let response = await axios.get("http://localhost:4000/api/cities");
       if (!response.data.success) {
         throw new Error("Backend - DB Error");
       }

@@ -19,6 +19,7 @@ const NewCity = () => {
   };
 
   const inputHandler = (e) => {
+    console.log(city);
     setCity({
       ...city,
       [e.target.name]: e.target.value,
@@ -27,7 +28,7 @@ const NewCity = () => {
   console.log(city);
 
   return (
-    <section>
+    <section className="new-city">
       <label htmlFor="name">City Name</label>
       <input id="name" type="text" name="name" onChange={inputHandler} />
       <label htmlFor="prefecture">Prefecture</label>

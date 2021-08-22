@@ -38,8 +38,12 @@ const itinerariesControllers = {
     }
   },
   getItinerariesPerCity: async (req, res) => {
-    let itineraries = await Itinerary.find({ cityId: req.params.id });
-    res.json({ success: true, response: itineraries });
+    try {
+      let itineraries = await Itinerary.find({ cityId: req.params.id });
+      res.json({ success: true, response: itineraries });
+    } catch {
+      res.json({ success: false });
+    }
   },
 };
 

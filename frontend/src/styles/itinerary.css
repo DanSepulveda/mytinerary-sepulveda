@@ -11,14 +11,12 @@ article.itinerary-container {
   display: grid;
   grid-template-columns: 1fr;
   box-shadow: 2px 2px 5px black;
-  transition: all 500ms;
 }
 
 article.itinerary-container-expanded {
   display: grid;
   grid-template-columns: 1fr 3fr;
   box-shadow: 2px 2px 5px black;
-  transition: all 500ms;
 }
 
 div.info-container {
@@ -56,6 +54,16 @@ span.likes-number {
 img.heart-icon {
   width: 45px;
   margin-right: 5px;
+  animation: grande 3s linear;
+}
+
+@keyframes grande {
+  from {
+    width: 100px;
+  }
+  to {
+    width: 45px;
+  }
 }
 
 div.itinerary-body,

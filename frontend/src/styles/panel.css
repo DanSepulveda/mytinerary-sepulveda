@@ -18,4 +18,36 @@ div.button-section {
 div.cities-buttons,
 div.itineraries-buttons {
   width: 50%;
+  padding: 3vh 0;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  margin: 3vh 5vw;
+  border-radius: 30px;
+}
+
+/* button {
+  margin: 0 2vw;
+  padding: 0vh 2vh;
+  border-radius: 1em;
+  background-color: #ccc;
+  color: black;
+  transition: all 300ms;
+}
+
+button:hover {
+  transform: scale(1.05);
+} */
+
+div.view {
+  width: 100%;
+}
+
+/* NEW CITY */
+section.new-city {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
 }
