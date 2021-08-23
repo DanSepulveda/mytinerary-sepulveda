@@ -47,7 +47,7 @@ const Itinerary = (props) => {
           className="itinerary-picture"
           style={{ backgroundImage: `url('${image}')` }}
         >
-          <h2>{title}</h2>
+          <h2 className="itinerary-title">{title}</h2>
           <div className="likes-container">
             <img className="heart-icon" src="/assets/empty.png" />
             <span className="likes-number">{likes}</span>
@@ -64,7 +64,7 @@ const Itinerary = (props) => {
           <div>
             <div className="itinerary-info">
               <div className="price-container">
-                <h4>Price</h4>
+                <span style={{ fontSize: "1.5rem" }}>Price</span>
                 <div className="icon-container">
                   {generateIcon(
                     price,
@@ -78,14 +78,14 @@ const Itinerary = (props) => {
                   className="icon"
                   style={{ backgroundImage: "url('/assets/clock.png')" }}
                 ></div>
-                <h4>{duration} hours.</h4>
+                <span style={{ fontSize: "1.5rem" }}>{duration} hours.</span>
               </div>
             </div>
             <p>{description}</p>
             <div>
               {tags.map((tag) => (
                 <span className="tag" key={tag}>
-                  #{tag}
+                  {`#${tag} `}
                 </span>
               ))}
             </div>
@@ -108,24 +108,13 @@ const Itinerary = (props) => {
               <div className="message">
                 <h2>Oops!</h2>
                 <h3>We are still working on this section.</h3>
-                <h4>Please come back on August 20</h4>
+                <h4>Please come back on August 30</h4>
               </div>
             </div>
           </div>
         </div>
       )}
     </article>
-    // <div className="itineraries">
-    //     <div className="nocity">
-    //         <div style={{backgroundImage: "url('/assets/under.png')", height: '30vh'}}>
-    //         </div>
-    //         <div className="message">
-    //             <h2>Oops!</h2>
-    //             <h3>We are still working on this section.</h3>
-    //             <h4>Please come back on August 20</h4>
-    //         </div>
-    //     </div>
-    // </div>
   );
 };
 export default Itinerary;

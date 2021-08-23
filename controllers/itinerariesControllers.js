@@ -9,6 +9,18 @@ const itinerariesControllers = {
       res.json({ success: false, response: "Unable to get data" });
     }
   },
+  getOneItinerary: async (req, res) => {
+    try {
+      let chosenItinerary = await Itinerary.findOne({ _id: req.params.id });
+      if (chosenItinerary) {
+        res.json({ success: true, response: chosenItinerary });
+      } else {
+        throw new Error();
+      }
+    } catch (e) {
+      res.json({ success: false, response: e.message });
+    }
+  },
   addNewItinerary: (req, res) => {
     const itinerary = new Itinerary({ ...req.body });
     try {

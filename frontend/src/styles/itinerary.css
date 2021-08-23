@@ -29,7 +29,7 @@ div.itinerary-picture {
   width: 100%;
   height: 35vh;
   background-size: cover;
-  background-position: center;
+  background-position: center 70%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -40,11 +40,12 @@ div.itinerary-picture {
 
 div.likes-container {
   align-self: flex-end;
-  background-color: red;
+  background-color: rgb(156, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1em;
+  padding: 0.5em 1em;
+  border-radius: 10px;
 }
 
 span.likes-number {
@@ -54,16 +55,6 @@ span.likes-number {
 img.heart-icon {
   width: 45px;
   margin-right: 5px;
-  animation: grande 3s linear;
-}
-
-@keyframes grande {
-  from {
-    width: 100px;
-  }
-  to {
-    width: 45px;
-  }
 }
 
 div.itinerary-body,
@@ -81,8 +72,9 @@ div.author-info {
 .itinerary-info {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  /* justify-content: space-evenly;
+  align-items: center; */
+  flex-direction: column;
 }
 
 div.author-picture {
@@ -104,6 +96,7 @@ div.price-container {
 div.icon-container,
 div.duration-container {
   display: flex;
+  align-items: center;
 }
 
 div.icon {
@@ -124,10 +117,20 @@ div.icon {
   display: none;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 1000px) {
   article.itinerary-container,
   article.itinerary-container-expanded {
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+
+div.chat-container-expanded .nocity {
+  margin: 2rem 0;
+}
+
+h2.itinerary-title {
+  font-size: 7vmin;
+  color: white;
+  text-shadow: 4px 4px 4px black;
 }

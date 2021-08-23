@@ -26,6 +26,7 @@ router
 
 router
   .route("/itinerary/:id")
+  .get(itineraryControllers.getOneItinerary)
   .delete(itineraryControllers.deleteOneItinerary)
   .put(itineraryControllers.editOneItinerary);
 

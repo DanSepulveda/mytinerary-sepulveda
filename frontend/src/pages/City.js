@@ -37,7 +37,22 @@ const City = (props) => {
       </div>
     );
   }
-  let message = <h1>No hay itinerarios</h1>;
+  let message = (
+    <div className="nocity">
+      <div
+        style={{
+          backgroundImage: "url('/assets/under.png')",
+          height: "30vh",
+        }}
+      ></div>
+      <div className="message">
+        <h2>Oops!</h2>
+        <h3>We are still working on this section.</h3>
+        <h4>Please come back on August 30</h4>
+      </div>
+    </div>
+  );
+
   return (
     <div className="cityContainer">
       <Navbar />
