@@ -48,10 +48,6 @@ const Itinerary = (props) => {
           style={{ backgroundImage: `url('${image}')` }}
         >
           <h2 className="itinerary-title">{title}</h2>
-          <div className="likes-container">
-            <img className="heart-icon" src="/assets/empty.png" />
-            <span className="likes-number">{likes}</span>
-          </div>
         </div>
         <div className="itinerary-body">
           <div className="author-info">
@@ -90,7 +86,11 @@ const Itinerary = (props) => {
               ))}
             </div>
           </div>
-          <button onClick={toogleButton}>
+          <div className="likes-container">
+            <img className="heart-icon" src="/assets/empty.png" />
+            <span className="likes-number">{likes}</span>
+          </div>
+          <button className="vm-button" onClick={toogleButton}>
             {button ? "View Less" : "View More"}
           </button>
         </div>
