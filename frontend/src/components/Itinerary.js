@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/itinerary.css";
+import "../styles/itinerary.css";
 
 const Itinerary = (props) => {
   const {
@@ -26,6 +26,7 @@ const Itinerary = (props) => {
       let rute = i <= qty ? src : src2;
       result.push(rute);
     }
+
     return result.map((icon, index) => (
       <div
         key={index}
@@ -36,29 +37,19 @@ const Itinerary = (props) => {
   };
 
   return (
-    <article
-      key={Math.random()}
-      className={
-        button ? "itinerary-container-expanded" : "itinerary-container"
-      }
-    >
+    <article key={Math.random()} className={button ? "itinerary-container-expanded" : "itinerary-container"}>
       <div className="info-container">
-        <div
-          className="itinerary-picture"
-          style={{ backgroundImage: `url('${image}')` }}
-        >
+        <div className="itinerary-picture" style={{ backgroundImage: `url('${image}')` }}>
           <h2 className="itinerary-title">{title}</h2>
         </div>
         <div className="itinerary-body">
           <div className="author-info">
-            <div
-              className="author-picture"
-              style={{ backgroundImage: `url('${user.picture}')` }}
-            ></div>
+            <div className="author-picture" style={{ backgroundImage: `url('${user.picture}')` }}></div>
             <h3>{user.name}</h3>
           </div>
           <div>
             <div className="itinerary-info">
+
               <div className="price-container">
                 <span style={{ fontSize: "1.5rem" }}>Price</span>
                 <div className="icon-container">
@@ -69,15 +60,16 @@ const Itinerary = (props) => {
                   )}
                 </div>
               </div>
+
               <div className="duration-container">
-                <div
-                  className="icon"
-                  style={{ backgroundImage: "url('/assets/clock.png')" }}
-                ></div>
+                <div className="icon" style={{ backgroundImage: "url('/assets/clock.png')" }}></div>
                 <span style={{ fontSize: "1.5rem" }}>{duration} hours.</span>
               </div>
+
             </div>
+
             <p>{description}</p>
+
             <div>
               {tags.map((tag) => (
                 <span className="tag" key={tag}>
@@ -85,11 +77,14 @@ const Itinerary = (props) => {
                 </span>
               ))}
             </div>
+
           </div>
+
           <div className="likes-container">
             <img className="heart-icon" src="/assets/empty.png" />
             <span className="likes-number">{likes}</span>
           </div>
+
           <button className="vm-button" onClick={toogleButton}>
             {button ? "View Less" : "View More"}
           </button>

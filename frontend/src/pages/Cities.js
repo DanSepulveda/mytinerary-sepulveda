@@ -1,10 +1,10 @@
 import "../styles/cities.css";
 import React, { useEffect, useState } from "react";
 
-import Navbar from "../components/header/Navbar";
-import Cardcity from "../components/main/Cardcity";
+import Navbar from "../components/Navbar";
+import Cardcity from "../components/Cardcity";
 import Footer from "../components/Footer";
-import Nocity from "../components/main/Nocity";
+import Nocity from "../components/Nocity";
 import { mensaje } from "../components/Message";
 
 import { connect } from "react-redux";
@@ -30,6 +30,7 @@ const Cities = (props) => {
       evaluateError();
     } else {
       console.log("acá NO fetcheo");
+      props.getFiltered("");
       setLoader(false);
     }
   }, []);

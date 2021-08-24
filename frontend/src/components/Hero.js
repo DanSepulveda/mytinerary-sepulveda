@@ -1,4 +1,4 @@
-import "../../styles/hero.css";
+import "../styles/hero.css";
 import Background from "./Background";
 const Hero = (props) => {
   return (

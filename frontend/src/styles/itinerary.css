@@ -19,11 +19,11 @@ article.itinerary-container-expanded {
   box-shadow: 2px 2px 5px black;
 }
 
-div.info-container {
+/* div.info-container {
   background: #ece9e6;
   background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
   background: linear-gradient(to right, #ffffff, #ece9e6);
-}
+} */
 
 div.itinerary-picture {
   width: 100%;

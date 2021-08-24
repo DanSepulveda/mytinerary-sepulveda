@@ -58,7 +58,9 @@ const Footer = () => {
               <a href="#">Home</a>
             </li>
             <li>
-              <NavLink to="/cities">Cities</NavLink>
+              <NavLink to={document.title.includes("Cities") ? "#" : "/cities"}>
+                Cities
+              </NavLink>
             </li>
           </ul>
         </div>

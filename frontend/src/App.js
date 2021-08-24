@@ -6,6 +6,7 @@ import Cities from "./pages/Cities";
 import City from "./pages/City";
 import Error404 from "./pages/404";
 import Panel from "./pages/Panel";
+import Signup from "./pages/Signup";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/cities" component={Cities} />
         <Route path="/city/:id" component={City} />
+        <Route path="/signup" component={Signup} />
         <Route path="/panel" component={Panel} />
         <Route path="/notfound" component={Error404} />
         <Redirect to="/notfound" />

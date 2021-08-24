@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/header/Navbar";
-import Itinerary from "../components/main/Itinerary";
+import Navbar from "../components/Navbar";
+import Itinerary from "../components/Itinerarycopy";
 import Footer from "../components/Footer";
 import { messageOne, msgNoExist } from "../components/Message";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ const City = (props) => {
       props.history.push("/cities");
       return false;
     }
+
     async function evaluateError() {
       try {
         props.getCity(props.match.params.id);
@@ -37,6 +38,7 @@ const City = (props) => {
       </div>
     );
   }
+
   let message = (
     <div className="nocity">
       <div

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/header/Navbar";
+import Navbar from "../components/Navbar";
 
 export default class Error404 extends React.Component {
   render() {
