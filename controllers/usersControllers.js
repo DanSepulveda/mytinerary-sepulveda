@@ -16,20 +16,20 @@ const userControllers = {
             } else {
                 throw new Error("User already exists")
             }
-        } catch {
-            res.json({ success: false })
+        } catch (e) {
+            res.json({ success: false, error: e.message })
         }
     },
-    getOneUser: async (req, res) => {
+    verifyAccess: async (req, res) => {
         const { email, password } = req.body
         try {
             let chosen = await User.findOne({ email: email })
-            if (!chosen) throw new Error()
+            if (!chosen) throw new Error("Email and/or password are incorrect.")
             let passMatch = bcryptjs.compareSync(password, chosen.password)
-            if (!passMatch) throw new Error()
+            if (!passMatch) throw new Error("Email and/or password are incorrect.")
             res.json({ success: true })
-        } catch {
-            res.json({ success: false })
+        } catch (e) {
+            res.json({ success: false, error: e.message })
         }
     }
 }

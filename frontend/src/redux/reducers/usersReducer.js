@@ -1,6 +1,7 @@
 const usersReducer = (state = { newUser: [], access: false }, action) => {
     switch (action.type) {
         case "CREATE_USER":
+            { console.log('entro al userReducer') }
             return {
                 ...state,
                 newUser: action.payload

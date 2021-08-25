@@ -3,19 +3,19 @@ import axios from 'axios'
 const userActions = {
     createUser: (user) => {
         console.log(user)
+        console.log('entro al userAction')
         return async (dispatch) => {
-            console.log('hola')
-            let response = await axios.post("http://localhost:4000/api/users", user)
+            let response = await axios.post("http://localhost:4000/api/user/signup", user)
             console.log(response)
             if (!response.data.success) {
-                throw new Error('Error')
+                throw new Error(response.data.error)
             }
             dispatch({ type: "CREATE_USER", payload: user })
         }
     },
     verifyAccess: (user) => {
         return async (dispatch) => {
-            let response = await axios.get("http://localhost:4000/api/user/:" + user.email)
+            let response = await axios.post("http://localhost:4000/api/user/login", user)
             if (!response.data.success) {
                 throw new Error()
             }

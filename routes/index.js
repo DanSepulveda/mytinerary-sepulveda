@@ -32,11 +32,11 @@ router
   .put(itineraryControllers.editOneItinerary);
 
 router
-  .route("/users")
+  .route("/user/signup")
   .post(userControllers.addNewUser)
 
 router
-  .route("/user/:id")
-  .post(userControllers.getOneUser)
+  .route("/user/login")
+  .post(userControllers.verifyAccess)
 
 module.exports = router;

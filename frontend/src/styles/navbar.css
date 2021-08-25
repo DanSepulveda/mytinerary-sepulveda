@@ -27,3 +27,18 @@ nav a:hover {
 nav img {
   width: 6vmin;
 }
+
+nav img:hover{
+  cursor: pointer;
+}
+
+div.login-box{
+  width: auto;
+  position: absolute;
+  top: 12vmin;
+  right: 2vw;
+  z-index: 3;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
