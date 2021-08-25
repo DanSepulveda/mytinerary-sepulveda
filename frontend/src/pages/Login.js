@@ -1,4 +1,4 @@
-import "../styles/signup.css"
+import "../styles/login.css"
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import Navbar from "../components/Navbar"
@@ -7,7 +7,7 @@ import { message } from "../components/Message"
 import { Link } from "react-router-dom"
 
 const Signup = (props) => {
-    const [user, setUser] = useState({ firstName: null })
+    const [user, setUser] = useState({})
 
     const inputHandler = (e) => {
         setUser({
@@ -17,10 +17,18 @@ const Signup = (props) => {
     }
 
     const verification = () => {
-        if (Object.values(user).includes("") || Object.values(user).includes(null)) {
+        if (Object.values(user).includes("") || Object.values(user).length != 2) {
             message('error', 'All fields are required')
         } else {
-            props.createUser(user)
+            async function userVerification() {
+                try {
+                    await props.verifyAccess(user)
+                    message('success', 'Logged In Successfully')
+                } catch (e) {
+                    message('error', e.message)
+                }
+            }
+            userVerification()
         }
     }
 
@@ -29,14 +37,16 @@ const Signup = (props) => {
             <Navbar />
             <main>
                 <section className="signup-container">
-                    <h1>Welcome Back!</h1>
-                    <h2>Please log in and enjoy all functionalities.</h2>
-                    <form className="input-container">
-                        <input required type="email" name="email" placeholder="Email" onChange={inputHandler} />
-                        <input required type="text" name="password" placeholder="Password" onChange={inputHandler} />
-                        <button>Log In</button>
-                        <h4>Don't you have an account yet? <Link to='/signup'>Sign Up</Link></h4>
-                    </form>
+                    <div className="form-container">
+                        <h1>Welcome Back!</h1>
+                        <h3>We're glad you are here again! Let's enjoy!</h3>
+                        <form className="input-container">
+                            <input required type="email" name="email" placeholder="Email" onChange={inputHandler} />
+                            <input required type="password" name="password" placeholder="Password" onChange={inputHandler} />
+                        </form>
+                        <button onClick={verification}>Log In</button>
+                        <p>Don't you have an account yet? <Link to='/signup'>Sign Up</Link></p>
+                    </div>
                 </section>
             </main>
         </>

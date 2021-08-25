@@ -2,11 +2,8 @@ import axios from 'axios'
 
 const userActions = {
     createUser: (user) => {
-        console.log(user)
-        console.log('entro al userAction')
         return async (dispatch) => {
             let response = await axios.post("http://localhost:4000/api/user/signup", user)
-            console.log(response)
             if (!response.data.success) {
                 throw new Error(response.data.error)
             }
@@ -15,9 +12,11 @@ const userActions = {
     },
     verifyAccess: (user) => {
         return async (dispatch) => {
+            console.log(user)
             let response = await axios.post("http://localhost:4000/api/user/login", user)
+            console.log(response)
             if (!response.data.success) {
-                throw new Error()
+                throw new Error(response.data.error)
             }
             dispatch({ type: "VERIFY_ACCESS", payload: true })
         }

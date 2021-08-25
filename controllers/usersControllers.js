@@ -21,6 +21,7 @@ const userControllers = {
         }
     },
     verifyAccess: async (req, res) => {
+        console.log('entro acá')
         const { email, password } = req.body
         try {
             let chosen = await User.findOne({ email: email })

@@ -3,6 +3,7 @@ section.signup-container{
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
     /* background: #D3CCE3; 
     background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
     background: linear-gradient(to right, #E9E4F0, #D3CCE3);  */
@@ -27,12 +28,14 @@ div.form-container h1{
     color: #973e3e;
 }
 
-div.form-container h4{
+div.form-container h3{
     margin-bottom: 5vh;
 }
 
+
+
 form.input-container{
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: column;
 }
@@ -133,15 +136,9 @@ div.benefits-container>div{
 }
 
 div.benefits-container .benefit-icon{
-    width: 15vh;
-    height: 15vh;
-    background-size: contain;
+    width: 13vh;
+    height: 13vh;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-div.description{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
 }
