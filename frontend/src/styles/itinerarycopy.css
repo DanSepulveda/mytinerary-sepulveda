@@ -156,7 +156,7 @@ div.hashtag-container{
     display: flex;
     justify-content: center;
     margin-bottom: 3vh;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 div.hashtag-container span{
     margin: 0 .5em;
@@ -177,7 +177,7 @@ div.itinerary-data{
 
 div.itinerary-card-expanded div.itinerary-data{
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
 }
 div.price-container,
 div.duration-container{
@@ -224,14 +224,14 @@ div.icon{
 div.details-container{
     animation: vanish 1s linear;
     width: 0%;
-    background-color: blue;
+    /* background-color: blue; */
     overflow: hidden;
     opacity: 0;
 }
 
 div.details-container-expanded{
     animation: appear 1s linear;
-    background-color: blue;
+    /* background-color: blue; */
     width: calc(200% / 3);
     opacity: 1;
     display: flex;

@@ -124,11 +124,11 @@ div.benefits-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 5vw;
+    padding: 0 6vw;
 }
 
 div.benefits-container>div{
-    margin: 3vh;
+    /* margin: 3vh; */
     display: flex;
 }
 
@@ -138,6 +138,7 @@ div.benefits-container .benefit-icon{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin-right: 10px;
 }
 
 div.description{

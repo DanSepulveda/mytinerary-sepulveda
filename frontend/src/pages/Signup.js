@@ -22,7 +22,6 @@ const Signup = (props) => {
             [e.target.name]: e.target.value
         })
     }
-
     const verification = () => {
         if (Object.values(user).includes("") || Object.values(user).length != 6) {
             message('error', 'All fields are required')
@@ -51,27 +50,27 @@ const Signup = (props) => {
                             <div className="row-container">
                                 <div className="col-container">
                                     <label htmlFor="firstName">First Name</label>
-                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} />
+                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} autoComplete="nope" />
                                 </div>
                                 <div className="col-container">
                                     <label htmlFor="lastName">Last Name</label>
-                                    <input id="lastName" type="text" name="lastName" onChange={inputHandler} />
+                                    <input id="lastName" type="text" name="lastName" onChange={inputHandler} autoComplete="nope" />
                                 </div>
                             </div>
                             <div className="row-container">
                                 <div className="col-container">
                                     <label htmlFor="email">Email</label>
-                                    <input id="email" type="email" name="email" onChange={inputHandler} />
+                                    <input id="email" type="email" name="email" onChange={inputHandler} autoComplete="nope" />
                                 </div>
                                 <div className="col-container">
                                     <label htmlFor="password">Password</label>
-                                    <input id="password" type="password" name="password" onChange={inputHandler} />
+                                    <input id="password" type="password" name="password" onChange={inputHandler} autoComplete="nope" />
                                 </div>
                             </div>
                             <div className="row-container">
                                 <div className="col-container">
                                     <label htmlFor="imageUrl">Image Url</label>
-                                    <input id="imageUrl" type="text" name="imageUrl" onChange={inputHandler} />
+                                    <input id="imageUrl" type="text" name="imageUrl" onChange={inputHandler} autoComplete="nope" />
                                 </div>
                                 <div className="col-container">
                                     <label htmlFor="country">Country</label>
@@ -113,7 +112,8 @@ const Signup = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        newUser: state.users.newUser
+        user: state.users.user,
+        token: state.users.token
     }
 }
 

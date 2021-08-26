@@ -8,21 +8,45 @@ import Error404 from "./pages/404";
 import Panel from "./pages/Panel";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import userActions from "./redux/actions/usersActions";
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    let token = localStorage.getItem('token')
+    let firstName = localStorage.getItem('name')
+    let imageUrl = localStorage.getItem('image')
+    if (token && firstName && imageUrl) {
+      props.logInLS({ firstName, imageUrl, token })
+    }
+  }, [])
+
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/cities" component={Cities} />
         <Route path="/city/:id" component={City} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
+        {!props.token && <Route path="/signup" component={Signup} />}
+        {!props.token && <Route path="/login" component={Login} />}
         <Route path="/panel" component={Panel} />
         <Route path="/notfound" component={Error404} />
-        <Redirect to="/notfound" />
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );
 };
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    token: state.users.token,
+
+  }
+}
+
+const mapDispatchToProps = {
+  logInLS: userActions.logInLS
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

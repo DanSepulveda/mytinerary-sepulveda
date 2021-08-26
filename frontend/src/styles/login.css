@@ -109,36 +109,3 @@ form.input-container select{
     background-color: rgba(141, 141, 141, 0.178);
 }
 
-div.row-container{
-    width: 100%;
-    display: flex;
-}
-div.row-container>div{
-    width: 50%;
-    padding: 0 1.5vw;
-}
-div.col-container{
-    display: flex;
-    flex-direction: column;
-}
-
-div.benefits-container{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 5vw;
-}
-
-div.benefits-container>div{
-    margin: 3vh;
-    display: flex;
-}
-
-div.benefits-container .benefit-icon{
-    width: 13vh;
-    height: 13vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}

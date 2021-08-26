@@ -6,19 +6,30 @@ const userActions = {
             let response = await axios.post("http://localhost:4000/api/user/signup", user)
             if (!response.data.success) {
                 throw new Error(response.data.error)
+            } else {
+                dispatch({ type: "LOG_IN_USER", payload: response.data.response })
             }
-            dispatch({ type: "CREATE_USER", payload: user })
         }
     },
     verifyAccess: (user) => {
         return async (dispatch) => {
-            console.log(user)
             let response = await axios.post("http://localhost:4000/api/user/login", user)
-            console.log(response)
             if (!response.data.success) {
                 throw new Error(response.data.error)
+            } else {
+                const { } = response.data.response
+                dispatch({ type: "LOG_IN_USER", payload: response.data.response })
             }
-            dispatch({ type: "VERIFY_ACCESS", payload: true })
+        }
+    },
+    logOut: () => {
+        return (dispatch) => {
+            dispatch({ type: "LOG_OUT", payload: null })
+        }
+    },
+    logInLS: (dataLS) => {
+        return (dispatch) => {
+            dispatch({ type: 'LOG_IN_LS', payload: dataLS })
         }
     }
 

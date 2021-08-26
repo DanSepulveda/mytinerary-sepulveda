@@ -1,15 +1,23 @@
-const usersReducer = (state = { newUser: [], access: false }, action) => {
+const usersReducer = (state = { user: null, token: null }, action) => {
     switch (action.type) {
-        case "CREATE_USER":
-            { console.log('entro al userReducer') }
+        case "LOG_IN_USER":
+            localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('name', action.payload.firstName)
+            localStorage.setItem('image', action.payload.imageUrl)
             return {
-                ...state,
-                newUser: action.payload
+                token: action.payload.token,
+                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl }
             }
-        case "VERIFY_ACCESS":
+        case "LOG_OUT":
+            localStorage.clear()
             return {
-                ...state,
-                access: action.payload
+                user: null,
+                token: null
+            }
+        case "LOG_IN_LS":
+            return {
+                token: action.payload.token,
+                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl }
             }
         default:
             return {

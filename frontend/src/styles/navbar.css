@@ -6,7 +6,7 @@ nav {
   align-items: center;
 }
 
-nav a {
+nav div.link-container a {
   color: rgb(139, 139, 139);
   font-size: 2.8vmin;
   font-weight: bold;
@@ -16,19 +16,34 @@ nav a {
   transition: all 300ms;
 }
 
-nav a.active {
+nav div.link-container a.active {
   color: white;
 }
 
-nav a:hover {
+nav div.link-container a:hover {
   color: white;
 }
 
-nav img {
-  width: 6vmin;
+div.avatar-container{
+  display: flex;
+  align-items: center;
 }
 
-nav img:hover{
+div.avatar-container > span{
+  margin-right: .8em;
+  color: white;
+}
+
+.avatar-icon {
+  width: 7vmin;
+  height: 7vmin;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+}
+
+.avatar-icon:hover{
   cursor: pointer;
 }
 
@@ -38,7 +53,37 @@ div.login-box{
   top: 12vmin;
   right: 2vw;
   z-index: 3;
-  background-color: red;
+  background-color: #ccc;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5em;
+  overflow: hidden;
+}
+
+nav div.login-box a,
+nav div.login-box span{
+  padding: .5vh 2vw;
+  text-align: center;
+  width: 100%;
+  /* background-color: rgb(163, 7, 7); */
+  background-color: rgba(0, 0, 0, 0.589);
+  color: white;
+  font-size: 2.8vmin;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 300ms;
+}
+
+nav div.login-box span{
+  cursor: pointer
+}
+
+nav div.login-box a:hover,
+nav div.login-box span:hover{
+  /* background-color: black; */
+  background-color: rgb(163, 7, 7);
+  color: white;
 }

@@ -48,10 +48,10 @@ export const mensaje = () => {
   });
 };
 
-export const message = (icon, title) => {
+export const message = (icon, title, position = 'top-end') => {
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: position,
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,

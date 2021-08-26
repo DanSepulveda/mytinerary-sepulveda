@@ -23,7 +23,7 @@ const Signup = (props) => {
             async function userVerification() {
                 try {
                     await props.verifyAccess(user)
-                    message('success', 'Logged In Successfully')
+                    message('success', 'Logged In Successfully', 'top')
                 } catch (e) {
                     message('error', e.message)
                 }
