@@ -1,4 +1,4 @@
-import "../styles/cities.css";
+import styles from "../styles/cities.module.css";
 import React, { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
@@ -21,18 +21,13 @@ const Cities = (props) => {
         await props.getCities(props.token);
         setLoader(false);
       } catch {
-        setLoader(false);
-        //borrar set loader después
-        // mensaje();
-        // props.history.push("/");
+        mensaje();
+        props.history.push("/");
       }
     }
-    console.log(props.token)
     if (!props.allCities.length) {
-      console.log("acá fetcheo");
       evaluateError();
     } else {
-      console.log("acá NO fetcheo");
       props.getFiltered("");
       setLoader(false);
     }
@@ -54,16 +49,15 @@ const Cities = (props) => {
     <Cardcity city={city} key={index} index={index} />
   ));
 
-  let message = props.token ? !props.cities.length && <Nocity /> : <iframe src="https://giphy.com/embed/MGaacoiAlAti0" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
-    ;
+  let message = !props.cities.length && <Nocity />
 
   return (
     <>
-      <header className="cities">
+      <header className={styles.cities}>
         <Navbar />
       </header>
       <div
-        className="cityHero"
+        className={styles.cityHero}
         style={{ backgroundImage: "url('/assets/banner/6.png')" }}
       >
         <h1>
@@ -75,11 +69,11 @@ const Cities = (props) => {
       <input
         type="text"
         placeholder="Choose your destination"
-        className="searcher"
+        className={styles.searcher}
         onChange={handlerCity}
       />
       {message}
-      <div className="rejilla">{result}</div>
+      <div className={styles.rejilla}>{result}</div>
       <Footer />
     </>
   );

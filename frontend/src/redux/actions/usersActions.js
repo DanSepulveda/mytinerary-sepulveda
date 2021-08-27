@@ -33,9 +33,20 @@ const userActions = {
             dispatch({ type: "LOG_OUT", payload: null })
         }
     },
-    logInLS: (dataLS) => {
-        return (dispatch) => {
-            dispatch({ type: 'LOG_IN_LS', payload: dataLS })
+    logInLS: (token) => {
+        return async (dispatch) => {
+            try {
+                let response = await axios.get('http://localhost:4000/api/verifyToken', {
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                })
+                console.log(response)
+                dispatch({ type: 'LOG_IN_LS', payload: null })
+            } catch {
+                return dispatch({ type: "LOG_OUT" })
+            }
+
         }
     }
 

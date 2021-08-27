@@ -1,4 +1,4 @@
-import "../styles/carousel.css";
+import styles from "../styles/carousel.module.css";
 import React, { useState } from "react";
 import {
   Carousel,
@@ -93,12 +93,12 @@ const Slides = (props) => {
         onExited={() => setAnimating(false)}
         key={index}
       >
-        <div className="singleSlide">
+        <div className={styles.singleSlide}>
           {item.map((slide, index) => {
             return (
               <div
                 key={slide.name}
-                className={`image image-${index}`}
+                className={`${styles.image} ${`image${index}`}`}
                 style={{ backgroundImage: `url('${slide.src}')` }}
               >
                 <span>{slide.name}</span>
@@ -112,7 +112,7 @@ const Slides = (props) => {
   });
 
   return (
-    <section className="carouselBox">
+    <section className={styles.carouselBox}>
       <h2>Popular Mytineraries</h2>
       <Carousel activeIndex={activeIndex} next={next} previous={previous}>
         <CarouselIndicators

@@ -1,4 +1,4 @@
-import "../styles/navbar.css";
+import styles from "../styles/navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
@@ -8,18 +8,11 @@ import citiesActions from "../redux/actions/citiesActions";
 const Navbar = (props) => {
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-
-  }, [open])
-
   let loginBox = open
-    ? <div className="login-box">
+    ? <div className={styles.loginBox}>
       {!props.token && <Link to="/signup">Sign Up</Link>}
       {!props.token && <Link to="/login">Log In</Link>}
-      {props.token && <span onClick={() => {
-        props.logOut()
-        props.cleanAll()
-      }}>Log Out</span>}
+      {props.token && <span onClick={props.logOut}>Log Out</span>}
     </div >
     : null
 
@@ -27,15 +20,15 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <div className="link-container">
+      <div className={styles.linkContainer}>
         <NavLink exact to="/">
           Home
         </NavLink>
         <NavLink to="/cities">Cities</NavLink>
       </div>
-      <div className="avatar-container">
+      <div className={styles.avatarContainer}>
         {props.token && <span>Welcome, {props.user.firstName}</span>}
-        <div className="avatar-icon" style={{ backgroundImage: `url(${icon})` }} onClick={() => setOpen(!open)}>
+        <div className={styles.avatarIcon} style={{ backgroundImage: `url(${icon})` }} onClick={() => setOpen(!open)}>
         </div>
         {loginBox}
       </div>
@@ -49,8 +42,7 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  logOut: userActions.logOut,
-  cleanAll: citiesActions.cleanAll
+  logOut: userActions.logOut
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

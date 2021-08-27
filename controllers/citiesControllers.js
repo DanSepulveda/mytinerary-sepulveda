@@ -2,7 +2,6 @@ const City = require("../models/City");
 
 const citiesControllers = {
   getAllCities: async (req, res) => {
-    console.log('entré al controller')
     try {
       let cities = await City.find();
       res.json({ success: true, response: cities });

@@ -1,10 +1,12 @@
-import "../styles/login.css"
+import styles from "../styles/login.module.css"
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import Navbar from "../components/Navbar"
 import usersActions from "../redux/actions/usersActions"
 import { message } from "../components/Message"
 import { Link } from "react-router-dom"
+import GoogleLogin from 'react-google-login';
+
 
 const Signup = (props) => {
     const [user, setUser] = useState({})
@@ -31,21 +33,42 @@ const Signup = (props) => {
             userVerification()
         }
     }
+    const responseGoogle = async (response) => {
+        let googleUser = {
+            email: response.profileObj.email,
+            password: response.profileObj.googleId
+        }
+
+        try {
+            await props.verifyAccess(googleUser)
+            message('success', 'Logged In Successfully', 'top')
+        } catch (e) {
+            message('error', e.message)
+        }
+
+    }
 
     return (
         <>
             <Navbar />
             <main>
-                <section className="signup-container">
-                    <div className="form-container">
+                <section className={styles.signupContainer}>
+                    <div className={styles.formContainer}>
                         <h1>Welcome Back!</h1>
                         <h3>We're glad you are here again! Let's enjoy!</h3>
-                        <form className="input-container">
+                        <form className={styles.inputContainer}>
                             <input required type="email" name="email" placeholder="Email" onChange={inputHandler} />
                             <input required type="password" name="password" placeholder="Password" onChange={inputHandler} />
                         </form>
                         <button onClick={verification}>Log In</button>
                         <p>Don't you have an account yet? <Link to='/signup'>Sign Up</Link></p>
+                        <GoogleLogin
+                            clientId="108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com"
+                            buttonText="Login With Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />,
                     </div>
                 </section>
             </main>

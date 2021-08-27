@@ -10,10 +10,8 @@ module.exports = passport.use(new jwtStrategy({
     User.findOne({ _id: payload._doc._id })
         .then((res) => {
             if (!res) {
-                console.log('if passport')
                 return done(null, false)
             } else {
-                console.log('else passport')
                 return done(null, res)
             }
         })

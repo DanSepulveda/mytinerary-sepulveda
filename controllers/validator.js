@@ -1,7 +1,6 @@
 const joi = require('joi')
 
 const validator = (req, res, next) => {
-    { console.log('entro al validator') }
     const schema = joi.object({
         firstName: joi.string().trim().min(2).max(15).required().messages({
             "string.min": "Too short. Must have 2-15 characters.",
@@ -14,9 +13,8 @@ const validator = (req, res, next) => {
         email: joi.string().trim().email().required().messages({
             "string.email": "Must be a valid email."
         }),
-        password: joi.string().trim().min(8).max(15).required().messages({
+        password: joi.string().trim().min(8).required().messages({
             "string.min": "Password must have 8-15 characters.",
-            "string.max": "Password must have 8-15 characters."
         }),
         imageUrl: joi.string().trim().required().messages({
             "string.empty": "el campo no puede estar vacío"
@@ -31,7 +29,6 @@ const validator = (req, res, next) => {
         next()
     } else {
         res.json({ success: false, errors: validation.error.details })
-        console.log("envié la info al fron")
     }
 }
 

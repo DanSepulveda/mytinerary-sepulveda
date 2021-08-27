@@ -14,19 +14,14 @@ const userControllers = {
         try {
             let chosenUser = await User.findOne({ email: email })
             if (!chosenUser) {
-                console.log('entro al if del controller')
                 await user.save()
-                console.log('guardo usuario controller')
                 const token = jwt.sign({ ...user }, process.env.SECRETKEY)
                 const { firstName, imageUrl } = user
                 res.json({ success: true, response: { firstName, imageUrl, token } })
-                console.log('mando response controller')
             } else {
-                console.log('entro al else del controller')
                 throw new Error("User already exists")
             }
         } catch (e) {
-            console.log('entro al catch del controller')
             res.json({ success: false, error: e.message })
         }
     },
@@ -43,6 +38,9 @@ const userControllers = {
         } catch (e) {
             res.json({ success: false, error: e.message })
         }
+    },
+    verifyToken: (req, res) => {
+        res.json({ success: true })
     }
 }
 

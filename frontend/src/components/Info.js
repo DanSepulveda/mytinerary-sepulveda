@@ -1,4 +1,4 @@
-import "../styles/info.css";
+import styles from "../styles/info.module.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -33,21 +33,21 @@ const Info = () => {
   }, []);
 
   return (
-    <section className="infoSection" id="info">
-      <div className="sectionTitle">
+    <section className={styles.infoSection} id="info">
+      <div className={styles.sectionTitle}>
         <h2>Why choose us</h2>
         <a href="#call">
           <img
-            className="arrow"
+            className={styles.arrow}
             src="/assets/down-white.png"
             alt="Down arrow"
           />
         </a>
       </div>
-      <div className="cardSection">
+      <div className={styles.cardSection}>
         {cards.map((card) => (
-          <div className="border" data-aos={card.aos} key={card.title}>
-            <article className="cardInfo">
+          <div className={styles.border} data-aos={card.aos} key={card.title}>
+            <article className={styles.cardInfo}>
               <img src={card.img} alt={`${card.title} Icon`} />
               <div>
                 <h2>{card.title}</h2>

@@ -1,0 +1,9 @@
+.background {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    position: absolute;
+    top: 0vh;
+    left: 0vh;
+  }

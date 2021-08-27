@@ -6,7 +6,7 @@ nav {
   align-items: center;
 }
 
-nav div.link-container a {
+nav div.linkContainer a {
   color: rgb(139, 139, 139);
   font-size: 2.8vmin;
   font-weight: bold;
@@ -16,25 +16,25 @@ nav div.link-container a {
   transition: all 300ms;
 }
 
-nav div.link-container a.active {
+nav div.linkContainer a.active {
   color: white;
 }
 
-nav div.link-container a:hover {
+nav div.linkContainer a:hover {
   color: white;
 }
 
-div.avatar-container{
+div.avatarContainer{
   display: flex;
   align-items: center;
 }
 
-div.avatar-container > span{
+div.avatarContainer > span{
   margin-right: .8em;
   color: white;
 }
 
-.avatar-icon {
+.avatarIcon {
   width: 7vmin;
   height: 7vmin;
   background-position: center;
@@ -43,11 +43,11 @@ div.avatar-container > span{
   border-radius: 100%;
 }
 
-.avatar-icon:hover{
+.avatarIcon:hover{
   cursor: pointer;
 }
 
-div.login-box{
+div.loginBox{
   width: auto;
   position: absolute;
   top: 12vmin;
@@ -62,8 +62,8 @@ div.login-box{
   overflow: hidden;
 }
 
-nav div.login-box a,
-nav div.login-box span{
+nav div.loginBox a,
+nav div.loginBox span{
   padding: .5vh 2vw;
   text-align: center;
   width: 100%;
@@ -77,12 +77,12 @@ nav div.login-box span{
   transition: all 300ms;
 }
 
-nav div.login-box span{
+nav div.loginBox span{
   cursor: pointer
 }
 
-nav div.login-box a:hover,
-nav div.login-box span:hover{
+nav div.loginBox a:hover,
+nav div.loginBox span:hover{
   /* background-color: black; */
   background-color: rgb(163, 7, 7);
   color: white;

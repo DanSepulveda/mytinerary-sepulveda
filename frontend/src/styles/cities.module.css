@@ -33,7 +33,17 @@ header.cities {
   gap: 0.5em;
 }
 
-.card-picture {
+
+
+
+
+
+
+
+
+
+
+.cardPicture {
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,12 +58,12 @@ a.cardLink {
   transition: all 500ms;
 }
 
-a.cardLink:hover .card-picture {
+a.cardLink:hover .cardPicture {
   box-shadow: 3px 3px 5px black;
   transform: scale(1.02);
 }
 
-.card-picture h1 {
+.cardPicture h1 {
   color: black;
   transition: all 500ms;
 }

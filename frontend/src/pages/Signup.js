@@ -1,4 +1,4 @@
-import "../styles/signup.css"
+import styles from "../styles/signup.module.css"
 import axios from "axios"
 import React, { useState, useEffect, useRef } from "react"
 import { message } from "../components/Message"
@@ -6,6 +6,9 @@ import { connect } from "react-redux"
 import Navbar from "../components/Navbar"
 import usersActions from "../redux/actions/usersActions"
 import { Link } from "react-router-dom"
+import GoogleLogin from 'react-google-login';
+
+// 108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com
 
 const Signup = (props) => {
     const [user, setUser] = useState({})
@@ -31,7 +34,6 @@ const Signup = (props) => {
             async function userVerification() {
                 try {
                     let response = await props.createUser(user)
-                    console.log(response)
                     if (response.data.success) {
                         alert('lala')
                         message('success', 'Acount created successfully')
@@ -53,63 +55,83 @@ const Signup = (props) => {
     }
 
     const capitalize = (e) => {
-        console.log(e)
+        console.log('hola')
         let value = e.target.value
+        console.log(value)
         if (value != '') {
+            console.log('lala')
             value = value[0].toUpperCase() + value.slice(1).toLowerCase()
+            console.log(value)
         }
     }
 
-    const cleanSpace = (e) => {
-        // if (e.which == 32) {
-        //     console.log('si')
-        //     return false
-        // }
-        if (e.keyCode === 32) {
-            e.preventDefault()
+    const responseGoogle = async (response) => {
+        let googleUser = {
+            firstName: response.profileObj.givenName,
+            lastName: response.profileObj.familyName,
+            email: response.profileObj.email,
+            password: response.profileObj.googleId,
+            imageUrl: response.profileObj.imageUrl,
+            country: "Google Land"
         }
-        // alert(e.which)
+        try {
+            let response = await props.createUser(googleUser)
+            if (response.data.success) {
+                alert('lala')
+                message('success', 'Acount created successfully')
+            } else {
+                let errorsArr = response.data.errors
+                let errorsObj = {}
+                errorsArr.map((error) => {
+                    errorsObj[error.path[0]] = error.message
+                })
+                setErrors(errorsObj)
+            }
+        } catch (e) {
+            alert('entré acá')
+            message('warning', e.message)
+        }
+        console.log(googleUser)
     }
-
     return (
         <>
             <Navbar />
             <main>
-                <section className="signup-container">
-                    <div className="form-container">
+                <section className={styles.signupContainer}>
+                    <div className={styles.formContainer}>
                         <h1>Create Account</h1>
                         <h4>Please fill in the form to get access to all the features.</h4>
-                        <form className="input-container">
-                            <div className="row-container">
-                                <div className="col-container">
+                        <form className={styles.inputContainer}>
+                            <div className={styles.rowContainer}>
+                                <div className={styles.colContainer}>
                                     <label htmlFor="firstName">First Name</label>
-                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} onBlur={capitalize} onKeyDown={cleanSpace} autoComplete="nope" />
-                                    {errors.firstName && <span className="input-error">{`⚠️${errors.firstName}`}</span>}
+                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} onBlur={(e) => capitalize(e)} autoComplete="nope" />
+                                    {errors.firstName && <span className={styles.inputError}>{`⚠️${errors.firstName}`}</span>}
                                 </div>
-                                <div className="col-container">
+                                <div className={styles.colContainer}>
                                     <label htmlFor="lastName">Last Name</label>
                                     <input id="lastName" type="text" name="lastName" onChange={inputHandler} onBlur={capitalize} autoComplete="nope" />
-                                    {errors.lastName && <span className="input-error">{`⚠️${errors.lastName}`}</span>}                                </div>
+                                    {errors.lastName && <span className={styles.inputError}>{`⚠️${errors.lastName}`}</span>}                                </div>
                             </div>
-                            <div className="row-container">
-                                <div className="col-container">
+                            <div className={styles.rowContainer}>
+                                <div className={styles.colContainer}>
                                     <label htmlFor="email">Email</label>
                                     <input id="email" type="email" name="email" onChange={inputHandler} onBlur={(e) => {
                                         e.target.value = e.target.value.toLowerCase()
                                     }} autoComplete="nope" />
-                                    {errors.email && <span className="input-error">{`⚠️${errors.email}`}</span>}
+                                    {errors.email && <span className={styles.inputError}>{`⚠️${errors.email}`}</span>}
                                 </div>
-                                <div className="col-container">
+                                <div className={styles.colContainer}>
                                     <label htmlFor="password">Password</label>
                                     <input id="password" type="password" name="password" onChange={inputHandler} autoComplete="nope" />
-                                    {errors.password && <span className="input-error">{`⚠️${errors.password}`}</span>}                                </div>
+                                    {errors.password && <span className={styles.inputError}>{`⚠️${errors.password}`}</span>}                                </div>
                             </div>
-                            <div className="row-container">
-                                <div className="col-container">
+                            <div className={styles.rowContainer}>
+                                <div className={styles.colContainer}>
                                     <label htmlFor="imageUrl">Image Url</label>
                                     <input id="imageUrl" type="text" name="imageUrl" onChange={inputHandler} autoComplete="nope" />
-                                    {errors.imageUrl && <span className="input-error">{`⚠️${errors.imageUrl}`}</span>}                                </div>
-                                <div className="col-container">
+                                    {errors.imageUrl && <span className={styles.inputError}>{`⚠️${errors.imageUrl}`}</span>}                                </div>
+                                <div className={styles.colContainer}>
                                     <label htmlFor="country">Country</label>
                                     <select id="country" required name="country" onChange={inputHandler} >
                                         <option>Choose your country</option>
@@ -121,21 +143,28 @@ const Signup = (props) => {
                         </form>
                         <button onClick={verification}>Sign Up</button>
                         <p>Do you have an account? <Link to='/login'>Log In</Link></p>
+                        <GoogleLogin
+                            clientId="108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com"
+                            buttonText="Sign Up With Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />,
                     </div>
 
-                    <div className="benefits-container">
-                        <div className="description">
-                            <div className="benefit-icon" style={{ backgroundImage: "url('/assets/like.png')" }}></div>
+                    <div className={styles.benefitsContainer}>
+                        <div className={styles.description}>
+                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/like.png')" }}></div>
                             <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
                             </p>
                         </div>
-                        <div className="description">
+                        <div className={styles.description}>
                             <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
                             </p>
-                            <div className="benefit-icon" style={{ backgroundImage: "url('/assets/comment.png')" }}></div>
+                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/comment.png')" }}></div>
                         </div>
-                        <div className="description">
-                            <div className="benefit-icon" style={{ backgroundImage: "url('/assets/create.png')" }}></div>
+                        <div className={styles.description}>
+                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/create.png')" }}></div>
                             <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
                             </p>
                         </div>

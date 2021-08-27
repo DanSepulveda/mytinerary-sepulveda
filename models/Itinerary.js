@@ -11,6 +11,7 @@ const itinerarySchema = new mongoose.Schema({
   likes: { type: Number, default: 0 },
   comments: { type: Array, default: [] },
   cityId: { type: mongoose.Types.ObjectId, ref: "city" },
+  //dar esquema a propiedad comments
 });
 
 const Itinerary = new mongoose.model("itinerary", itinerarySchema);

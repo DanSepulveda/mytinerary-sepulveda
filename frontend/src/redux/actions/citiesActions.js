@@ -3,13 +3,7 @@ import axios from "axios";
 const citiesActions = {
   getList: (token) => {
     return async (dispatch) => {
-      console.log('get list action')
-      console.log(token)
-      let response = await axios.get("http://localhost:4000/api/cities", {
-        headers: {
-          Authorization: 'Bearer ' + token
-        }
-      });
+      let response = await axios.get("http://localhost:4000/api/cities");
       if (!response.data.success) {
         throw new Error("Backend - DB Error");
       }
@@ -28,11 +22,6 @@ const citiesActions = {
       dispatch({ type: "GET_ONE_CITY", payload: id });
     };
   },
-  cleanAll: () => {
-    return (dispatch) => {
-      dispatch({ type: "CLEAN_ALL", payload: null })
-    }
-  }
 }
 
 export default citiesActions;

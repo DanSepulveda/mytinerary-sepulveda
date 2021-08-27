@@ -15,10 +15,9 @@ import userActions from "./redux/actions/usersActions";
 const App = (props) => {
   useEffect(() => {
     let token = localStorage.getItem('token')
-    let firstName = localStorage.getItem('name')
-    let imageUrl = localStorage.getItem('image')
-    if (token && firstName && imageUrl) {
-      props.logInLS({ firstName, imageUrl, token })
+    if (!token) {
+      console.log('entre')
+      props.logInLS(token)
     }
   }, [])
 

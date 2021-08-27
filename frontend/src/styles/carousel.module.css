@@ -83,19 +83,19 @@ section.carouselBox {
     margin-top: 5vh;
     margin-bottom: 10vh;
   }
-  .image-0 {
+  .image0 {
     grid-column: 1;
     grid-row: 1;
   }
-  .image-1 {
+  .image1 {
     grid-column: 2;
     grid-row: 1;
   }
-  .image-2 {
+  .image2 {
     grid-column: 1;
     grid-row: 2;
   }
-  .image-3 {
+  .image3 {
     grid-column: 2;
     grid-row: 2;
   }
@@ -114,19 +114,19 @@ section.carouselBox {
   .carouselBox h2 {
     margin-bottom: 0;
   }
-  .image-0 {
+  .image0 {
     grid-column: 1;
     grid-row: 1;
   }
-  .image-1 {
+  .image1 {
     grid-column: 1;
     grid-row: 2;
   }
-  .image-2 {
+  .image2 {
     grid-column: 1;
     grid-row: 3;
   }
-  .image-3 {
+  .image3 {
     grid-column: 1;
     grid-row: 4;
   }

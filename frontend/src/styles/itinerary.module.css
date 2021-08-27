@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,900;1,900&family=Roboto:ital,wght@0,400;0,700;0,900;1,700&display=swap');
 
 
-article.itinerary-container{
+article.itineraryContainer{
     width: 100%;
     min-height: 95vh;
     margin-bottom: 3vh;
@@ -12,7 +12,7 @@ article.itinerary-container{
     box-shadow: 2px 2px 10px 2px black;
 }
 
-div.itinerary-card{
+div.itineraryCard{
     animation: increase 1s ease-in-out;
     width: 100%;
     opacity: 1;
@@ -27,7 +27,7 @@ div.itinerary-card{
     }
 }
 
-div.itinerary-resume{
+div.itineraryResume{
     width: 100%;
     height: 100%;
     display: flex;
@@ -37,7 +37,7 @@ div.itinerary-resume{
     background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
     background: linear-gradient(to right, #ffffff, #ece9e6);
 }
-div.itinerary-picture{
+div.itineraryPicture{
     width: 100%;
     height: 35vh;
     background-position: center;
@@ -48,7 +48,7 @@ div.itinerary-picture{
     align-items: center;
     justify-content: space-between;
 }
-h2.itinerary-title{
+h2.itineraryTitle{
     padding: .2em 1em;
     padding-top: .5em;
     font-weight: bold;
@@ -60,7 +60,7 @@ h2.itinerary-title{
     font-family: 'Roboto', cursive;
 }
 
-div.likes-container{
+div.likesContainer{
     align-self: flex-end;
     margin-right: 3em;
     position: relative;
@@ -76,19 +76,19 @@ div.likes-container{
     align-items: center;
 }
 
-div.itinerary-card-expanded div.likes-container{
+div.itineraryCardExpanded div.likesContainer{
     margin-right: 1em;
 }
 
-div.itinerary-card-expanded div.itinerary-information{
+div.itineraryCardExpanded div.itineraryInformation{
     padding: 0 2em;
 }
 
-img.heart-icon{
+img.heartIcon{
     height: 30px;
     margin-right: 5px;
 }
-span.likes-number{
+span.likesNumber{
     color: white;
     font-size: 1.7em;
 }
@@ -106,7 +106,7 @@ h3{
     -webkit-text-fill-color: transparent;
 }
 
-div.itinerary-card-expanded{
+div.itineraryCardExpanded{
     animation: decrease 1s ease-in-out;
     width: calc(100% / 3);
     background: #ece9e6;
@@ -124,7 +124,7 @@ div.itinerary-card-expanded{
     }
 }
 
-div.itinerary-card-expanded div.itinerary-information{
+div.itineraryCardExpanded div.itineraryInformation{
     width: 100%;
     padding: 0 1em;
     display: flex;
@@ -135,7 +135,7 @@ div.itinerary-card-expanded div.itinerary-information{
     /* background-color: blue; */
 }
 
-div.itinerary-information{
+div.itineraryInformation{
     width: 50%;
     padding: 0 40px;
     display: flex;
@@ -146,52 +146,52 @@ div.itinerary-information{
     /* background-color: blue; */
 }
 
-div.author-info{
+div.authorInfo{
     display: flex;
     flex-direction: column;
     align-items: center;
     /* background-color: red; */
 }
-div.author-picture{
+div.authorPicture{
     width: 120px;
     height: 120px;
     background-size: cover;
     border-radius: 100%;
     box-shadow: 2px -2px 2px 1px rgba(0, 0, 0, 0.2) inset, -2px 2px 2px 1px rgba(0, 0, 0, 0.2) inset;
 }
-div.hashtag-container{
+div.hashtagContainer{
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 3vh;
     /* background-color: yellow; */
 }
-div.hashtag-container span{
+div.hashtagContainer span{
     margin: 0 .5em;
 }
 p.description{
     text-align: center;
 }
-div.itinerary-data,
-div.price-container,
-div.duration-container,
-div.icon-container{
+div.itineraryData,
+div.priceContainer,
+div.durationContainer,
+div.iconContainer{
     display: flex;
 }
-div.itinerary-data{
+div.itineraryData{
     width: 80%;
     justify-content: space-between;
 }
 
-div.itinerary-card-expanded div.itinerary-data{
+div.itineraryCardExpanded div.itineraryData{
     width: 100%;
     /* background-color: red; */
 }
-div.price-container,
-div.duration-container{
+div.priceContainer,
+div.durationContainer{
     align-items: center;
 }
-div.icon-container{
+div.iconContainer{
     margin-left: 5px;
 }
 div.icon{
@@ -203,7 +203,7 @@ div.icon{
     margin-right: 2px;
 }
 
-.button-62 {
+.button62 {
   margin-top: 4vh;
   background: linear-gradient(to bottom right, #c45353, #973e3e);
   border: 0;
@@ -217,10 +217,10 @@ div.icon{
   text-decoration: none;
   transition: box-shadow  1s ease-in-out;
 }
-.button-62:not([disabled]):focus {
+.button62:not([disabled]):focus {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
-.button-62:not([disabled]):hover {
+.button62:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
@@ -229,7 +229,7 @@ div.icon{
 
 
 
-div.details-container{
+div.detailsContainer{
     animation: vanish 1s linear;
     width: 0%;
     /* background-color: blue; */
@@ -237,7 +237,7 @@ div.details-container{
     opacity: 0;
 }
 
-div.details-container-expanded{
+div.detailsContainerExpanded{
     animation: appear 1s linear;
     /* background-color: blue; */
     width: calc(200% / 3);
@@ -247,13 +247,13 @@ div.details-container-expanded{
     align-items: center;
 }
 
-div.activities-container{
+div.activitiesContainer{
     width: 50%;
     background-color: yellow;
     display: none;
 }
 
-div.chat-container{
+div.chatContainer{
     width: 50%;
     background-color: salmon;
     display: none;
@@ -278,28 +278,28 @@ div.chat-container{
 }
 
 @media (max-width: 1150px) {
-    article.itinerary-container{
+    article.itineraryContainer{
         display: flex;
         flex-direction: column;
         min-height: auto;
     }
-    div.itinerary-card-expanded{
+    div.itineraryCardExpanded{
         width: 100%;
     }
-    div.details-container{
+    div.detailsContainer{
         display: none;
     }
-    div.details-container-expanded{
+    div.detailsContainerExpanded{
         width: 100%;
     }
 }
 
 @media (max-width: 880px) {
-    div.details-container-expanded{
+    div.detailsContainerExpanded{
         flex-direction: column;
     }
-    div.activities-container,
-    div.chat-container{
+    div.activitiesContainer,
+    div.chatContainer{
         width: 100%;
     }
 }

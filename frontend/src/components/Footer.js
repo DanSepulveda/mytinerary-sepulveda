@@ -1,35 +1,35 @@
-import "../styles/footer.css";
+import styles from "../styles/footer.module.css";
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer>
-      <div className="sections-container">
-        <div className="section section-first">
+      <div className={styles.sectionsContainer}>
+        <div className={`${styles.section} ${styles.sectionFirst}`}>
           <h4>
             Contact
             <br />
             Information
           </h4>
           <p>Please feel free to contact us through ant of our social media.</p>
-          <div className="social-container">
+          <div className={styles.socialContainer}>
             <a rel="noreferrer" href="https://www.whatsapp.com" target="_blank">
               <img
-                className="social-icon"
+                className={styles.socialIcon}
                 src="/assets/whatsapp.png"
                 alt="Whatsapp Icon"
               />
             </a>
             <a rel="noreferrer" href="https://www.facebook.com" target="_blank">
               <img
-                className="social-icon"
+                className={styles.socialIcon}
                 src="/assets/facebook.png"
                 alt="Facebook Icon"
               />
             </a>
             <a rel="noreferrer" href="https://www.twitter.com" target="_blank">
               <img
-                className="social-icon"
+                className={styles.socialIcon}
                 src="/assets/twitter.png"
                 alt="Twitter Icon"
               />
@@ -40,14 +40,14 @@ const Footer = () => {
               target="_blank"
             >
               <img
-                className="social-icon"
+                className={styles.socialIcon}
                 src="/assets/instagram.png"
                 alt="Instagram Icon"
               />
             </a>
           </div>
         </div>
-        <div className="section section-second">
+        <div className={`${styles.section} ${styles.sectionSecond}`}>
           <h4>
             Navegation
             <br />
@@ -65,11 +65,11 @@ const Footer = () => {
           </ul>
         </div>
         <div
-          className="section section-third"
+          className={`${styles.section} ${styles.sectionThird}`}
           style={{ backgroundImage: "url('/assets/logo.png')" }}
         ></div>
       </div>
-      <div className="after-footer">
+      <div className={styles.afterFooter}>
         <span>Made by Daniel Sepúlveda | &copy; All Rights Reserved</span>
       </div>
     </footer>

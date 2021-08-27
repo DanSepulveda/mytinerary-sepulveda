@@ -9,7 +9,7 @@ const router = express.Router();
 
 router
   .route("/cities")
-  .get(passport.authenticate('jwt', { session: false }), citiesControllers.getAllCities)
+  .get(citiesControllers.getAllCities)
   .post(citiesControllers.addNewCity);
 
 router
@@ -40,6 +40,9 @@ router
 router
   .route("/user/login")
   .post(userControllers.verifyAccess)
+
+router.route("/verifyToken")
+  .get(passport.authenticate('jwt', { session: false }), userControllers.verifyToken)
 
 module.exports = router;
 

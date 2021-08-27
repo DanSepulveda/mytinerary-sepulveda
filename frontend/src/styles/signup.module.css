@@ -1,9 +1,8 @@
-section.signup-container{
+.signupContainer{
     flex: 1;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     /* background: #D3CCE3; 
     background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
     background: linear-gradient(to right, #E9E4F0, #D3CCE3);  */
@@ -13,7 +12,7 @@ section.signup-container{
 }
     
 
-div.form-container{
+div.formContainer{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -21,27 +20,25 @@ div.form-container{
     justify-content: center;
 }
 
-div.form-container h1{
+div.formContainer h1{
     text-align: center;
     font-size: 10vmin;
     font-weight: bold;
     color: #973e3e;
 }
 
-div.form-container h3{
+div.formContainer h4{
     margin-bottom: 5vh;
 }
 
-
-
-form.input-container{
-    width: 80%;
+form.inputContainer{
+    width: 60%;
     display: flex;
     flex-direction: column;
 }
 
-form.input-container input,
-form.input-container select{
+form.inputContainer input,
+form.inputContainer select{
     margin: .7vh 0;
     border-radius: 20px;
     padding: .3em 1em;
@@ -54,17 +51,13 @@ form.input-container select{
     transition: all 300ms;
     color: #444;
 }
-form.input-container input:hover{
-    /* box-shadow: 0px 1px 2px red; */
-    /* box-shadow: 1px 0 1px rgb(163, 0, 0); */
-    transform: scale(1.02);
-}
 
-form.input-container input:focus {
+
+form.inputContainer input:focus {
     border-bottom: 1px solid rgb(163, 0, 0);
 }
 
-form.input-container label{
+form.inputContainer label{
     position: relative;
     top: 8px;
     left: 10px;
@@ -90,15 +83,15 @@ button{
     transition: box-shadow  1s ease-in-out;
 }
 
-form.input-container button:not([disabled]):focus {
+form.inputContainer button:not([disabled]):focus {
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
-  form.input-container button:not([disabled]):hover {
+  form.inputContainer button:not([disabled]):hover {
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
-form.input-container input,
-form.input-container select{
+form.inputContainer input,
+form.inputContainer select{
     margin: .7vh 0;
     border-radius: 0;
     padding: .3em 1em;
@@ -109,3 +102,61 @@ form.input-container select{
     background-color: rgba(141, 141, 141, 0.178);
 }
 
+span.inputError{
+    color: red;
+    font-size: .8em;
+    margin-left: 7px;
+    margin-top: 0px;
+    animation: appear 500ms linear;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+
+div.rowContainer{
+    width: 100%;
+    display: flex;
+}
+div.rowContainer>div{
+    width: 50%;
+    padding: 0 1.5vw;
+}
+div.colContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+div.benefitsContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6vw;
+}
+
+div.benefitsContainer>div{
+    /* margin: 3vh; */
+    display: flex;
+}
+
+div.benefitsContainer .benefitIcon{
+    width: 15vh;
+    height: 15vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+div.description{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

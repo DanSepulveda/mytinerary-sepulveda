@@ -1,5 +1,6 @@
-import "../styles/hero.css";
-import Background from "./Background";
+import "../styles/hero.css"
+import Background from "./Background"
+
 const Hero = (props) => {
   return (
     <div className="hero">
@@ -17,6 +18,6 @@ const Hero = (props) => {
         <img className="arrow" src="/assets/down.png" alt="Down arrow" />
       </a>
     </div>
-  );
-};
-export default Hero;
+  )
+}
+export default Hero
