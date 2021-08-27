@@ -54,7 +54,7 @@ const Cities = (props) => {
     <Cardcity city={city} key={index} index={index} />
   ));
 
-  let message = props.token ? !props.cities.length && <Nocity /> : <iframe src="https://giphy.com/embed/MGaacoiAlAti0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  let message = props.token ? !props.cities.length && <Nocity /> : <iframe src="https://giphy.com/embed/MGaacoiAlAti0" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
     ;
 
   return (

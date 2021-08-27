@@ -4,10 +4,15 @@ const userActions = {
     createUser: (user) => {
         return async (dispatch) => {
             let response = await axios.post("http://localhost:4000/api/user/signup", user)
+            console.log('recibo response en action')
+            console.log(response)
             if (!response.data.success) {
+                console.log('entré a esta parte')
                 return response
             } else {
+                console.log('despacho la accion')
                 dispatch({ type: "LOG_IN_USER", payload: response.data.response })
+                return response
             }
         }
     },

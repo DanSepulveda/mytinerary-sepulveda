@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 const Signup = (props) => {
     const [user, setUser] = useState({})
     const [countries, setCountries] = useState([])
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState({})
 
 
     useEffect(() => {
@@ -31,23 +31,20 @@ const Signup = (props) => {
             async function userVerification() {
                 try {
                     let response = await props.createUser(user)
-                    if (response.data.response) {
+                    console.log(response)
+                    if (response.data.success) {
+                        alert('lala')
                         message('success', 'Acount created successfully')
                     } else {
                         let errorsArr = response.data.errors
                         let errorsObj = {}
-                        // console.log(errorsArr)
-                        for (const error in errorsArr) {
-                            console.log(error)
-                            errorsObj[error.path[0]] = error.message;
-                        }
-                        console.log('hola')
-                        console.log(errorsObj)
-                        // setErrors(response.data.errors)
-                        // let errors = response.data.errors
-                        // console.log(errors)
+                        errorsArr.map((error) => {
+                            errorsObj[error.path[0]] = error.message
+                        })
+                        setErrors(errorsObj)
                     }
                 } catch (e) {
+                    alert('entré acá')
                     message('warning', e.message)
                 }
             }
@@ -56,9 +53,23 @@ const Signup = (props) => {
     }
 
     const capitalize = (e) => {
-        e.target.value = e.target.value[0].toUpperCase() + e.target.value.slice(1).toLowerCase()
+        console.log(e)
+        let value = e.target.value
+        if (value != '') {
+            value = value[0].toUpperCase() + value.slice(1).toLowerCase()
+        }
     }
-    console.log(errors)
+
+    const cleanSpace = (e) => {
+        // if (e.which == 32) {
+        //     console.log('si')
+        //     return false
+        // }
+        if (e.keyCode === 32) {
+            e.preventDefault()
+        }
+        // alert(e.which)
+    }
 
     return (
         <>
@@ -72,14 +83,13 @@ const Signup = (props) => {
                             <div className="row-container">
                                 <div className="col-container">
                                     <label htmlFor="firstName">First Name</label>
-                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} onBlur={capitalize} autoComplete="nope" />
-                                    {/* {errors[0] && <span className="input-error">{`🔥${errors[0].message}`}</span>} */}
+                                    <input id="firstName" type="text" name="firstName" onChange={inputHandler} onBlur={capitalize} onKeyDown={cleanSpace} autoComplete="nope" />
+                                    {errors.firstName && <span className="input-error">{`⚠️${errors.firstName}`}</span>}
                                 </div>
                                 <div className="col-container">
                                     <label htmlFor="lastName">Last Name</label>
                                     <input id="lastName" type="text" name="lastName" onChange={inputHandler} onBlur={capitalize} autoComplete="nope" />
-                                    {/* {errors[1] && <span className="input-error">{`🔥${errors[1].message}`}</span>} */}
-                                </div>
+                                    {errors.lastName && <span className="input-error">{`⚠️${errors.lastName}`}</span>}                                </div>
                             </div>
                             <div className="row-container">
                                 <div className="col-container">
@@ -87,24 +97,22 @@ const Signup = (props) => {
                                     <input id="email" type="email" name="email" onChange={inputHandler} onBlur={(e) => {
                                         e.target.value = e.target.value.toLowerCase()
                                     }} autoComplete="nope" />
-                                    {/* {errors[2] && <span className="input-error">{`🔥${errors[2].message}`}</span>} */}
+                                    {errors.email && <span className="input-error">{`⚠️${errors.email}`}</span>}
                                 </div>
                                 <div className="col-container">
                                     <label htmlFor="password">Password</label>
                                     <input id="password" type="password" name="password" onChange={inputHandler} autoComplete="nope" />
-                                    {/* {errors[3] && <span className="input-error">{`🔥${errors[3].message}`}</span>} */}
-                                </div>
+                                    {errors.password && <span className="input-error">{`⚠️${errors.password}`}</span>}                                </div>
                             </div>
                             <div className="row-container">
                                 <div className="col-container">
                                     <label htmlFor="imageUrl">Image Url</label>
                                     <input id="imageUrl" type="text" name="imageUrl" onChange={inputHandler} autoComplete="nope" />
-                                    {/* {errors[4] && <span className="input-error">{`🔥${errors[4].message}`}</span>} */}
-                                </div>
+                                    {errors.imageUrl && <span className="input-error">{`⚠️${errors.imageUrl}`}</span>}                                </div>
                                 <div className="col-container">
                                     <label htmlFor="country">Country</label>
                                     <select id="country" required name="country" onChange={inputHandler} >
-                                        <option disabled >Choose your country</option>
+                                        <option>Choose your country</option>
                                         {countries.map(country => <option value={country.name} key={country.name}>{country.name}</option>
                                         )}
                                     </select>
