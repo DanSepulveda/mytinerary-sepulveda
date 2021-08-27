@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import userActions from "../redux/actions/usersActions";
+import citiesActions from "../redux/actions/citiesActions";
 
 const Navbar = (props) => {
   const [open, setOpen] = useState(false)
@@ -15,8 +16,11 @@ const Navbar = (props) => {
     ? <div className="login-box">
       {!props.token && <Link to="/signup">Sign Up</Link>}
       {!props.token && <Link to="/login">Log In</Link>}
-      {props.token && <span onClick={props.logOut}>Log Out</span>}
-    </div>
+      {props.token && <span onClick={() => {
+        props.logOut()
+        props.cleanAll()
+      }}>Log Out</span>}
+    </div >
     : null
 
   let icon = props.token ? `${props.user.imageUrl}` : "/assets/avatar.png"
@@ -45,7 +49,8 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  logOut: userActions.logOut
+  logOut: userActions.logOut,
+  cleanAll: citiesActions.cleanAll
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

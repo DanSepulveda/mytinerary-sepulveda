@@ -2,12 +2,14 @@ const express = require("express");
 const citiesControllers = require("../controllers/citiesControllers");
 const itineraryControllers = require("../controllers/itinerariesControllers");
 const userControllers = require("../controllers/usersControllers")
+const passport = require("passport")
+const validator = require('../controllers/validator')
 
 const router = express.Router();
 
 router
   .route("/cities")
-  .get(citiesControllers.getAllCities)
+  .get(passport.authenticate('jwt', { session: false }), citiesControllers.getAllCities)
   .post(citiesControllers.addNewCity);
 
 router
@@ -33,10 +35,12 @@ router
 
 router
   .route("/user/signup")
-  .post(userControllers.addNewUser)
+  .post(validator, userControllers.addNewUser)
 
 router
   .route("/user/login")
   .post(userControllers.verifyAccess)
 
 module.exports = router;
+
+// passport.authenticate('jwt', { session: false })

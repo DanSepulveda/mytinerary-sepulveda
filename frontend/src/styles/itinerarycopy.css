@@ -76,6 +76,14 @@ div.likes-container{
     align-items: center;
 }
 
+div.itinerary-card-expanded div.likes-container{
+    margin-right: 1em;
+}
+
+div.itinerary-card-expanded div.itinerary-information{
+    padding: 0 2em;
+}
+
 img.heart-icon{
     height: 30px;
     margin-right: 5px;

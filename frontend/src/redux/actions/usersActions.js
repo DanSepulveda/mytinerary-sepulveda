@@ -5,7 +5,7 @@ const userActions = {
         return async (dispatch) => {
             let response = await axios.post("http://localhost:4000/api/user/signup", user)
             if (!response.data.success) {
-                throw new Error(response.data.error)
+                return response
             } else {
                 dispatch({ type: "LOG_IN_USER", payload: response.data.response })
             }
@@ -23,6 +23,7 @@ const userActions = {
         }
     },
     logOut: () => {
+        console.log('entro al logout')
         return (dispatch) => {
             dispatch({ type: "LOG_OUT", payload: null })
         }

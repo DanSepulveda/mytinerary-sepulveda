@@ -24,6 +24,13 @@ const citiesReducer = (
         ...state,
         chosenCity: chosen,
       };
+    //después borrar esto
+    case "CLEAN_ALL":
+      return {
+        allCities: [],
+        filteredCities: [],
+        chosenCity: {}
+      }
     default:
       return state;
   }

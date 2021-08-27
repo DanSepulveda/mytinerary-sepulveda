@@ -1,14 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const passport = require('passport')
 const router = require("./routes/index");
 require("dotenv").config();
 require("./config/database");
+require("./config/passport")
 
 const app = express();
 
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
+
 
 app.use("/api", router);
 

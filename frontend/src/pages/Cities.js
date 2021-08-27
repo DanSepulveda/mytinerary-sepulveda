@@ -18,13 +18,16 @@ const Cities = (props) => {
     window.scrollTo(0, 0);
     async function evaluateError() {
       try {
-        await props.getCities();
+        await props.getCities(props.token);
         setLoader(false);
       } catch {
-        mensaje();
-        props.history.push("/");
+        setLoader(false);
+        //borrar set loader después
+        // mensaje();
+        // props.history.push("/");
       }
     }
+    console.log(props.token)
     if (!props.allCities.length) {
       console.log("acá fetcheo");
       evaluateError();
@@ -33,7 +36,7 @@ const Cities = (props) => {
       props.getFiltered("");
       setLoader(false);
     }
-  }, []);
+  }, [props.token]);
 
   const handlerCity = (e) => {
     props.getFiltered(e.target.value);
@@ -51,7 +54,8 @@ const Cities = (props) => {
     <Cardcity city={city} key={index} index={index} />
   ));
 
-  let message = !props.cities.length && <Nocity />;
+  let message = props.token ? !props.cities.length && <Nocity /> : <iframe src="https://giphy.com/embed/MGaacoiAlAti0" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    ;
 
   return (
     <>
@@ -85,6 +89,7 @@ const mapStateToProps = (state) => {
   return {
     allCities: state.cities.allCities,
     cities: state.cities.filteredCities,
+    token: state.users.token
   };
 };
 const mapDispatchToProps = {
