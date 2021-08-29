@@ -1,5 +1,9 @@
 import styles from "../styles/itinerary.module.css"
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import itinerariesActions from "../redux/actions/itinerariesActions";
+import Activity from "./Activity"
+import Chat from "./Chat"
 
 
 const Itinerary = (props) => {
@@ -29,9 +33,33 @@ const Itinerary = (props) => {
   } = props.itinerary;
 
   const [button, setButton] = useState(false);
+  const [activities, setActivities] = useState([])
+
+  const requestActivities = async () => {
+    try {
+      console.log('gjkjdksahfhdsajdhgfjds')
+      let response = await props.getActivities(props.itinerary._id)
+      console.log(response)
+      if (response.data.success) {
+        setActivities(response.data.response)
+
+      } else {
+        console.log('error')
+        //no hay ciudades para mostrar
+      }
+    } catch (e) {
+      console.log('catch')
+      //no se puede hacer fetch
+    }
+  }
+  console.log(activities)
 
   const toogleButton = () => {
     setButton(!button);
+    if (!button && !activities.length) {
+      console.log('fetcheo')
+      requestActivities()
+    }
   };
 
   const generateIcon = (qty, src, src2) => {
@@ -104,7 +132,7 @@ const Itinerary = (props) => {
       </div>
 
       <div className={!button ? `${styles.detailsContainer}` : `${styles.detailsContainerExpanded}`}>
-        <div className={styles.nocity}>
+        {/* <div className={styles.nocity}>
           <div
             style={{
               backgroundImage: "url('/assets/under.png')",
@@ -116,13 +144,13 @@ const Itinerary = (props) => {
             <h3>We are still working on this section.</h3>
             <h4>Please come back on August 30</h4>
           </div>
-        </div>
+        </div> */}
         <div className={styles.activitiesContainer}>
-          <p>Acá van las activities</p>
+          {activities.map((activity) => <Activity activity={activity} />)}
         </div>
 
         <div className={styles.chatContainer}>
-          <p>Acá va a ir el chat</p>
+          <Chat comments={props.itinerary.comments} />
         </div>
       </div>
 
@@ -130,4 +158,14 @@ const Itinerary = (props) => {
     </article>
   );
 };
-export default Itinerary;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = {
+  getActivities: itinerariesActions.getActivities
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary)

@@ -57,6 +57,29 @@ const itinerariesControllers = {
       res.json({ success: false });
     }
   },
+  addComment: async (req, res) => {
+    console.log(req.body)
+    const { userName, comment, userId } = req.body
+    try {
+      await Itinerary.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { "comments": { userName, comment, userId } } }
+      )
+      res.json({ success: true })
+      // let itinerary = await Itinerary.findOne({ _id: req.body.id })
+      // console.log(itinerary.comments)
+      // itinerary.comments.push({ ...req.body })
+      // res.json({ success: true, response: itinerary.comments })
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  // editComment: (req, res) => {
+
+  // },
+  // deleteComment: (req, res) => {
+
+  // }
 };
 
 module.exports = itinerariesControllers;

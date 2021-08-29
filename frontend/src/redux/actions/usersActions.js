@@ -36,14 +36,16 @@ const userActions = {
     logInLS: (token) => {
         return async (dispatch) => {
             try {
+                console.log('action')
                 let response = await axios.get('http://localhost:4000/api/verifyToken', {
                     headers: {
                         Authorization: 'Bearer ' + token
                     }
                 })
-                console.log(response)
-                dispatch({ type: 'LOG_IN_LS', payload: null })
-            } catch {
+                response.data.response.token = token
+                console.log(response.data.response)
+                dispatch({ type: 'LOG_IN_USER', payload: response.data.response })
+            } catch (e) {
                 return dispatch({ type: "LOG_OUT" })
             }
 

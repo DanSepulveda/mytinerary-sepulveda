@@ -1,21 +1,21 @@
 import styles from "../styles/signup.module.css"
-import axios from "axios"
-import React, { useState, useEffect, useRef } from "react"
+
 import { message } from "../components/Message"
-import { connect } from "react-redux"
 import Navbar from "../components/Navbar"
-import usersActions from "../redux/actions/usersActions"
+
+import axios from "axios"
+import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import GoogleLogin from 'react-google-login';
-
-// 108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com
+import React, { useState, useEffect } from "react"
+import usersActions from "../redux/actions/usersActions"
 
 const Signup = (props) => {
     const [user, setUser] = useState({})
     const [countries, setCountries] = useState([])
     const [errors, setErrors] = useState({})
 
-
+    //verificar si esto debe ser hecho a través de un action
     useEffect(() => {
         axios.get("https://restcountries.eu/rest/v2/all?fields=name")
             .then(response => setCountries(response.data))
@@ -27,6 +27,7 @@ const Signup = (props) => {
             [e.target.name]: e.target.value
         })
     }
+
     const verification = () => {
         if (Object.values(user).includes("") || Object.values(user).length != 6) {
             message('error', 'All fields are required')
@@ -93,6 +94,7 @@ const Signup = (props) => {
         }
         console.log(googleUser)
     }
+
     return (
         <>
             <Navbar />

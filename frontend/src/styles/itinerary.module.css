@@ -107,6 +107,7 @@ h3{
 }
 
 div.itineraryCardExpanded{
+    box-shadow: 1px 0 10px black;
     animation: decrease 1s ease-in-out;
     width: calc(100% / 3);
     background: #ece9e6;
@@ -249,15 +250,26 @@ div.detailsContainerExpanded{
 
 div.activitiesContainer{
     width: 50%;
-    background-color: yellow;
-    display: none;
+    height: 90%;
+    /* background-color: yellow; */
+    padding: 0 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* display: none; */
 }
 
 div.chatContainer{
     width: 50%;
+    height: 100%;
+    padding-right: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: salmon;
-    display: none;
+    /* display: none; */
 }
+
 
 @keyframes appear {
     from{

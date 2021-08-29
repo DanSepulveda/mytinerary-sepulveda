@@ -3,15 +3,11 @@
     width: 100%;
     height: 100%;
     display: flex;
-    /* background: #D3CCE3; 
-    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
-    background: linear-gradient(to right, #E9E4F0, #D3CCE3);  */
     background: #ece9e6;
     background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
     background: linear-gradient(to right, #ffffff, #ece9e6);
 }
     
-
 div.formContainer{
     width: 50%;
     display: flex;
