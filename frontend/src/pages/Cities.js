@@ -1,37 +1,39 @@
 import styles from "../styles/cities.module.css";
-import React, { useEffect, useState } from "react";
 
+import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import Cardcity from "../components/Cardcity";
-import Footer from "../components/Footer";
 import Nocity from "../components/Nocity";
-import { mensaje } from "../components/Message";
+import { problemMessage } from "../components/Message";
+import Footer from "../components/Footer";
 
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 
 const Cities = (props) => {
-  document.title = "MyTinerary - Cities";
+  document.title = "Cities - MyTinerary";
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     async function evaluateError() {
       try {
-        await props.getCities(props.token);
+        await props.getCities();
         setLoader(false);
       } catch {
-        mensaje();
+        problemMessage();
         props.history.push("/");
       }
     }
+
     if (!props.allCities.length) {
       evaluateError();
     } else {
       props.getFiltered("");
       setLoader(false);
     }
-  }, [props.token]);
+  }, []);
 
   const handlerCity = (e) => {
     props.getFiltered(e.target.value);
@@ -39,9 +41,7 @@ const Cities = (props) => {
 
   if (loader) {
     return (
-      <div className="loader">
-        <img src="/assets/loader.gif" />
-      </div>
+      <Loader />
     );
   }
 
@@ -73,7 +73,7 @@ const Cities = (props) => {
         onChange={handlerCity}
       />
       {message}
-      <div className={styles.rejilla}>{result}</div>
+      <div className={styles.gallery}>{result}</div>
       <Footer />
     </>
   );

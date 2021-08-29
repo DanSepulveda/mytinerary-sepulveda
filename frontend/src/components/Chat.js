@@ -5,8 +5,12 @@ const Chat = (props) => {
         <div className={styles.chatBox}>
             <h2>Comments</h2>
             {comments.map((comment) => {
+                console.log(comment)
                 return (
-                    <h3>hola</h3>
+                    <div key={comment._id}>
+                        <h3>{comment.userName}</h3>
+                        <p>{comment.comment}</p>
+                    </div>
                 )
             })}
             <div></div>

@@ -95,7 +95,7 @@ span.likesNumber{
 
 
 
-h3{
+div.authorPicture h3{ 
     font-family: 'Nunito', monospace;
     font-weight: 900;
     background: #B80000;

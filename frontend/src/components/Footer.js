@@ -1,5 +1,5 @@
 import styles from "../styles/footer.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -55,12 +55,16 @@ const Footer = () => {
           </h4>
           <ul>
             <li>
-              <a href="#">Home</a>
+              {document.title.includes('Find')
+                ? <a href="#">Home</a>
+                : <Link to="/">Home</Link>
+              }
             </li>
             <li>
-              <NavLink to={document.title.includes("Cities") ? "#" : "/cities"}>
-                Cities
-              </NavLink>
+              {document.title.includes('Cities')
+                ? <a href="#">Cities</a>
+                : <Link to="/cities">Cities</Link>
+              }
             </li>
           </ul>
         </div>

@@ -75,7 +75,6 @@ footer .afterFooter {
 }
 
 @media (max-width: 768px) {
-  /* FOOTER */
   footer .sectionsContainer {
     padding: 2vh 3vw;
     display: grid;

@@ -85,3 +85,21 @@ section > div > h2 {
   text-decoration: none;
   font-weight: bold;
 }
+
+/* CAROUSEL */
+.carousel {
+  width: 80vw !important;
+}
+
+.carousel-control-prev {
+  left: -8vw !important;
+}
+
+.carousel-control-next {
+  right: -8vw !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: red;
+}

@@ -1,4 +1,3 @@
-/* MAIN CALL TO ACTION */
 section.callAction {
   min-height: 100vh;
   background-color: #eee;
@@ -28,6 +27,7 @@ div.textContainer div.callText {
   align-items: center;
   flex-wrap: wrap;
 }
+
 div.callText h2,
 div.callText h3 {
   text-align: center;
@@ -58,10 +58,16 @@ a.callButton:hover {
 }
 
 @media (max-width: 768px) {
-  img.ninja {
-    display: none;
+  section.callAction article{
+    display: flex;
+    flex-direction: column;
   }
-  .textContainer {
-    padding: 0;
+  img.ninja {
+    margin-bottom: 2vh;
+  }
+  div.textContainer {
+    width: 80%;
+    padding: 0 !important;
+    margin-bottom: 3vh;
   }
 }

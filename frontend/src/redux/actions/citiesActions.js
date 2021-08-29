@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const citiesActions = {
-  getList: (token) => {
+  getList: () => {
     return async (dispatch) => {
       let response = await axios.get("http://localhost:4000/api/cities");
       if (!response.data.success) {

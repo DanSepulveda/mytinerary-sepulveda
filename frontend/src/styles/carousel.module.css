@@ -57,22 +57,7 @@ section.carouselBox {
   background-color: rgba(0, 0, 0, 0.63);
 }
 
-.carousel {
-  width: 80vw !important;
-}
 
-.carousel-control-prev {
-  left: -8vw !important;
-}
-
-.carousel-control-next {
-  right: -8vw !important;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: red;
-}
 
 @media (max-width: 992px) {
   /* CAROUSEL STYLES */

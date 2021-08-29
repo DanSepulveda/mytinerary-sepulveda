@@ -72,7 +72,7 @@ const Itinerary = (props) => {
     return result.map((icon, index) => (
       <div
         key={index}
-        className="icon"
+        className={styles.icon}
         style={{ backgroundImage: `url('${icon}')` }}
       ></div>
     ));
@@ -146,11 +146,11 @@ const Itinerary = (props) => {
           </div>
         </div> */}
         <div className={styles.activitiesContainer}>
-          {activities.map((activity) => <Activity activity={activity} />)}
+          {activities.map((activity) => <Activity activity={activity} key={activity._id} />)}
         </div>
 
         <div className={styles.chatContainer}>
-          <Chat comments={props.itinerary.comments} />
+          <Chat comments={comments} />
         </div>
       </div>
 

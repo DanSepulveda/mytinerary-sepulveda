@@ -25,7 +25,7 @@ export const msgNoExist = () => {
   });
 };
 
-export const mensaje = () => {
+export const problemMessage = () => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

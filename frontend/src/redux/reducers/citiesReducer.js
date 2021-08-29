@@ -4,7 +4,6 @@ const citiesReducer = (
 ) => {
   switch (action.type) {
     case "GET_ALL_CITIES":
-      console.log("entro al reducer");
       return {
         ...state,
         allCities: action.payload,

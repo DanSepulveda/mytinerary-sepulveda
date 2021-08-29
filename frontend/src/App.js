@@ -15,8 +15,8 @@ import userActions from "./redux/actions/usersActions";
 const App = (props) => {
   useEffect(() => {
     let token = localStorage.getItem('token')
-    console.log('hay token')
     if (token) {
+      console.log('hay token')
       props.logInLS(token)
     }
   }, [])

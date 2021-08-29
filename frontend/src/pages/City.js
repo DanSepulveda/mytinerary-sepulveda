@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import Loader from "../components/Loader";
 
 const City = (props) => {
+  document.title = `Enjoy ${props.city.name} - MyTinerary`
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,9 +35,7 @@ const City = (props) => {
 
   if (loader) {
     return (
-      <div className="loader">
-        <img src="/assets/loader.gif" />
-      </div>
+      <Loader />
     );
   }
 

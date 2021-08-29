@@ -70,8 +70,11 @@ article.cardInfo p {
   align-items: center;
 }
 
+img.arrow {
+  width: 20vmin;
+}
+
 @media (max-width: 992px) {
-  /* INFO STYLES */
   section.infoSection {
     display: grid;
     grid-template-columns: 1fr;
@@ -86,7 +89,6 @@ article.cardInfo p {
 }
 
 @media (max-width: 768px) {
-  /* INFO STYLES */
   div.cardSection {
     display: grid;
     grid-template-columns: auto;
@@ -120,7 +122,6 @@ article.cardInfo p {
 }
 
 @media (max-width: 500px) {
-  /* INFO STYLES */
   div.cardSection {
     display: grid;
     grid-template-columns: 1fr;
