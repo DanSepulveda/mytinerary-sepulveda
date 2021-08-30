@@ -33,6 +33,7 @@ const Cities = (props) => {
       props.getFiltered("");
       setLoader(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlerCity = (e) => {

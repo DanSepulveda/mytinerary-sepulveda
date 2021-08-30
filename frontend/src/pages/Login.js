@@ -19,7 +19,7 @@ const Signup = (props) => {
     }
 
     const verification = () => {
-        if (Object.values(user).includes("") || Object.values(user).length != 2) {
+        if (Object.values(user).includes("") || Object.values(user).length !== 2) {
             message('error', 'All fields are required')
         } else {
             async function userVerification() {
@@ -36,16 +36,15 @@ const Signup = (props) => {
     const responseGoogle = async (response) => {
         let googleUser = {
             email: response.profileObj.email,
-            password: response.profileObj.googleId
+            password: response.profileObj.googleId,
+            flagGoogle: true,
         }
-
         try {
             await props.verifyAccess(googleUser)
             message('success', 'Logged In Successfully', 'top')
         } catch (e) {
             message('error', e.message)
         }
-
     }
 
     return (
@@ -60,15 +59,16 @@ const Signup = (props) => {
                             <input required type="email" name="email" placeholder="Email" onChange={inputHandler} />
                             <input required type="password" name="password" placeholder="Password" onChange={inputHandler} />
                         </form>
-                        <button onClick={verification}>Log In</button>
-                        <p>Don't you have an account yet? <Link to='/signup'>Sign Up</Link></p>
+                        <button onClick={verification} className={styles.loginButton}>Log In</button>
+                        <span>or</span>
                         <GoogleLogin
                             clientId="108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com"
-                            buttonText="Login With Google"
+                            buttonText="Login with Google"
                             onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
+                            // onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />,
+                        <p>Don't you have an account yet? <Link to='/signup'>Sign Up</Link></p>
                     </div>
                 </section>
             </main>

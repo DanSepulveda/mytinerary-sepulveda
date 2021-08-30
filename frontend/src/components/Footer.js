@@ -56,13 +56,13 @@ const Footer = () => {
           <ul>
             <li>
               {document.title.includes('Find')
-                ? <a href="#">Home</a>
+                ? <span onClick={() => window.scrollTo(0, 0)}>Home</span>
                 : <Link to="/">Home</Link>
               }
             </li>
             <li>
               {document.title.includes('Cities')
-                ? <a href="#">Cities</a>
+                ? <span onClick={() => window.scrollTo(0, 0)}>Cities</span>
                 : <Link to="/cities">Cities</Link>
               }
             </li>

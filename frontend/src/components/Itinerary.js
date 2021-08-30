@@ -37,27 +37,21 @@ const Itinerary = (props) => {
 
   const requestActivities = async () => {
     try {
-      console.log('gjkjdksahfhdsajdhgfjds')
       let response = await props.getActivities(props.itinerary._id)
-      console.log(response)
       if (response.data.success) {
         setActivities(response.data.response)
 
       } else {
-        console.log('error')
         //no hay ciudades para mostrar
       }
     } catch (e) {
-      console.log('catch')
       //no se puede hacer fetch
     }
   }
-  console.log(activities)
 
   const toogleButton = () => {
     setButton(!button);
     if (!button && !activities.length) {
-      console.log('fetcheo')
       requestActivities()
     }
   };
@@ -86,7 +80,7 @@ const Itinerary = (props) => {
           <div className={styles.itineraryPicture} style={{ backgroundImage: `url('${image}')` }}>
             <h2 className={styles.itineraryTitle}>{title}</h2>
             <div className={styles.likesContainer}>
-              <img className={styles.heartIcon} src="/assets/empty.png" />
+              <img className={styles.heartIcon} src="/assets/empty.png" alt="Heart Icon" />
               <span className={styles.likesNumber}>{likes}</span>
             </div>
           </div>

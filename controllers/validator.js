@@ -22,6 +22,7 @@ const validator = (req, res, next) => {
         country: joi.string().trim().min(2).max(30).required().messages({
             "string.empty": "el campo no puede estar vacío"
         }),
+        google: joi.boolean()
     })
 
     const validation = schema.validate(req.body, { abortEarly: false })

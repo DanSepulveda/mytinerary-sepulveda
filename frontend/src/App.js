@@ -19,6 +19,7 @@ const App = (props) => {
       console.log('hay token')
       props.logInLS(token)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -29,10 +29,9 @@ div.formContainer h1{
 }
 
 div.formContainer h3{
+    text-align: center;
     margin-bottom: 5vh;
 }
-
-
 
 form.inputContainer{
     width: 80%;
@@ -71,9 +70,12 @@ form.inputContainer label{
     color: rgb(121, 0, 0);
 }
 
+.formContainer span{
+    margin: .5em 0;
+}
 
 
-button{
+button.loginButton{
     width: 30%;
     align-self: center;
     margin-top: 4vh;
@@ -107,5 +109,11 @@ form.inputContainer select{
     box-shadow: none;
     outline: none;
     background-color: rgba(141, 141, 141, 0.178);
+}
+
+@media (max-width: 650px) {
+    .formContainer{
+        width: 70% !important;
+    }
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const userActions = {
     createUser: (user) => {
+        alert("llego al actions")
         return async (dispatch) => {
             let response = await axios.post("http://localhost:4000/api/user/signup", user)
             console.log('recibo response en action')
@@ -22,7 +23,6 @@ const userActions = {
             if (!response.data.success) {
                 throw new Error(response.data.error)
             } else {
-                const { } = response.data.response
                 dispatch({ type: "LOG_IN_USER", payload: response.data.response })
             }
         }

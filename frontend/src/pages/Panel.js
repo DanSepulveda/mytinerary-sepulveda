@@ -7,9 +7,9 @@ const Panel = () => {
   const [view, setView] = useState("empty");
 
   let dataToShow;
-  if (view == "newCity") {
+  if (view === "newCity") {
     dataToShow = <NewCity />;
-  } else if (view == "editCity") {
+  } else if (view === "editCity") {
     dataToShow = <ViewCities />;
   } else {
     dataToShow = <h1>Hola</h1>;

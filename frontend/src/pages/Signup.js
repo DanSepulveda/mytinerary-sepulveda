@@ -29,25 +29,21 @@ const Signup = (props) => {
     }
 
     const verification = () => {
-        if (Object.values(user).includes("") || Object.values(user).length != 6) {
+        if (Object.values(user).includes("") || Object.values(user).length !== 6) {
             message('error', 'All fields are required')
         } else {
             async function userVerification() {
                 try {
                     let response = await props.createUser(user)
                     if (response.data.success) {
-                        alert('lala')
                         message('success', 'Acount created successfully')
                     } else {
                         let errorsArr = response.data.errors
                         let errorsObj = {}
-                        errorsArr.map((error) => {
-                            errorsObj[error.path[0]] = error.message
-                        })
+                        errorsArr.map((error) => errorsObj[error.path[0]] = error.message)
                         setErrors(errorsObj)
                     }
                 } catch (e) {
-                    alert('entré acá')
                     message('warning', e.message)
                 }
             }
@@ -56,43 +52,33 @@ const Signup = (props) => {
     }
 
     const capitalize = (e) => {
-        console.log('hola')
         let value = e.target.value
-        console.log(value)
-        if (value != '') {
-            console.log('lala')
+        if (value !== '') {
             value = value[0].toUpperCase() + value.slice(1).toLowerCase()
-            console.log(value)
         }
     }
 
     const responseGoogle = async (response) => {
+        console.log(response)
         let googleUser = {
             firstName: response.profileObj.givenName,
             lastName: response.profileObj.familyName,
             email: response.profileObj.email,
             password: response.profileObj.googleId,
             imageUrl: response.profileObj.imageUrl,
-            country: "Google Land"
+            country: "Google Land",
+            google: true,
         }
         try {
             let response = await props.createUser(googleUser)
             if (response.data.success) {
-                alert('lala')
                 message('success', 'Acount created successfully')
             } else {
-                let errorsArr = response.data.errors
-                let errorsObj = {}
-                errorsArr.map((error) => {
-                    errorsObj[error.path[0]] = error.message
-                })
-                setErrors(errorsObj)
+                message('error', response.data.error)
             }
         } catch (e) {
-            alert('entré acá')
             message('warning', e.message)
         }
-        console.log(googleUser)
     }
 
     return (
@@ -143,32 +129,33 @@ const Signup = (props) => {
                                 </div>
                             </div>
                         </form>
-                        <button onClick={verification}>Sign Up</button>
-                        <p>Do you have an account? <Link to='/login'>Log In</Link></p>
+                        <button onClick={verification} className={styles.signupButton}>Sign Up</button>
+                        <span>or</span>
                         <GoogleLogin
                             clientId="108710933785-e7ee3h78c0ctglrth00nsm887l9jt6lk.apps.googleusercontent.com"
                             buttonText="Sign Up With Google"
                             onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
+                            // onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />,
+                        <p>Do you have an account? <Link to='/login'>Log In</Link></p>
                     </div>
 
                     <div className={styles.benefitsContainer}>
                         <div className={styles.description}>
-                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/like.png')" }}></div>
-                            <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
-                            </p>
+                            <img src="/assets/like.png" alt="" />
+                            <p>You will be able to like itineraries you want and save them in your profile to watch them later.</p>
                         </div>
                         <div className={styles.description}>
-                            <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
-                            </p>
-                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/comment.png')" }}></div>
+                            <p>Without registration you can read all users comments. But post a new comment is only available for registered users.</p>
+                            <img src="/assets/comment.png" alt="" />
                         </div>
                         <div className={styles.description}>
-                            <div className={styles.benefitIcon} style={{ backgroundImage: "url('/assets/create.png')" }}></div>
-                            <p>  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, temporibus?
-                            </p>
+                            <img src="/assets/create.png" alt="" />
+                            <div className={styles.futureFeature}>
+                                <h3>Coming Soon</h3>
+                                <p>As registered user you will be able to create new itineraries and share them with all community.</p>
+                            </div>
                         </div>
                     </div>
                 </section>

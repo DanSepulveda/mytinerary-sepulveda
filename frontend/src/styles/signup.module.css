@@ -62,7 +62,7 @@ form.inputContainer label{
 
 
 
-button{
+button.signupButton{
     width: 30%;
     align-self: center;
     margin-top: 4vh;
@@ -79,10 +79,10 @@ button{
     transition: box-shadow  1s ease-in-out;
 }
 
-form.inputContainer button:not([disabled]):focus {
+form.inputContainer button.signupButton:not([disabled]):focus {
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
-  form.inputContainer button:not([disabled]):hover {
+  form.inputContainer button.signupButton:not([disabled]):hover {
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
@@ -129,6 +129,12 @@ div.colContainer{
     flex-direction: column;
 }
 
+
+
+
+
+
+
 div.benefitsContainer{
     width: 50%;
     display: flex;
@@ -137,22 +143,17 @@ div.benefitsContainer{
     padding: 0 6vw;
 }
 
-div.benefitsContainer>div{
-    /* margin: 3vh; */
+div.benefitsContainer .description{
+    margin: 3vh 0;
     display: flex;
-}
-
-div.benefitsContainer .benefitIcon{
-    width: 15vh;
-    height: 15vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 10px;
 }
 
 div.description{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+div.description img{
+    width: 120px;
 }

@@ -102,16 +102,6 @@ header.cities {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 .cardPicture {
   width: 100%;
   background-repeat: no-repeat;
@@ -125,6 +115,7 @@ header.cities {
 
 a.cardLink {
   transition: all 500ms;
+  text-decoration: inherit;
 }
 
 a.cardLink:hover .cardPicture {

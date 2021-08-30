@@ -14,7 +14,7 @@ const ViewCities = (props) => {
     // src2: null,
     // src3: null
   });
-  const [update, setUpdate] = useState({});
+  // const [update, setUpdate] = useState({});
 
   useEffect(() => {
     axios

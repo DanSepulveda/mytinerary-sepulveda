@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Itinerary from "../components/Itinerary";
 import Footer from "../components/Footer";
-import { messageOne, msgNoExist } from "../components/Message";
+// import { messageOne, msgNoExist } from "../components/Message";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -31,6 +31,7 @@ const City = (props) => {
       }
     }
     evaluateError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loader) {

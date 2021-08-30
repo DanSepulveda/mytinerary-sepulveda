@@ -1,9 +1,8 @@
 import styles from "../styles/navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import userActions from "../redux/actions/usersActions";
-import citiesActions from "../redux/actions/citiesActions";
 
 const Navbar = (props) => {
   const [open, setOpen] = useState(false)

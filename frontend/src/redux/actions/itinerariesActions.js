@@ -14,9 +14,7 @@ const itinerariesActions = {
   },
   getActivities: (id) => {
     return async (dispatch) => {
-      console.log('llegué al action')
       let response = await axios.get("http://localhost:4000/api/activities/" + id)
-      console.log(response)
       if (!response.data.success) {
         throw new Error()
       } else {
