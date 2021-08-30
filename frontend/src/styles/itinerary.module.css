@@ -93,8 +93,6 @@ span.likesNumber{
     font-size: 1.7em;
 }
 
-
-
 div.authorPicture h3{ 
     font-family: 'Nunito', monospace;
     font-weight: 900;
@@ -186,8 +184,14 @@ div.itineraryData{
 
 div.itineraryCardExpanded div.itineraryData{
     width: 100%;
+    justify-content: center;
     /* background-color: red; */
 }
+
+div.itineraryCardExpanded .priceContainer{
+    margin-right: 2vw;
+}
+
 div.priceContainer,
 div.durationContainer{
     align-items: center;
@@ -306,6 +310,12 @@ div.chatContainer{
     }
 }
 
+@media (max-width: 1000px) {
+    div.itineraryInformation{
+        width: 70%;
+    }
+}
+
 @media (max-width: 880px) {
     div.detailsContainerExpanded{
         flex-direction: column;
@@ -313,5 +323,22 @@ div.chatContainer{
     div.activitiesContainer,
     div.chatContainer{
         width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    div.itineraryInformation{
+        width: 95%;
+        padding: .5em;
+    }
+}
+
+@media (max-width: 500px) {
+    div.likesContainer{
+        margin-right: .5em !important;
+        background-color: blue;
+    }
+    div.itineraryData{
+        width: 90%;
     }
 }

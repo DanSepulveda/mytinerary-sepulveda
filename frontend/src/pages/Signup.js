@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react"
 import usersActions from "../redux/actions/usersActions"
 
 const Signup = (props) => {
+    document.title = "MyTinerary - Sign Up"
     const [user, setUser] = useState({})
     const [countries, setCountries] = useState([])
     const [errors, setErrors] = useState({})
@@ -39,9 +40,13 @@ const Signup = (props) => {
                         message('success', 'Acount created successfully')
                     } else {
                         let errorsArr = response.data.errors
-                        let errorsObj = {}
-                        errorsArr.map((error) => errorsObj[error.path[0]] = error.message)
-                        setErrors(errorsObj)
+                        if (errorsArr) {
+                            let errorsObj = {}
+                            errorsArr.map((error) => errorsObj[error.path[0]] = error.message)
+                            setErrors(errorsObj)
+                        } else {
+                            message('error', response.data.error)
+                        }
                     }
                 } catch (e) {
                     message('warning', e.message)
@@ -59,7 +64,6 @@ const Signup = (props) => {
     }
 
     const responseGoogle = async (response) => {
-        console.log(response)
         let googleUser = {
             firstName: response.profileObj.givenName,
             lastName: response.profileObj.familyName,

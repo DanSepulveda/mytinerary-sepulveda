@@ -14,6 +14,8 @@ div.formContainer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* background-color: blue; */
+    padding: 0 2vw;
 }
 
 div.formContainer h1{
@@ -25,12 +27,14 @@ div.formContainer h1{
 
 div.formContainer h4{
     margin-bottom: 5vh;
+    text-align: center;
 }
 
 form.inputContainer{
-    width: 60%;
+    width: 90%;
     display: flex;
     flex-direction: column;
+    /* background-color: yellow; */
 }
 
 form.inputContainer input,
@@ -129,12 +133,6 @@ div.colContainer{
     flex-direction: column;
 }
 
-
-
-
-
-
-
 div.benefitsContainer{
     width: 50%;
     display: flex;
@@ -156,4 +154,26 @@ div.description{
 
 div.description img{
     width: 120px;
+    margin-right: 1em;
+}
+
+@media (max-width: 990px) {
+    form.inputContainer{
+        width: 100%;
+    }
+}
+
+@media (max-width: 790px) {
+    .signupContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .formContainer,
+    .benefitsContainer{
+        width: 100% !important;
+    }
+    form.inputContainer{
+        width: 100% !important;
+    }
 }
