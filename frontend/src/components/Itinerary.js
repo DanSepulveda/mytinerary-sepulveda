@@ -2,6 +2,7 @@ import styles from "../styles/itinerary.module.css"
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import { message } from "./Message"
 import Activity from "./Activity"
 import Chat from "./Chat"
 
@@ -21,6 +22,7 @@ const Itinerary = (props) => {
 
   }
   const {
+    _id,
     user,
     image,
     title,
@@ -72,6 +74,14 @@ const Itinerary = (props) => {
     ));
   };
 
+  const addLike = () => {
+    if (props.token) {
+      // props.likeItinerary(props._id, props.token)
+    } else {
+      message('warning', "You must to be Logged In to like an itinerary.")
+    }
+  }
+
   return (
     <article className={styles.itineraryContainer}>
 
@@ -79,9 +89,9 @@ const Itinerary = (props) => {
         <div className={styles.itineraryResume}>
           <div className={styles.itineraryPicture} style={{ backgroundImage: `url('${image}')` }}>
             <h2 className={styles.itineraryTitle}>{title}</h2>
-            <div className={styles.likesContainer}>
+            <div className={styles.likesContainer} onClick={addLike}>
               <img className={styles.heartIcon} src="/assets/empty.png" alt="Heart Icon" />
-              <span className={styles.likesNumber}>{likes}</span>
+              <span className={styles.likesNumber}>{likes.length}</span>
             </div>
           </div>
           <div className={styles.itineraryInformation} >
@@ -132,6 +142,7 @@ const Itinerary = (props) => {
               backgroundImage: "url('/assets/under.png')",
               height: "30vh",
             }}
+            className={styles.panda}
           ></div>
           <div className={styles.message}>
             <h2>Oops!</h2>
@@ -154,12 +165,13 @@ const Itinerary = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-
+    token: state.users.token
   }
 }
 
 const mapDispatchToProps = {
-  getActivities: itinerariesActions.getActivities
+  getActivities: itinerariesActions.getActivities,
+  likeItinerary: itinerariesActions.likeItinerary
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary)

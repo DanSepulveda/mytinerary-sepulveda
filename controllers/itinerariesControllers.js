@@ -80,6 +80,16 @@ const itinerariesControllers = {
   // deleteComment: (req, res) => {
 
   // }
+  // likeItinerary: (req, res) => {
+  //   try{
+  //     await Itinerary.findOneAndUpdate(
+  //       {_id: req.params.id},
+  //       {if()}
+  //     )
+  //   }catch{
+
+  //   }
+  // }
 };
 
 module.exports = itinerariesControllers;

@@ -48,6 +48,10 @@ router
 // .put(itinerariesControllers.editComment)
 // .delete(itinerariesControllers.deleteComment)
 
+// router
+//   .route("/likes/:id")
+//   .put(passport.authenticate('jwt', { session: false }), itineraryControllers.likeItinerary)
+
 router
   .route("/user/signup")
   .post(validator, userControllers.addNewUser)

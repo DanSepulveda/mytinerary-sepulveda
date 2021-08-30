@@ -47,11 +47,12 @@ const City = (props) => {
           backgroundImage: "url('/assets/under.png')",
           height: "30vh",
         }}
+        className={styles.panda}
       ></div>
       <div className={styles.message}>
         <h2>Oops!</h2>
-        <h3>We are still working on this section.</h3>
-        <h4>Please come back on August 30</h4>
+        <h3>There aren't any itineraries for this city yet.</h3>
+        <h4>Please come back on September 3</h4>
       </div>
     </div>
   );
@@ -72,6 +73,9 @@ const City = (props) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
           }}
         >
           <h1 style={{ fontSize: "15vh", color: "white" }}>

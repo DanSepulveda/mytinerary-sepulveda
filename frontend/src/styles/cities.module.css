@@ -170,3 +170,70 @@ a * {
   text-decoration: none !important;
 }
 
+.nocity {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px black;
+  padding: 0 3vw;
+  display: grid;
+  grid-template-columns: 1fr 3fr !important;
+  grid-template-columns: auto;
+  background: #ece9e6;
+  background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
+  background: linear-gradient(to right, #ffffff, #ece9e6);
+}
+
+.nocity .panda {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 30vh;
+}
+
+.nocity h2{
+  font-family: 'Nunito', monospace;
+  font-weight: 900;
+  background: #B80000;
+  background: -webkit-linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  background: -moz-linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  background: linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nocity h3{
+  color: rgb(141, 0, 0);
+}
+
+.nocity h4{
+  color: rgb(116, 0, 0);
+}
+
+.nocity div {
+  text-align: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 992px){
+  .nocity {
+      width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nocity {
+    display: grid;
+    grid-template-columns: 1fr !important;
+  }
+  .nocity .panda{
+      height: 20vh !important;
+  }
+}
+

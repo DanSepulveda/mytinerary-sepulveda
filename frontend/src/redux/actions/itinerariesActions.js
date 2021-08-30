@@ -21,6 +21,11 @@ const itinerariesActions = {
         return response
       }
     }
+  },
+  likeItinerary: (id, token) => {
+    return async (dispatch) => {
+      let response = await axios.put("http://localhost:4000/likes/" + id, token)
+    }
   }
 };
 
