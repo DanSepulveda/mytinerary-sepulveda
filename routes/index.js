@@ -53,9 +53,11 @@ router
 router
   .route("/user/signup")
   .post(validator, userControllers.addNewUser)
+
 router
   .route("/user/login")
   .post(userControllers.verifyAccess)
+
 router.route("/verifyToken")
   .get(passport.authenticate('jwt', { session: false }), userControllers.verifyToken)
 

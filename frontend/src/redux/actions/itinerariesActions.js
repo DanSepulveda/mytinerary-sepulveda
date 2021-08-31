@@ -29,7 +29,6 @@ const itinerariesActions = {
           Authorization: 'Bearer ' + token
         }
       })
-      console.log(response)
       if (response.data.success) {
         return response.data.response
       }
