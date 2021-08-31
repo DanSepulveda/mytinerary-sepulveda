@@ -6,7 +6,7 @@ const usersReducer = (state = { user: null, token: null }, action) => {
             localStorage.setItem('image', action.payload.imageUrl)
             return {
                 token: action.payload.token,
-                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl }
+                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl, _id: action.payload.id }
             }
         case "LOG_OUT":
             localStorage.clear()
@@ -17,7 +17,7 @@ const usersReducer = (state = { user: null, token: null }, action) => {
         case "LOG_IN_LS":
             return {
                 token: action.payload.token,
-                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl }
+                user: { firstName: action.payload.firstName, imageUrl: action.payload.imageUrl, _id: action.payload.id }
             }
         default:
             return {

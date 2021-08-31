@@ -58,6 +58,10 @@ div.arrowIcon{
     cursor: pointer;
 }
 
+input.owner{
+    background-color: green;
+}
+
 div.commentInfo{
     flex: 1;
     display: flex;
@@ -91,11 +95,18 @@ span.date{
     height: 3em;
 }
 
+div.iconsContainer{
+    display: flex;
+    align-items: center;
+}
 
-
-/* input{
-    height: 30px;
-    padding: 0 5px;
-    border-radius: 20px;
-    color: black;
-} */
+div.editIcon,
+div.trashIcon{
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}

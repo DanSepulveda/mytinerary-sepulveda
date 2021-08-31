@@ -44,13 +44,11 @@ router
 
 router
   .route("/comments/:id")
-  .post(passport.authenticate('jwt', { session: false }), itineraryControllers.addComment)
-// .put(itinerariesControllers.editComment)
-// .delete(itinerariesControllers.deleteComment)
+  .put(passport.authenticate('jwt', { session: false }), itineraryControllers.addComment)
 
-// router
-//   .route("/likes/:id")
-//   .put(passport.authenticate('jwt', { session: false }), itineraryControllers.likeItinerary)
+router
+  .route("/likes/:id")
+  .put(passport.authenticate('jwt', { session: false }), itineraryControllers.likeItinerary)
 
 router
   .route("/user/signup")

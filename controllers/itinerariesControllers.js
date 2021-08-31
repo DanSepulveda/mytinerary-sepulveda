@@ -58,36 +58,51 @@ const itinerariesControllers = {
     }
   },
   addComment: async (req, res) => {
-    const { comment } = req.body
-    const { _id } = req.user
-    try {
-      // let newComment = { comment, userId: _id, date: new Date() }
-      let newComment = await Itinerary.findOneAndUpdate(
-        { _id: req.params.id },
-        { $push: { "comments": { comment, userId: _id, date: new Date() } } },
-        { new: true }
-      ).populate({ path: 'comments.userId', model: 'user' })
-      res.json({ success: true, response: newComment })
-    } catch (e) {
-      res.json({ success: false })
+    console.log('llego al controller')
+    switch (req.body.type) {
+      case 'add':
+        const { comment } = req.body
+        const { _id } = req.user
+        try {
+          let newComments = await Itinerary.findOneAndUpdate(
+            { _id: req.params.id },
+            { $push: { "comments": { comment, userId: _id, date: new Date() } } },
+            { new: true }
+          ).populate({ path: 'comments.userId', model: 'user', select: 'firstName' })
+          res.json({ success: true, response: { comments: newComments, user: _id } })
+        } catch (e) {
+          res.json({ success: false })
+        }
+      case 'delete':
+        try {
+          await Itinerary.findOneAndUpdate(
+            { _id: req.params.id },
+            { $pull: { "comments": { _id: req.body.commentId } } }
+          )
+          res.json({ success: true })
+        } catch (e) {
+          res.json({ success: false })
+        }
     }
   },
-  // editComment: (req, res) => {
-
-  // },
-  // deleteComment: (req, res) => {
-
-  // }
-  // likeItinerary: (req, res) => {
-  //   try{
-  //     await Itinerary.findOneAndUpdate(
-  //       {_id: req.params.id},
-  //       {if()}
-  //     )
-  //   }catch{
-
-  //   }
-  // }
+  likeItinerary: async (req, res) => {
+    console.log(req.user._id)
+    const { _id } = req.user
+    const { id } = req.params
+    try {
+      let itinerary = await Itinerary.findOne({ _id: id })
+      // let condition = itinerary.likes.includes(_id) ? '$pull' : '$push'
+      if (itinerary.likes.includes(_id)) {
+        let modified = await Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: _id } }, { new: true })
+        res.json({ success: true, response: modified.likes, user: _id })
+      } else {
+        let modified = await Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: _id } }, { new: true })
+        res.json({ success: true, response: modified.likes, user: _id })
+      }
+    } catch {
+      console.log('catch')
+    }
+  }
 };
 
 module.exports = itinerariesControllers;

@@ -1,6 +1,6 @@
 const commentsReducer = (state = { update: true }, action) => {
     switch (action.type) {
-        case "FETCH_CITIES":
+        case "UPDATE":
             return {
                 update: !state.update
             }

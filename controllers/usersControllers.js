@@ -15,8 +15,8 @@ const userControllers = {
             if (!chosenUser) {
                 await user.save()
                 const token = jwt.sign({ ...user }, process.env.SECRETKEY)
-                const { firstName, imageUrl } = user
-                res.json({ success: true, response: { firstName, imageUrl, token } })
+                const { firstName, imageUrl, _id } = user
+                res.json({ success: true, response: { firstName, imageUrl, token, _id } })
             } else {
                 throw new Error("User already exists.")
             }
@@ -33,8 +33,8 @@ const userControllers = {
             let passMatch = bcryptjs.compareSync(password, chosen.password)
             if (!passMatch) throw new Error("Email and/or password are incorrect.")
             const token = jwt.sign({ ...chosen }, process.env.SECRETKEY)
-            const { firstName, imageUrl } = chosen
-            res.json({ success: true, response: { firstName, imageUrl, token } })
+            const { firstName, imageUrl, _id } = chosen
+            res.json({ success: true, response: { firstName, imageUrl, token, _id } })
         } catch (e) {
             res.json({ success: false, error: e.message })
         }

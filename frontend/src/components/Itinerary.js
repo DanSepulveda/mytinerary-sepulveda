@@ -1,43 +1,21 @@
 import styles from "../styles/itinerary.module.css"
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import itinerariesActions from "../redux/actions/itinerariesActions";
 import { message } from "./Message"
 import Activity from "./Activity"
 import Chat from "./Chat"
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import itinerariesActions from "../redux/actions/itinerariesActions";
 
 
 const Itinerary = (props) => {
+  let icons = { drinks: '🍹', wood: '🌲', temple: '🛕', city: '🌇', architecture: '🏛️', friends: '🧑‍🤝‍🧑', dance: '💃', mountain: '⛰️', tradition: '👘', nature: '🍂' }
 
-  let icons = {
-    drinks: '🍹',
-    wood: '🌲',
-    temple: '🛕',
-    city: '🌇',
-    architecture: '🏛️',
-    friends: '🧑‍🤝‍🧑',
-    dance: '💃',
-    mountain: '⛰️',
-    tradition: '👘',
-    nature: '🍂'
-
-  }
-  const {
-    _id,
-    user,
-    image,
-    title,
-    description,
-    price,
-    duration,
-    tags,
-    likes,
-    comments,
-  } = props.itinerary;
-
+  const { _id, user, image, title, description, price, duration, tags, likes, comments, } = props.itinerary;
 
   const [button, setButton] = useState(false);
   const [activities, setActivities] = useState([])
+  const [valor, setValor] = useState(2)
+  const [likesAux, setLikesAux] = useState(likes)
 
   const requestActivities = async () => {
     try {
@@ -76,29 +54,37 @@ const Itinerary = (props) => {
     ));
   };
 
-  const addLike = () => {
+  const addLike = async () => {
     if (props.token) {
-      // props.likeItinerary(props._id, props.token)
+      try {
+        let response = await props.likeItinerary(_id, props.token)
+        setLikesAux(response)
+      } catch (e) {
+        alert('error')
+      }
     } else {
       message('warning', "You must to be Logged In to like an itinerary.")
     }
   }
 
-  return (
-    <article className={styles.itineraryContainer}>
+  console.log(likesAux)
+  console.log(likes)
 
+  return (
+    <article className={styles.itineraryContainer} >
+      {console.log("se renderiza itinerary")}
       <div className={!button ? `${styles.itineraryCard}` : `${styles.itineraryCardExpanded}`}>
         <div className={styles.itineraryResume}>
           <div className={styles.itineraryPicture} style={{ backgroundImage: `url('${image}')` }}>
             <h2 className={styles.itineraryTitle}>{title}</h2>
             <div className={styles.likesContainer} onClick={addLike}>
               <img className={styles.heartIcon} src="/assets/empty.png" alt="Heart Icon" />
-              <span className={styles.likesNumber}>{likes.length}</span>
+              <span className={styles.likesNumber}>{likesAux.length}</span>
             </div>
           </div>
           <div className={styles.itineraryInformation} >
             <div className={styles.authorInfo}>
-              <div className={styles.authorPicture} style={{ backgroundImage: `url('${user.picture}')` }}></div>
+              <div onClick={props.funcion} className={styles.authorPicture} style={{ backgroundImage: `url('${user.picture}')` }}></div>
               <h3>{user.name}</h3>
             </div>
             <div className={styles.hashtagContainer}>
@@ -155,6 +141,9 @@ const Itinerary = (props) => {
         <div className={styles.activitiesContainer}>
           {activities.map((activity) => <Activity activity={activity} key={activity._id} />)}
         </div>
+        {/* <div className={styles.activitiesContainer}>
+          <Activity activities={activities} />
+        </div> */}
 
         <div className={styles.chatContainer}>
           <Chat comments={comments} itineraryId={_id} />
@@ -162,7 +151,7 @@ const Itinerary = (props) => {
       </div>
 
 
-    </article>
+    </article >
   );
 };
 const mapStateToProps = (state) => {
