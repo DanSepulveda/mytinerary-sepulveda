@@ -118,7 +118,7 @@ const mapStateToProps = (state) => {
   return {
     city: state.cities.chosenCity,
     allCities: state.cities.allCities,
-    itineraries: state.itineraries.itinerariesList,
+    itineraries: state.itineraries.itinerariesList
   };
 };
 

@@ -9,14 +9,11 @@ const itinerarySchema = new mongoose.Schema({
   duration: { type: Number },
   tags: { type: Array },
   likes: { type: Array, default: [] },
-  comments: [
-    {
-      id: String,
-      userName: String,
-      comment: String,
-      userId: { type: mongoose.Types.ObjectId, ref: 'user' },
-    }
-  ],
+  comments: [{
+    userId: { type: mongoose.Types.ObjectId, ref: 'user' },
+    date: { type: String },
+    comment: String,
+  }],
   cityId: { type: mongoose.Types.ObjectId, ref: "city" },
   //dar esquema a propiedad comments
 });

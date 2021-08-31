@@ -44,7 +44,7 @@ router
 
 router
   .route("/comments/:id")
-  .post(itineraryControllers.addComment)
+  .post(passport.authenticate('jwt', { session: false }), itineraryControllers.addComment)
 // .put(itinerariesControllers.editComment)
 // .delete(itinerariesControllers.deleteComment)
 

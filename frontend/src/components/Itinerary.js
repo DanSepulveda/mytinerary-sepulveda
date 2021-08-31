@@ -8,6 +8,7 @@ import Chat from "./Chat"
 
 
 const Itinerary = (props) => {
+
   let icons = {
     drinks: '🍹',
     wood: '🌲',
@@ -33,6 +34,7 @@ const Itinerary = (props) => {
     likes,
     comments,
   } = props.itinerary;
+
 
   const [button, setButton] = useState(false);
   const [activities, setActivities] = useState([])
@@ -136,7 +138,7 @@ const Itinerary = (props) => {
       </div>
 
       <div className={!button ? `${styles.detailsContainer}` : `${styles.detailsContainerExpanded}`}>
-        <div className={styles.nocity}>
+        {/* <div className={styles.nocity}>
           <div
             style={{
               backgroundImage: "url('/assets/under.png')",
@@ -149,14 +151,14 @@ const Itinerary = (props) => {
             <h3>We are still working on this section.</h3>
             <h4>Please come back on August 30</h4>
           </div>
-        </div>
-        {/* <div className={styles.activitiesContainer}>
+        </div> */}
+        <div className={styles.activitiesContainer}>
           {activities.map((activity) => <Activity activity={activity} key={activity._id} />)}
         </div>
 
         <div className={styles.chatContainer}>
-          <Chat comments={comments} />
-        </div> */}
+          <Chat comments={comments} itineraryId={_id} />
+        </div>
       </div>
 
 

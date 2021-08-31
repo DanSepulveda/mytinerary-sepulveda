@@ -17,6 +17,12 @@ const Panel = () => {
 
   return (
     <main className={styles.adminContainer}>
+      <section className={styles.buttonsContainer}>
+        <button>Cities</button>
+        <button>Itineraries</button>
+        <button>Activities</button>
+        <button>Users</button>
+      </section>
       <section className={styles.bacol}>
         <div className={styles.buttonSection}>
           <div className={styles.citiesButtons}>

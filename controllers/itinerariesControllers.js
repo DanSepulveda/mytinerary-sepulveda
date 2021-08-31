@@ -51,27 +51,25 @@ const itinerariesControllers = {
   },
   getItinerariesPerCity: async (req, res) => {
     try {
-      let itineraries = await Itinerary.find({ cityId: req.params.id });
+      let itineraries = await Itinerary.find({ cityId: req.params.id }).populate({ path: 'comments.userId', model: 'user' })
       res.json({ success: true, response: itineraries });
     } catch {
       res.json({ success: false });
     }
   },
   addComment: async (req, res) => {
-    console.log(req.body)
-    const { userName, comment, userId } = req.body
+    const { comment } = req.body
+    const { _id } = req.user
     try {
-      await Itinerary.findOneAndUpdate(
+      // let newComment = { comment, userId: _id, date: new Date() }
+      let newComment = await Itinerary.findOneAndUpdate(
         { _id: req.params.id },
-        { $push: { "comments": { userName, comment, userId } } }
-      )
-      res.json({ success: true })
-      // let itinerary = await Itinerary.findOne({ _id: req.body.id })
-      // console.log(itinerary.comments)
-      // itinerary.comments.push({ ...req.body })
-      // res.json({ success: true, response: itinerary.comments })
+        { $push: { "comments": { comment, userId: _id, date: new Date() } } },
+        { new: true }
+      ).populate({ path: 'comments.userId', model: 'user' })
+      res.json({ success: true, response: newComment })
     } catch (e) {
-      console.log(e)
+      res.json({ success: false })
     }
   },
   // editComment: (req, res) => {

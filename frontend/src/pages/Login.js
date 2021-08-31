@@ -7,7 +7,6 @@ import { message } from "../components/Message"
 import { Link } from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 
-
 const Signup = (props) => {
     document.title = "MyTinerary - Login"
     const [user, setUser] = useState({})
