@@ -6,8 +6,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
-hola
-
 const Itinerary = (props) => {
   let icons = { drinks: '🍹', wood: '🌲', temple: '🛕', city: '🌇', architecture: '🏛️', friends: '🧑‍🤝‍🧑', dance: '💃', mountain: '⛰️', tradition: '👘', nature: '🍂' }
 
@@ -15,8 +13,8 @@ const Itinerary = (props) => {
 
   const [button, setButton] = useState(false);
   const [activities, setActivities] = useState([])
-  const [valor, setValor] = useState(2)
   const [likesAux, setLikesAux] = useState(likes)
+  const [userId, setUserId] = useState(null)
 
   const requestActivities = async () => {
     try {
@@ -59,7 +57,9 @@ const Itinerary = (props) => {
     if (props.token) {
       try {
         let response = await props.likeItinerary(_id, props.token)
-        setLikesAux(response)
+        console.log(response)
+        setLikesAux(response.likes)
+        setUserId(response.user)
       } catch (e) {
         alert('error')
       }
@@ -68,8 +68,7 @@ const Itinerary = (props) => {
     }
   }
 
-  console.log(likesAux)
-  console.log(likes)
+  let condition = likesAux.includes(userId) ? "/assets/full.png" : "/assets/empty.png"
 
   return (
     <article className={styles.itineraryContainer} >
@@ -79,7 +78,7 @@ const Itinerary = (props) => {
           <div className={styles.itineraryPicture} style={{ backgroundImage: `url('${image}')` }}>
             <h2 className={styles.itineraryTitle}>{title}</h2>
             <div className={styles.likesContainer} onClick={addLike}>
-              <img className={styles.heartIcon} src="/assets/empty.png" alt="Heart Icon" />
+              <img className={styles.heartIcon} src={condition} alt="Heart Icon" />
               <span className={styles.likesNumber}>{likesAux.length}</span>
             </div>
           </div>

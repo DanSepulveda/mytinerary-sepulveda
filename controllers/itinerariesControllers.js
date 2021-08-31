@@ -94,10 +94,10 @@ const itinerariesControllers = {
       // let condition = itinerary.likes.includes(_id) ? '$pull' : '$push'
       if (itinerary.likes.includes(_id)) {
         let modified = await Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: _id } }, { new: true })
-        res.json({ success: true, response: modified.likes, user: _id })
+        res.json({ success: true, response: { likes: modified.likes, user: _id } })
       } else {
         let modified = await Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: _id } }, { new: true })
-        res.json({ success: true, response: modified.likes, user: _id })
+        res.json({ success: true, response: { likes: modified.likes, user: _id } })
       }
     } catch {
       console.log('catch')
