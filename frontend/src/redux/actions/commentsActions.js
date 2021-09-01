@@ -19,19 +19,17 @@ const commentsActions = {
             }
         };
     },
-    deleteComment: (id, commentId, token) => {
-        console.log(id, commentId, token)
-        console.log('llego al action')
+    deleteComment: (commentId, itineraryId, token) => {
         return async (dispatch) => {
             try {
                 console.log('antes de response')
-                let response = await axios.put("http://localhost:4000/api/comments/" + id, { commentId, type: 'delete' }, {
+                let response = await axios.put("http://localhost:4000/api/comments/" + itineraryId, { commentId, type: 'delete' }, {
                     headers: {
                         Authorization: 'Bearer ' + token
                     }
                 });
                 if (response.success) {
-                    dispatch({ type: 'UPDATE', payload: null })
+                    return response.success
                 }
             } catch (e) {
                 return false

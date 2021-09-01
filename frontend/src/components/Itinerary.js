@@ -5,6 +5,7 @@ import Chat from "./Chat"
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import commentsActions from "../redux/actions/commentsActions";
 
 const Itinerary = (props) => {
   let icons = { drinks: '🍹', wood: '🌲', temple: '🛕', city: '🌇', architecture: '🏛️', friends: '🧑‍🤝‍🧑', dance: '💃', mountain: '⛰️', tradition: '👘', nature: '🍂' }
@@ -14,7 +15,6 @@ const Itinerary = (props) => {
   const [button, setButton] = useState(false);
   const [activities, setActivities] = useState([])
   const [likesAux, setLikesAux] = useState(likes)
-  const [userId, setUserId] = useState(null)
 
   const requestActivities = async () => {
     try {
@@ -54,12 +54,11 @@ const Itinerary = (props) => {
   };
 
   const addLike = async () => {
+    alert('hola')
     if (props.token) {
       try {
         let response = await props.likeItinerary(_id, props.token)
-        console.log(response)
-        setLikesAux(response.likes)
-        setUserId(response.user)
+        setLikesAux(response)
       } catch (e) {
         alert('error')
       }
@@ -68,11 +67,10 @@ const Itinerary = (props) => {
     }
   }
 
-  let condition = likesAux.includes(userId) ? "/assets/full.png" : "/assets/empty.png"
+  let condition = likesAux.includes(props.userId) ? "/assets/full.png" : "/assets/empty.png"
 
   return (
     <article className={styles.itineraryContainer} >
-      {console.log("se renderiza itinerary")}
       <div className={!button ? `${styles.itineraryCard}` : `${styles.itineraryCardExpanded}`}>
         <div className={styles.itineraryResume}>
           <div className={styles.itineraryPicture} style={{ backgroundImage: `url('${image}')` }}>
@@ -124,45 +122,28 @@ const Itinerary = (props) => {
       </div>
 
       <div className={!button ? `${styles.detailsContainer}` : `${styles.detailsContainerExpanded}`}>
-        {/* <div className={styles.nocity}>
-          <div
-            style={{
-              backgroundImage: "url('/assets/under.png')",
-              height: "30vh",
-            }}
-            className={styles.panda}
-          ></div>
-          <div className={styles.message}>
-            <h2>Oops!</h2>
-            <h3>We are still working on this section.</h3>
-            <h4>Please come back on August 30</h4>
-          </div>
-        </div> */}
         <div className={styles.activitiesContainer}>
-          {activities.map((activity) => <Activity activity={activity} key={activity._id} />)}
-        </div>
-        {/* <div className={styles.activitiesContainer}>
+          <h2 className={styles.title}>Activities</h2>
           <Activity activities={activities} />
-        </div> */}
-
+        </div>
         <div className={styles.chatContainer}>
           <Chat comments={comments} itineraryId={_id} />
         </div>
       </div>
-
-
     </article >
   );
 };
 const mapStateToProps = (state) => {
   return {
-    token: state.users.token
+    token: state.users.token,
+    userId: state.users.id
   }
 }
 
 const mapDispatchToProps = {
   getActivities: itinerariesActions.getActivities,
-  likeItinerary: itinerariesActions.likeItinerary
+  likeItinerary: itinerariesActions.likeItinerary,
+  deleteComment: commentsActions.deleteComment
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary)

@@ -4,15 +4,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: green;
 }
-/* 
-.chatbox h2{
 
-} */
+h2.title{
+    margin-bottom: 1rem;
+}
 
 div.comments{
     width: 100%;
     overflow-y: scroll;
+    background-color: cyan;
+    flex-grow: 1;
 }
 
 .singleComment{
@@ -39,6 +42,7 @@ div.commentBox{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: salmon;
 }
 
 div.commentBox input{
@@ -85,7 +89,7 @@ span.date{
     font-size: 14px;
 }
 
-.commentInfo textarea{
+.commentInfo textarea.noOwner{
     width: 95%;
     overflow: hidden;
     resize: none;
@@ -93,6 +97,17 @@ span.date{
     padding: 0 5px;
     flex: 1;
     height: 3em;
+}
+
+.commentInfo textarea.owner{
+    width: 95%;
+    overflow: hidden;
+    resize: none;
+    border-radius: 10px;
+    padding: 0 5px;
+    flex: 1;
+    height: 3em;
+    background-color: rgba(148, 203, 212, 0.698);
 }
 
 div.iconsContainer{

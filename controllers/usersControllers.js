@@ -14,7 +14,7 @@ const userControllers = {
             let chosenUser = await User.findOne({ email: email })
             if (!chosenUser) {
                 await user.save()
-                const token = jwt.sign({ ...user }, process.env.SECRETKEY)
+                const token = jwt.sign({ ...user }, process.env.SECRETORKEY)
                 const { firstName, imageUrl, _id } = user
                 res.json({ success: true, response: { firstName, imageUrl, token, _id } })
             } else {
@@ -32,7 +32,7 @@ const userControllers = {
             if (chosen.google && !flagGoogle) throw new Error("You must log in with Google")
             let passMatch = bcryptjs.compareSync(password, chosen.password)
             if (!passMatch) throw new Error("Email and/or password are incorrect.")
-            const token = jwt.sign({ ...chosen }, process.env.SECRETKEY)
+            const token = jwt.sign({ ...chosen }, process.env.SECRETORKEY)
             const { firstName, imageUrl, _id } = chosen
             res.json({ success: true, response: { firstName, imageUrl, token, _id } })
         } catch (e) {
@@ -40,7 +40,8 @@ const userControllers = {
         }
     },
     verifyToken: (req, res) => {
-        res.json({ success: true, response: { firstName: req.user.firstName, imageUrl: req.user.imageUrl } })
+        console.log(req.user)
+        res.json({ success: true, response: { firstName: req.user.firstName, imageUrl: req.user.imageUrl, _id: req.user._id } })
     }
 }
 

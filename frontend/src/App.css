@@ -88,7 +88,7 @@ section > div > h2 {
 
 /* CAROUSEL */
 .carousel {
-  width: 80vw !important;
+  width: 80% !important;
 }
 
 .carousel-control-prev {

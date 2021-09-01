@@ -68,7 +68,7 @@ const itinerariesControllers = {
             { _id: req.params.id },
             { $push: { "comments": { comment, userId: _id, date: new Date() } } },
             { new: true }
-          ).populate({ path: 'comments.userId', model: 'user', select: 'firstName' })
+          ).populate({ path: 'comments.userId', model: 'user' })
           res.json({ success: true, response: { comments: newComments, user: _id } })
         } catch (e) {
           res.json({ success: false })
