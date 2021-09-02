@@ -58,7 +58,6 @@ const itinerariesControllers = {
     }
   },
   addComment: async (req, res) => {
-    console.log('llego al controller')
     switch (req.body.type) {
       case 'add':
         const { comment } = req.body
@@ -68,11 +67,12 @@ const itinerariesControllers = {
             { _id: req.params.id },
             { $push: { "comments": { comment, userId: _id, date: new Date() } } },
             { new: true }
-          ).populate({ path: 'comments.userId', model: 'user' })
+          ).populate('comments.userId', { firstName: 1, lastName: 1, imageUrl: 1 })
           res.json({ success: true, response: { comments: newComments, user: _id } })
         } catch (e) {
           res.json({ success: false })
         }
+        break
       case 'delete':
         try {
           await Itinerary.findOneAndUpdate(
@@ -83,10 +83,23 @@ const itinerariesControllers = {
         } catch (e) {
           res.json({ success: false })
         }
+        break
+      case 'edit':
+        try {
+          let editedComment = await Itinerary.findOneAndUpdate(
+            { 'comments._id': req.body.commentId },
+            { $set: { "comments.$.comment": req.body.comment } },
+            { new: true }
+          ).populate('comments.userId', { firstName: 1, lastName: 1, imageUrl: 1 })
+          res.json({ success: true, response: editedComment })
+        } catch (e) {
+          res.json({ success: false })
+        }
+        break
+      //verificar que addcoment agregue un mensaje al array
     }
   },
   likeItinerary: async (req, res) => {
-    console.log(req.user._id)
     const { _id } = req.user
     const { id } = req.params
     try {

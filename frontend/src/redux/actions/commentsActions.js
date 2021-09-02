@@ -22,7 +22,6 @@ const commentsActions = {
     deleteComment: (commentId, itineraryId, token) => {
         return async (dispatch) => {
             try {
-                console.log('antes de response')
                 let response = await axios.put("http://localhost:4000/api/comments/" + itineraryId, { commentId, type: 'delete' }, {
                     headers: {
                         Authorization: 'Bearer ' + token
@@ -30,6 +29,22 @@ const commentsActions = {
                 });
                 if (response.success) {
                     return response.success
+                }
+            } catch (e) {
+                return false
+            }
+        }
+    },
+    editComment: (commentId, comment, itineraryId, token) => {
+        return async (dispatch) => {
+            try {
+                let response = await axios.put("http://localhost:4000/api/comments/" + itineraryId, { commentId, comment, type: 'edit' }, {
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                });
+                if (response.data.success) {
+                    return response.data.response
                 }
             } catch (e) {
                 return false

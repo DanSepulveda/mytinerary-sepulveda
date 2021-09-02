@@ -53,7 +53,7 @@ const Activity = (props) => {
             slidesToSlide={1}
             swipeable
         >
-            {activities.map((activity) => <ActivityCard activity={activity} index={activity._id} />)}
+            {activities.map((activity) => <ActivityCard activity={activity} index={activity._id} key={activity._id} />)}
         </Carousel>
     )
 }

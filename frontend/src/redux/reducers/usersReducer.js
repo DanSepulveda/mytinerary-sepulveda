@@ -1,7 +1,6 @@
 const usersReducer = (state = { user: null, token: null, id: null }, action) => {
     switch (action.type) {
         case "LOG_IN_USER":
-            console.log(action.payload)
             localStorage.setItem('token', action.payload.token)
             localStorage.setItem('name', action.payload.firstName)
             localStorage.setItem('image', action.payload.imageUrl)
@@ -18,7 +17,6 @@ const usersReducer = (state = { user: null, token: null, id: null }, action) => 
                 id: null
             }
         case "LOG_IN_LS":
-            console.log(action.payload)
 
             return {
                 token: action.payload.token,

@@ -40,7 +40,6 @@ const userControllers = {
         }
     },
     verifyToken: (req, res) => {
-        console.log(req.user)
         res.json({ success: true, response: { firstName: req.user.firstName, imageUrl: req.user.imageUrl, _id: req.user._id } })
     }
 }

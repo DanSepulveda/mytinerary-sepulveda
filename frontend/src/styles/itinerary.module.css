@@ -256,7 +256,6 @@ div.detailsContainerExpanded{
 div.activitiesContainer{
     width: 50%;
     height: 100%;
-    background-color: yellow;
     padding: 5vh 3vw;
     display: flex;
     flex-direction: column;
@@ -264,7 +263,6 @@ div.activitiesContainer{
 }
 
 div.chatContainer{
-    background-color: blue;
     width: 50%;
     height: 100%;
     padding: 4vh 0;
@@ -276,7 +274,6 @@ div.chatContainer{
 
 h2.title{
     text-align: center;
-    background-color: violet;
     margin-bottom: 1rem;
 }
 

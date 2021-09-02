@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: green;
 }
 
 h2.title{
@@ -14,7 +13,6 @@ h2.title{
 div.comments{
     width: 100%;
     overflow-y: scroll;
-    background-color: cyan;
     flex-grow: 1;
 }
 
@@ -42,7 +40,6 @@ div.commentBox{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: salmon;
 }
 
 div.commentBox input{
@@ -110,13 +107,40 @@ span.date{
     background-color: rgba(148, 203, 212, 0.698);
 }
 
+span.owner{
+    width: 95%;
+    padding: .5em 1em;
+    border-radius: 10px;
+    background-color: green;
+}
+
+span.noOwner{
+    width: 95%;
+    padding: .5em 1em;
+    border-radius: 10px;
+    background-color: rgb(137, 190, 211);
+}
+
+textarea.whiteInput{
+    width: 95%;
+    overflow: hidden;
+    resize: none;
+    border-radius: 10px;
+    padding: 0 5px;
+    flex: 1;
+    height: 3em;
+    outline: none;
+    background-color: white;
+}
+
 div.iconsContainer{
     display: flex;
     align-items: center;
 }
 
 div.editIcon,
-div.trashIcon{
+div.trashIcon,
+div.sendIcon{
     width: 25px;
     height: 25px;
     margin-right: 3px;

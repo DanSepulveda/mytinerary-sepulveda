@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const ViewCities = (props) => {
-  console.log(props);
   const [cities, setCities] = useState([]); //setea todas las cities al fetchear
   const [state, setState] = useState(false); //cambiar el estado al borrar y vuelve a fetchear
   const [cityToEdit, setCityToEdit] = useState({
@@ -44,12 +43,10 @@ const ViewCities = (props) => {
     setState(!state);
   };
   const inputHandler = (e) => {
-    console.log(e.target.value);
     setCityToEdit({
       [e.target.name]: e.target.value,
     });
   };
-  console.log(cityToEdit);
 
   return (
     <>

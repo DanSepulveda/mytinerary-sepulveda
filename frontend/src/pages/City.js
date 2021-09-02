@@ -59,7 +59,6 @@ const City = (props) => {
 
   return (
     <div className={styles.cityContainer}>
-      {console.log("se renderiza city")}
       <Navbar />
       <div style={{ minHeight: "80vh" }}>
         <div

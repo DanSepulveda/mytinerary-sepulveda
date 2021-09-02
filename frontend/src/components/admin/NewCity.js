@@ -19,13 +19,11 @@ const NewCity = () => {
   };
 
   const inputHandler = (e) => {
-    console.log(city);
     setCity({
       ...city,
       [e.target.name]: e.target.value,
     });
   };
-  console.log(city);
 
   return (
     <section className="new-city">
