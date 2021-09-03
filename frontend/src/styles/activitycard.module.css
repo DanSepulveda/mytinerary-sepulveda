@@ -1,7 +1,17 @@
 .activitiesSection{
     width: 100%;
     height: 100%;
-    background-color: gray;
+    /* background-color: #eee; */
+    border-radius: 15px 15px 0 0;
+    /* overflow: hidden; */
+    padding: .8em;
+    /* background: #cb2d3e;
+    background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);
+    background: linear-gradient(to right, #ef473a, #cb2d3e);
+    background: #c02722; 
+background: -webkit-linear-gradient(to right, #b31217, #c02722);  
+background: linear-gradient(to right, #b31217, #c02722);  */
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .itineraryPicture{
@@ -10,12 +20,16 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 15px;
 }
 
 h2.title{
     margin-bottom: 1rem;
+    text-align: center;
+    font-size: bold;
 }
 
-textarea.description{
+p.description{
     width: 100%;
+    text-align: center;
 }

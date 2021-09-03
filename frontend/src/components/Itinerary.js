@@ -59,7 +59,7 @@ const Itinerary = (props) => {
         let response = await props.likeItinerary(_id, props.token)
         setLikesAux(response)
       } catch (e) {
-        console.log('error')
+        console.log(e)
       }
     } else {
       message('warning', "You must to be Logged In to like an itinerary.")

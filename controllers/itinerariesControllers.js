@@ -96,7 +96,6 @@ const itinerariesControllers = {
           res.json({ success: false })
         }
         break
-      //verificar que addcoment agregue un mensaje al array
     }
   },
   likeItinerary: async (req, res) => {
@@ -104,7 +103,6 @@ const itinerariesControllers = {
     const { id } = req.params
     try {
       let itinerary = await Itinerary.findOne({ _id: id })
-      // let condition = itinerary.likes.includes(_id) ? '$pull' : '$push'
       if (itinerary.likes.includes(_id)) {
         let modified = await Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: _id } }, { new: true })
         res.json({ success: true, response: modified.likes })
@@ -113,7 +111,7 @@ const itinerariesControllers = {
         res.json({ success: true, response: modified.likes })
       }
     } catch {
-      console.log('catch')
+      res.json({ success: false })
     }
   }
 };

@@ -29,12 +29,10 @@ const Comments = (props) => {
             <div className={styles.commentInfo}>
                 <h4>{`${props.comment.userId.firstName}  ${props.comment.userId.lastName[0]}.`}</h4>
                 {toRender}
-                {/* <textarea className={owner ? `${styles.owner}` : `${styles.noOwner}`} disabled value={props.comment.comment}></textarea> */}
                 <span className={styles.date}>{moment(props.comment.date).fromNow()}</span>
             </div>
             {owner
                 ? <div className={styles.iconsContainer}>
-                    {/* {editable && <div onClick={() => { return (props.editComment(props.comment._id, inputValue.current.value), setEditable(false)) }} className={styles.sendIcon} style={{ backgroundImage: "url('/assets/arrow.png')" }}></div>} */}
                     {editable && <div onClick={() => props.editComment(props.comment._id, inputValue.current.value)} className={styles.sendIcon} style={{ backgroundImage: "url('/assets/arrow.png')" }}></div>}
                     <div onClick={() => editComment(props.comment._id)} className={styles.editIcon} style={{ backgroundImage: `url(${editable ? '/assets/cancel.png' : '/assets/edit.png'})` }}></div>
                     <div onClick={() => props.deleteComment(props.comment._id)} className={styles.trashIcon} style={{ backgroundImage: "url('/assets/trash.png')" }}></div>

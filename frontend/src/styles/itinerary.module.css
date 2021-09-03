@@ -54,7 +54,7 @@ h2.itineraryTitle{
     font-weight: bold;
     font-style: italic;
     letter-spacing: 2px;
-    background-color: rgba(255, 255, 255, 0.384);
+    background-color: rgba(255, 255, 255, 0.616);
     border-radius: 0 0 1em 1em;
     color: black;
     font-family: 'Roboto', cursive;
@@ -251,6 +251,8 @@ div.detailsContainerExpanded{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: rgb(226, 226, 226);
+    background-color: rgb(233, 233, 233); */
 }
 
 div.activitiesContainer{
@@ -266,10 +268,12 @@ div.chatContainer{
     width: 50%;
     height: 100%;
     padding: 4vh 0;
-    padding-right: 1vw;
+    padding: 0 1vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 1px 0 10px black;
+
 }
 
 h2.title{

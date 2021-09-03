@@ -27,9 +27,6 @@ const Chat = (props) => {
                 let response = await props.addComment(commentToPost, props.itineraryId, props.token)
                 setUploadedComments(response.comments.comments.reverse())
                 commentInput.current.value = ('')
-
-                var userId = response.user
-                return true
             } catch (e) {
                 console.log(e)
             }
@@ -50,7 +47,6 @@ const Chat = (props) => {
         } else {
             message('error', 'Please Log In to post a comment.')
         }
-        return false
 
     }
 
@@ -66,14 +62,12 @@ const Chat = (props) => {
                 })
                 setUploadedComments(newComments)
                 setRender(!render)
-                return true
             } catch (e) {
                 console.log(e)
             }
         } else {
             message('error', 'Please Log In to post a comment.')
         }
-        return false
     }
 
 
