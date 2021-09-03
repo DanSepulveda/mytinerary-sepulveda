@@ -21,6 +21,14 @@ header.cities {
   padding-left: 5vw;
   font-size: 10vh;
   margin-top: 10vh;
+  font-family: 'Nunito', monospace;
+  font-weight: 500;
+  background: #B80000;
+  background: -webkit-linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  background: -moz-linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  background: linear-gradient(to top, #B80000 0%, #5E0A08 82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gallery {
@@ -91,7 +99,7 @@ header.cities {
 }
 
 .searcher:focus {
-  color: red;
+  color: rgb(63, 0, 0);
   box-shadow: 2px 2px 2px red;
 }
 

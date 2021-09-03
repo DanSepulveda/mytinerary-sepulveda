@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const activitySchema = new mongoose.Schema({
   title: { type: String },
-  desciption: { type: String },
+  description: { type: String },
   image: { type: String },
   itineraryId: { type: mongoose.Types.ObjectId, ref: "itinerary" }
 });

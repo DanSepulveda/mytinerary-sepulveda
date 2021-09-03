@@ -8,7 +8,7 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import commentsActions from "../redux/actions/commentsActions";
 
 const Itinerary = (props) => {
-  let icons = { drinks: '🍹', wood: '🌲', temple: '🛕', city: '🌇', architecture: '🏛️', friends: '🧑‍🤝‍🧑', dance: '💃', mountain: '⛰️', tradition: '👘', nature: '🍂' }
+  let icons = { drinks: '🍹', wood: '🌲', temple: '🛕', city: '🌇', architecture: '🏛️', friends: '🧑‍🤝‍🧑', dance: '💃', mountain: '⛰️', tradition: '👘', nature: '🍂', shopping: '🛍️', river: '🚤', museum: '🏛️', culture: '📚' }
 
   const { _id, user, image, title, description, price, duration, tags, likes, comments, } = props.itinerary;
 
@@ -119,16 +119,17 @@ const Itinerary = (props) => {
           </div>
         </div>
       </div>
-
-      <div className={!button ? `${styles.detailsContainer}` : `${styles.detailsContainerExpanded}`}>
-        <div className={styles.activitiesContainer}>
-          <h2 className={styles.title}>Activities</h2>
-          <Activity activities={activities} />
+      {button &&
+        <div className={!button ? `${styles.detailsContainer}` : `${styles.detailsContainerExpanded}`}>
+          <div className={styles.activitiesContainer}>
+            <h2 className={styles.title}>Activities</h2>
+            <Activity activities={activities} />
+          </div>
+          <div className={styles.chatContainer}>
+            <Chat comments={comments} itineraryId={_id} />
+          </div>
         </div>
-        <div className={styles.chatContainer}>
-          <Chat comments={comments} itineraryId={_id} />
-        </div>
-      </div>
+      }
     </article >
   );
 };

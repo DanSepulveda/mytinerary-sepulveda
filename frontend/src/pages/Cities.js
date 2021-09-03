@@ -17,6 +17,7 @@ const Cities = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     async function evaluateError() {
       try {
         await props.getCities();
@@ -59,7 +60,7 @@ const Cities = (props) => {
       </header>
       <div
         className={styles.cityHero}
-        style={{ backgroundImage: "url('/assets/banner/6.png')" }}
+        style={{ backgroundImage: "url('/assets/banner.png')" }}
       >
         <h1>
           Find your next
