@@ -1,7 +1,6 @@
 # MyTinerary Web Application
 
 Mytinerary is a web application where people can publish itineraries (set of activities) of the cities where they live. It is developed using MERN Stack.
-
 ![image](https://i.ibb.co/BntMphR/mytinerary.gif)
 
 ## Getting Started 🚀
