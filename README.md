@@ -63,9 +63,10 @@ _Agrega notas adicionales sobre como hacer deploy_
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [React](https://reactjs.org/){:target="_blank" rel="noopener"} - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+* [React](https://reactjs.org/) - JavaScript library for building user interfaces
+* [Node.js](https://nodejs.org/en/) - JavaScript runtime built
+* [Express](https://expressjs.com/) - Framework for Node.js
+* [MongoDB](https://www.mongodb.com/) - NoSQL Database
 
 ## Contribuyendo 🖇️
 
