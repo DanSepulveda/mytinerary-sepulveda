@@ -4,7 +4,7 @@ const itinerariesActions = {
   getList: (id) => {
     return async (dispatch) => {
       let response = await axios.get(
-        `http://localhost:4000/api/itineraries/${id}`
+        `https://mytinerary-dansep.herokuapp.com/api/itineraries/${id}`
       );
       if (!response.data.response) {
         throw new Error("BE-DB Error");
@@ -14,7 +14,7 @@ const itinerariesActions = {
   },
   getActivities: (id) => {
     return async (dispatch) => {
-      let response = await axios.get("http://localhost:4000/api/activities/" + id)
+      let response = await axios.get("https://mytinerary-dansep.herokuapp.com/api/activities/" + id)
       if (!response.data.success) {
         throw new Error()
       } else {
@@ -24,7 +24,7 @@ const itinerariesActions = {
   },
   likeItinerary: (id, token) => {
     return async (dispatch) => {
-      let response = await axios.put("http://localhost:4000/api/likes/" + id, {}, {
+      let response = await axios.put("https://mytinerary-dansep.herokuapp.com/api/likes/" + id, {}, {
         headers: {
           Authorization: 'Bearer ' + token
         }

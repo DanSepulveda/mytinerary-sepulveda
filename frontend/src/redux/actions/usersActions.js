@@ -4,7 +4,7 @@ const userActions = {
     createUser: (user) => {
         return async (dispatch) => {
 
-            let response = await axios.post("http://localhost:4000/api/user/signup", user)
+            let response = await axios.post("https://mytinerary-dansep.herokuapp.com/api/user/signup", user)
 
             if (!response.data.success) {
                 return response
@@ -16,7 +16,7 @@ const userActions = {
     },
     verifyAccess: (user) => {
         return async (dispatch) => {
-            let response = await axios.post("http://localhost:4000/api/user/login", user)
+            let response = await axios.post("https://mytinerary-dansep.herokuapp.com/api/user/login", user)
             if (!response.data.success) {
                 throw new Error(response.data.error)
             } else {
@@ -33,7 +33,7 @@ const userActions = {
 
         return async (dispatch) => {
             try {
-                let response = await axios.get('http://localhost:4000/api/verifyToken', {
+                let response = await axios.get('https://mytinerary-dansep.herokuapp.com/api/verifyToken', {
                     headers: {
                         Authorization: 'Bearer ' + token
                     }

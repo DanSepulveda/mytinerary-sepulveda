@@ -10,7 +10,7 @@ import GoogleLogin from 'react-google-login';
 const Signup = (props) => {
     document.title = "MyTinerary - Login"
     const [user, setUser] = useState({})
-
+    //comentario
     const inputHandler = (e) => {
         setUser({
             ...user,
