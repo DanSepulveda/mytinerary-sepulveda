@@ -1,13 +1,15 @@
 # MyTinerary Web Application
 
 Mytinerary is a web application where people can publish itineraries (set of activities) of the cities where they live. It is developed using MERN Stack.
+
+
 ![image](frontend/public/assets/mytinerary.gif)
 
 ## Getting Started 🚀
 
 ### Content
 
-This project has two branches: master and deployment. **master** is configured to be run in local while **deployment** is prepared to be hosted.
+This project has two branches: master and deployment. **master** is configured to be run in local while **host** is prepared to be hosted.
 
 ### Demo
 
@@ -24,10 +26,6 @@ Then execute
 ``` npm start ```
 in both **root** directory and inside **frontend** folder
 
-<!-- ## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_ -->
-
 ## Technology Stack 🛠️
 
 This project was built using the following technologies
@@ -41,12 +39,5 @@ This project was built using the following technologies
 * [Passport](http://www.passportjs.org/) - For user authentication
 * [Joi](https://www.npmjs.com/package/joi) - Used for form validation
 
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
-
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+Developed by [Daniel Sepúlveda](https://github.com/DanSepulveda/) 😊
