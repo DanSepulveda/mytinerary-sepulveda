@@ -18,7 +18,7 @@ const Signup = (props) => {
 
     //verificar si esto debe ser hecho a través de un action
     useEffect(() => {
-        axios.get("https://restcountries.eu/rest/v2/all?fields=name")
+        axios.get("https://restcountries.com/v2/all?fields=name")
             .then(response => setCountries(response.data))
     }, [])
 
