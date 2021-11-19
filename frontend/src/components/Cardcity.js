@@ -1,7 +1,7 @@
 import styles from "../styles/cities.module.css"
 import { Link } from "react-router-dom";
 const Cardcity = (props) => {
-  const { _id, name, src, src2, src3 } = props.city; //falta usar region, description
+  const { _id, name, src, src2, src3 } = props.city;
   return (
     <Link
       className={styles.cardLink}

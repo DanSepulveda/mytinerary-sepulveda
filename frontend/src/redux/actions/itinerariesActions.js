@@ -1,10 +1,11 @@
 import axios from "axios";
+const HOST = 'http://localhost:4000'
 
 const itinerariesActions = {
   getList: (id) => {
     return async (dispatch) => {
       let response = await axios.get(
-        `https://mytinerary-dansep.herokuapp.com/api/itineraries/${id}`
+        `${HOST}/api/itineraries/${id}`
       );
       if (!response.data.response) {
         throw new Error("BE-DB Error");
@@ -13,8 +14,8 @@ const itinerariesActions = {
     };
   },
   getActivities: (id) => {
-    return async (dispatch) => {
-      let response = await axios.get("https://mytinerary-dansep.herokuapp.com/api/activities/" + id)
+    return async () => {
+      let response = await axios.get(`${HOST}/api/activities/${id}`)
       if (!response.data.success) {
         throw new Error()
       } else {
@@ -23,8 +24,8 @@ const itinerariesActions = {
     }
   },
   likeItinerary: (id, token) => {
-    return async (dispatch) => {
-      let response = await axios.put("https://mytinerary-dansep.herokuapp.com/api/likes/" + id, {}, {
+    return async () => {
+      let response = await axios.put(`${HOST}/api/likes/${id}`, {}, {
         headers: {
           Authorization: 'Bearer ' + token
         }

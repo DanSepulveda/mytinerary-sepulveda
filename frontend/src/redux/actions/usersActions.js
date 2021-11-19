@@ -1,11 +1,10 @@
 import axios from 'axios'
+const HOST = 'http://localhost:4000'
 
 const userActions = {
     createUser: (user) => {
         return async (dispatch) => {
-
-            let response = await axios.post("https://mytinerary-dansep.herokuapp.com/api/user/signup", user)
-
+            let response = await axios.post(`${HOST}/api/user/signup`, user)
             if (!response.data.success) {
                 return response
             } else {
@@ -16,7 +15,7 @@ const userActions = {
     },
     verifyAccess: (user) => {
         return async (dispatch) => {
-            let response = await axios.post("https://mytinerary-dansep.herokuapp.com/api/user/login", user)
+            let response = await axios.post(`${HOST}/api/user/login`, user)
             if (!response.data.success) {
                 throw new Error(response.data.error)
             } else {
@@ -30,24 +29,20 @@ const userActions = {
         }
     },
     logInLS: (token) => {
-
         return async (dispatch) => {
             try {
-                let response = await axios.get('https://mytinerary-dansep.herokuapp.com/api/verifyToken', {
+                let response = await axios.get(`${HOST}/api/verifyToken`, {
                     headers: {
                         Authorization: 'Bearer ' + token
                     }
                 })
-
                 response.data.response.token = token
                 dispatch({ type: 'LOG_IN_USER', payload: response.data.response })
             } catch (e) {
                 return dispatch({ type: "LOG_OUT" })
             }
-
         }
     }
-
 }
 
 export default userActions
