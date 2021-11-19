@@ -8,24 +8,6 @@ Mytinerary is a web application where people can publish itineraries (set of act
 
 ### Content
 
-<<<<<<< HEAD
-This project has two branches: master and deployment. **master** is configured to be run in local while **host** is prepared to be hosted.
-
-### Demo
-
-You can see the demo of this project on the following link: [MyTinerary](https://mytinerary-dansep.herokuapp.com/)
-
-### Installation 🔧
-
-If you want to run this project, simply clone the repository and execute
-
-`npm install`
-
-Then execute
-
-`npm start`
-in both **root** directory and inside **frontend** folder
-=======
 This project has two branches: master and deployment. **master** is configured to be run in local while **host** is prepared to be hosted on Heroku.
 
 ### Demo
@@ -42,7 +24,6 @@ If you want to run this project on your machine, just follow these steps:
 - Execute `npm start` in both **root** and **frontend** directories.
 
 **NOTE:** if you don't have Nodemon installed globally, you must to install it or you can edit package.json **start script** and change "nodemon" by "node" on line 6.
->>>>>>> 04716bb00362184ffefb21c417fa4671c48d7eb9
 
 ## Technology Stack 🛠️
 
