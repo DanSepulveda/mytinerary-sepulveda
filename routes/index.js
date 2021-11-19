@@ -8,16 +8,19 @@ const validator = require('../controllers/validator');
 
 const router = express.Router();
 
+// CITIES
 router
   .route("/cities")
   .get(citiesControllers.getAllCities)
   .post(citiesControllers.addNewCity);
+
 router
   .route("/city/:id")
   .get(citiesControllers.getOneCity)
   .put(citiesControllers.editOneCity)
   .delete(citiesControllers.deleteOneCity);
 
+// ITINERARIES
 router
   .route("/itineraries")
   .get(itineraryControllers.getAllItineraries)
@@ -33,22 +36,21 @@ router
   .put(itineraryControllers.editOneItinerary);
 
 router
-  .route("/activity")
-  .post(activitiesControllers.addNewActivity)
-  .put(activitiesControllers.editActivity)
-  .delete(activitiesControllers.deleteActivity)
-
-router
-  .route("/activities/:id")
-  .get(activitiesControllers.getActivities)
-
-router
   .route("/comments/:id")
   .put(passport.authenticate('jwt', { session: false }), itineraryControllers.addComment)
 
 router
   .route("/likes/:id")
   .put(passport.authenticate('jwt', { session: false }), itineraryControllers.likeItinerary)
+
+// ACTIVITIES
+router
+  .route("/activity")
+  .post(activitiesControllers.addNewActivity)
+
+router
+  .route("/activities/:id")
+  .get(activitiesControllers.getActivities)
 
 // USERS
 router

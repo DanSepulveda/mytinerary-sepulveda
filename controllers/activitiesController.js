@@ -17,12 +17,6 @@ const activityControllers = {
         }
 
     },
-    editActivity: (req, res) => {
-
-    },
-    deleteActivity: (req, res) => {
-
-    },
     getActivities: async (req, res) => {
         try {
             let activities = await Activity.find({ itineraryId: req.params.id });
