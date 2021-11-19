@@ -11,55 +11,55 @@ import {
 const items = [
   [
     {
-      src: "/assets/cities/kamakura.png",
+      src: "/assets/cities/kamakura.jpg",
       name: "Kamakura",
     },
     {
-      src: "/assets/cities/Kobe.png",
+      src: "/assets/cities/kobe.jpg",
       name: "Kobe",
     },
     {
-      src: "/assets/cities/Kyoto.png",
+      src: "/assets/cities/kyoto.jpg",
       name: "Kyoto",
     },
     {
-      src: "/assets/cities/Nagasaki.png",
+      src: "/assets/cities/nagasaki.jpg",
       name: "Nagasaki",
     },
   ],
   [
     {
-      src: "/assets/cities/nara.png",
+      src: "/assets/cities/nara.jpg",
       name: "Nara",
     },
     {
-      src: "/assets/cities/okinawa.png",
+      src: "/assets/cities/okinawa.jpg",
       name: "Okinawa",
     },
     {
-      src: "/assets/cities/osaka.png",
+      src: "/assets/cities/osaka.jpg",
       name: "Osaka",
     },
     {
-      src: "/assets/cities/tokyo.png",
+      src: "/assets/cities/tokyo.jpg",
       name: "Tokyo",
     },
   ],
   [
     {
-      src: "/assets/cities/yokohama.png",
+      src: "/assets/cities/yokohama.jpg",
       name: "Yokohama",
     },
     {
-      src: "/assets/cities/sapporo.png",
+      src: "/assets/cities/sapporo.jpg",
       name: "Sapporo",
     },
     {
-      src: "/assets/cities/hiroshima.png",
+      src: "/assets/cities/hiroshima.jpg",
       name: "Hiroshima",
     },
     {
-      src: "/assets/cities/kumamoto.png",
+      src: "/assets/cities/kumamoto.jpg",
       name: "Kumamoto",
     },
   ],

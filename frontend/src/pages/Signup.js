@@ -16,7 +16,6 @@ const Signup = (props) => {
     const [countries, setCountries] = useState([])
     const [errors, setErrors] = useState({})
 
-    //verificar si esto debe ser hecho a través de un action
     useEffect(() => {
         axios.get("https://restcountries.com/v2/all?fields=name")
             .then(response => setCountries(response.data))

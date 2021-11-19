@@ -50,6 +50,7 @@ router
   .route("/likes/:id")
   .put(passport.authenticate('jwt', { session: false }), itineraryControllers.likeItinerary)
 
+// USERS
 router
   .route("/user/signup")
   .post(validator, userControllers.addNewUser)

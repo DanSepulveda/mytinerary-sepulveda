@@ -60,7 +60,7 @@ const Cities = (props) => {
       </header>
       <div
         className={styles.cityHero}
-        style={{ backgroundImage: "url('/assets/banner.png')" }}
+        style={{ backgroundImage: "url('/assets/banner.jpg')" }}
       >
         <h1>
           Find your next
